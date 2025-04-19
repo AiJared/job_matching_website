@@ -1,9 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import get_user_model
-from accounts.models import Candidate, Recruiter
+# from django.contrib.auth import get_user_model
+from accounts.models import User, Candidate, Recruiter
 
-User = get_user_model()
+# User = get_user_model()
 
 class UserRegistrationForm(UserCreationForm):
     ROLE_CHOICES = (
