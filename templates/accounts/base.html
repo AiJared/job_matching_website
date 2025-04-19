@@ -31,11 +31,11 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if user.role == 'Candidate' %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:candidate_dashboard' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'dashboards:candidate_dashboard' %}">Dashboard</a></li>
                                 {% elif user.role == 'Recruiter' %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:recruiter_dashboard' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'dashboards:recruiter_dashboard' %}">Dashboard</a></li>
                                 {% elif user.is_admin %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:admin_dashboard' %}">Admin Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'dashboards:admin_dashboard' %}">Admin Dashboard</a></li>
                                 {% endif %}
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
