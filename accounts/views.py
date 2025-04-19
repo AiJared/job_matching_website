@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm, UserLoginForm
-from .models import User
+from accounts.forms import UserRegistrationForm, UserLoginForm
+from accounts.models import User
 
 def home(request):
     return render(request, 'index.html')
@@ -24,11 +24,11 @@ def login_view(request):
     if request.user.is_authenticated:
         # Redirect based on user role
         if request.user.role == 'Candidate':
-            return redirect('candidate_dashboard')
+            return redirect('accounts:candidate_dashboard')
         elif request.user.role == 'Recruiter':
-            return redirect('recruiter_dashboard')
+            return redirect('accounts:recruiter_dashboard')
         else:
-            return redirect('admin_dashboard')
+            return redirect('accounts:admin_dashboard')
     
     if request.method == 'POST':
         form = UserLoginForm(request, data=request.POST)
@@ -52,11 +52,11 @@ def login_view(request):
                 
                 # Redirect based on user role
                 if user.role == 'Candidate':
-                    return redirect('candidate_dashboard')
+                    return redirect('accounts:candidate_dashboard')
                 elif user.role == 'Recruiter':
-                    return redirect('recruiter_dashboard')
+                    return redirect('accounts:recruiter_dashboard')
                 else:
-                    return redirect('admin_dashboard')
+                    return redirect('accounts:admin_dashboard')
             else:
                 messages.error(request, "Invalid email/username or password.")
         else:

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from django.contrib.auth import get_user_model
 from accounts.models import User, Candidate, Recruiter
+from phonenumber_field.formfields import PhoneNumberField
 
 # User = get_user_model()
 
@@ -15,7 +16,7 @@ class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     full_name = forms.CharField(max_length=200, required=True)
     gender = forms.ChoiceField(choices=User.Gender_choices, required=True)
-    phone = forms.CharField(max_length=15, required=False)
+    phone = PhoneNumberField(required=False)
     country = forms.CharField(max_length=50, required=False)
     city = forms.CharField(max_length=50, required=False)
     

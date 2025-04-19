@@ -3,6 +3,8 @@ from accounts.views import (register_view, login_view, logout_view,
                             candidate_dashboard, recruiter_dashboard, 
                             admin_dashboard, home)
 
+app_name = "accounts"
+
 urlpatterns = [
     path('', home, name='home'),
     path('register/', register_view, name='register'),
