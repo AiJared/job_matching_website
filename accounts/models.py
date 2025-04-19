@@ -92,9 +92,9 @@ class User(AbstractBaseUser, TrackingModel):
     phone = PhoneNumberField(
         _('phone number'), unique=True,validators=[phoneNumberRegex],
         blank=True, null=True, max_length=27)
-    county = models.CharField(_("county"), max_length=50,
+    country = models.CharField(_("country"), max_length=50,
                               blank=True, null=True)
-    town = models.CharField(_("town"), max_length=50,
+    city = models.CharField(_("city"), max_length=50,
                               blank=True, null=True)
     role = models.CharField(_('Role'), max_length=17, choices=Role_choices, default="Client")
 
