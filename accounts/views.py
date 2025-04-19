@@ -56,7 +56,7 @@ def login_view(request):
                 elif user.role == 'Recruiter':
                     return redirect('accounts:recruiter_dashboard')
                 else:
-                    return redirect('accounts:admin_dashboard')
+                    return redirect('accounts:home')
             else:
                 messages.error(request, "Invalid email/username or password.")
         else:
