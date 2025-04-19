@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - AI Job Matcher{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Admin Dashboard</h3>
+            </div>
+            <div class="card-body">
+                <h4>Welcome, Administrator {{ user.full_name }}!</h4>
+                <p>This is the admin dashboard. Here you can:</p>
+                <ul>
+                    <li>Manage users (job seekers and recruiters)</li>
+                    <li>Monitor system performance</li>
+                    <li>View platform statistics</li>
+                    <li>Adjust system settings</li>
+                </ul>
+                <p>We're still building this part of the application. Check back soon!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
