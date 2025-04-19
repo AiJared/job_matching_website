@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local apps
     'accounts.apps.AccountsConfig',
+    'dashboards.apps.DashboardsConfig',
 ]
 
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
