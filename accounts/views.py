@@ -24,11 +24,11 @@ def login_view(request):
     if request.user.is_authenticated:
         # Redirect based on user role
         if request.user.role == 'Candidate':
-            return redirect('accounts:candidate_dashboard')
+            return redirect('dashboards:candidate_dashboard')
         elif request.user.role == 'Recruiter':
-            return redirect('accounts:recruiter_dashboard')
+            return redirect('dashboards:recruiter_dashboard')
         else:
-            return redirect('accounts:admin_dashboard')
+            return redirect('home')
     
     if request.method == 'POST':
         form = UserLoginForm(request, data=request.POST)
@@ -52,11 +52,11 @@ def login_view(request):
                 
                 # Redirect based on user role
                 if user.role == 'Candidate':
-                    return redirect('accounts:candidate_dashboard')
+                    return redirect('dashboardss:candidate_dashboard')
                 elif user.role == 'Recruiter':
-                    return redirect('accounts:recruiter_dashboard')
+                    return redirect('dashboards:recruiter_dashboard')
                 else:
-                    return redirect('accounts:home')
+                    return redirect('home')
             else:
                 messages.error(request, "Invalid email/username or password.")
         else:
