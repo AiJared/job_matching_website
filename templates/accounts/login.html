@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'accounts/base.html' %}
 
 {% block title %}Login - AI Job Matcher{% endblock %}
 
@@ -39,7 +39,7 @@
                 </form>
             </div>
             <div class="card-footer text-center">
-                <p class="mb-0">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+                <p class="mb-0">Don't have an account? <a href="{% url 'accounts:register' %}">Register</a></p>
             </div>
         </div>
     </div>

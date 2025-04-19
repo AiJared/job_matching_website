@@ -31,22 +31,22 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if user.role == 'Candidate' %}
-                                    <li><a class="dropdown-item" href="{% url 'candidate_dashboard' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:candidate_dashboard' %}">Dashboard</a></li>
                                 {% elif user.role == 'Recruiter' %}
-                                    <li><a class="dropdown-item" href="{% url 'recruiter_dashboard' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:recruiter_dashboard' %}">Dashboard</a></li>
                                 {% elif user.is_admin %}
-                                    <li><a class="dropdown-item" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:admin_dashboard' %}">Admin Dashboard</a></li>
                                 {% endif %}
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
                             </ul>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
                         </li>
                     {% endif %}
                 </ul>
