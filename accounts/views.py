@@ -14,7 +14,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             messages.success(request, f"Account created successfully. You can now log in.")
-            return redirect('login')
+            return redirect('accounts:login')
     else:
         form = UserRegistrationForm()
     
@@ -28,7 +28,7 @@ def login_view(request):
         elif request.user.role == 'Recruiter':
             return redirect('dashboards:recruiter_dashboard')
         else:
-            return redirect('home')
+            return redirect('accounts:home')
     
     if request.method == 'POST':
         form = UserLoginForm(request, data=request.POST)
@@ -52,11 +52,11 @@ def login_view(request):
                 
                 # Redirect based on user role
                 if user.role == 'Candidate':
-                    return redirect('dashboardss:candidate_dashboard')
+                    return redirect('dashboards:candidate_dashboard')
                 elif user.role == 'Recruiter':
                     return redirect('dashboards:recruiter_dashboard')
                 else:
-                    return redirect('home')
+                    return redirect('accounts:login')
             else:
                 messages.error(request, "Invalid email/username or password.")
         else:
@@ -70,4 +70,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, "You have been logged out successfully.")
-    return redirect('login')
+    return redirect('accounts:login')
