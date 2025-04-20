@@ -1,0 +1,335 @@
+{% extends 'dashboards/base.html' %}
+{% load static %}
+
+{% block title %}Application Details - {{ application.candidate.user.full_name }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light">
+                    <li class="breadcrumb-item"><a href="{% url 'dashboards:recruiter_dashboard' %}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'dashboards:job_detail' application.job.id %}">{{ application.job.title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Application Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    {% if messages %}
+        <div class="row mb-4">
+            <div class="col">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <!-- Left Column - Application Details -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Application Information</h5>
+                    <span class="badge badge-{% if application.status == 'pending' %}secondary{% elif application.status == 'reviewing' %}info{% elif application.status == 'shortlisted' %}primary{% elif application.status == 'interview' %}warning{% elif application.status == 'offer' %}success{% elif application.status == 'hired' %}success{% elif application.status == 'rejected' %}danger{% elif application.status == 'declined' %}dark{% endif %} p-2">
+                        {{ application.get_status_display }}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold">Job Details</h6>
+                            <p><strong>Position:</strong> {{ application.job.title }}</p>
+                            <p><strong>Company:</strong> {{ application.job.company_name }}</p>
+                            <p><strong>Location:</strong> {{ application.job.location }}</p>
+                            <p><strong>Applied On:</strong> {{ application.created_at|date:"F j, Y" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold">AI Match Analysis</h6>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="progress flex-grow-1" style="height: 20px;">
+                                    <div class="progress-bar {% if application.match_score >= 80 %}bg-success{% elif application.match_score >= 60 %}bg-info{% elif application.match_score >= 40 %}bg-warning{% else %}bg-danger{% endif %}" 
+                                        role="progressbar" 
+                                        style="width: {{ application.match_score }}%;" 
+                                        aria-valuenow="{{ application.match_score }}" 
+                                        aria-valuemin="0" 
+                                        aria-valuemax="100">
+                                        {{ application.match_score|floatformat }}%
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted small">This score represents how well the candidate's skills and experience match the job requirements based on AI analysis.</p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    {% if application.cover_letter %}
+                    <div class="mt-4">
+                        <h6 class="font-weight-bold">Cover Letter</h6>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                {{ application.cover_letter|linebreaks }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            {% if application.resume %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Resume Information</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="resumeTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="experience-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="experience" aria-selected="false">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="full-text-tab" data-toggle="tab" href="#full-text" role="tab" aria-controls="full-text" aria-selected="false">Full Text</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-3" id="resumeTabsContent">
+                        <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+                            {% if application.resume.skills %}
+                                <div class="d-flex flex-wrap">
+                                    {% with skills_list=application.resume.skills.split(',') %}
+                                        {% for skill in skills_list %}
+                                            <span class="badge badge-info m-1 p-2">{{ skill|strip }}</span>
+                                        {% endfor %}
+                                    {% endwith %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No skills information extracted.</p>
+                            {% endif %}
+                        </div>
+                        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+                            {% if application.resume.education %}
+                                {{ application.resume.education|linebreaks }}
+                            {% else %}
+                                <p class="text-muted">No education information extracted.</p>
+                            {% endif %}
+                        </div>
+                        <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                            {% if application.resume.experience %}
+                                {{ application.resume.experience|linebreaks }}
+                            {% else %}
+                                <p class="text-muted">No experience information extracted.</p>
+                            {% endif %}
+                        </div>
+                        <div class="tab-pane fade" id="full-text" role="tabpanel" aria-labelledby="full-text-tab">
+                            {% if application.resume.extracted_text %}
+                                <div class="bg-light p-3 rounded">
+                                    {{ application.resume.extracted_text|linebreaks }}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No text extracted from resume.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="{{ application.resume.file.url }}" class="btn btn-outline-primary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> View Original Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if application.recruiter_notes %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Recruiter Notes</h5>
+                </div>
+                <div class="card-body">
+                    {{ application.recruiter_notes|linebreaks }}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Right Column - Candidate Details and Actions -->
+        <div class="col-md-4">
+            <!-- Candidate Profile Card -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Candidate Profile</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        {% if application.candidate.user.profile_pic %}
+                            <img src="{{ application.candidate.user.profile_pic.url }}" class="rounded-circle img-thumbnail" style="width: 100px; height: 100px;" alt="Profile Picture">
+                        {% else %}
+                            <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto" style="width: 100px; height: 100px;">
+                                <span class="text-white font-weight-bold" style="font-size: 2rem;">{{ application.candidate.user.full_name|first }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <h5>{{ application.candidate.user.full_name }}</h5>
+                    <p class="text-muted">{{ application.candidate.headline|default:"No headline provided" }}</p>
+                    
+                    <hr>
+                    
+                    <div class="text-left">
+                        <p><i class="fas fa-envelope mr-2"></i> {{ application.candidate.user.email }}</p>
+                        {% if application.candidate.phone_number %}
+                            <p><i class="fas fa-phone mr-2"></i> {{ application.candidate.phone_number }}</p>
+                        {% endif %}
+                        {% if application.candidate.location %}
+                            <p><i class="fas fa-map-marker-alt mr-2"></i> {{ application.candidate.location }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Application Status Update Card -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Update Status</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
+                            {{ form.status|add_class:"form-control" }}
+                            {% if form.status.errors %}
+                                {% for error in form.status.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.recruiter_notes.id_for_label }}">{{ form.recruiter_notes.label }}</label>
+                            {{ form.recruiter_notes|add_class:"form-control" }}
+                            {% if form.recruiter_notes.errors %}
+                                {% for error in form.recruiter_notes.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <small class="form-text text-muted">Add notes about this candidate (only visible to you)</small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-save"></i> Update Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Additional Actions Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="mailto:{{ application.candidate.user.email }}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-envelope mr-2"></i> Email Candidate
+                        </a>
+                        <a href="{% url 'dashboards:job_detail' application.job.id %}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-briefcase mr-2"></i> Back to Job Posting
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#scheduleInterviewModal">
+                            <i class="fas fa-calendar-alt mr-2"></i> Schedule Interview
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schedule Interview Modal -->
+<div class="modal fade" id="scheduleInterviewModal" tabindex="-1" role="dialog" aria-labelledby="scheduleInterviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="scheduleInterviewModalLabel">Schedule Interview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="interviewForm">
+                    <div class="form-group">
+                        <label for="interviewDate">Date</label>
+                        <input type="date" class="form-control" id="interviewDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interviewTime">Time</label>
+                        <input type="time" class="form-control" id="interviewTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interviewType">Interview Type</label>
+                        <select class="form-control" id="interviewType" required>
+                            <option value="">Select an option</option>
+                            <option value="phone">Phone Interview</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person Interview</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interviewNotes">Notes</label>
+                        <textarea class="form-control" id="interviewNotes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="sendInvitation">Send Invitation</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Custom template filter function for clarity - in a real app, you'd need Django widget-tweaks
+    function add_class(field, css_class) {
+        // In a real template, this would be handled by the widget-tweaks filter
+        return field;
+    }
+    
+    $(document).ready(function() {
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+        
+        // Handle the interview scheduling
+        $('#sendInvitation').click(function() {
+            // Validate the form
+            if (!$('#interviewForm')[0].checkValidity()) {
+                $('#interviewForm')[0].reportValidity();
+                return;
+            }
+            
+            // Here you would normally send an AJAX request to your backend
+            // For now, we'll just show a success message and close the modal
+            alert('Interview invitation sent successfully!');
+            $('#scheduleInterviewModal').modal('hide');
+            
+            // In a real application, you would update the status to "interview" after scheduling
+            // window.location.reload();
+        });
+    });
+</script>
+{% endblock %}
