@@ -1,0 +1,202 @@
+{% extends 'dashboards/base.html' %}
+
+{% block title %}Post New Job{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-6">
+    <!-- Page Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Post New Job</h1>
+        <p class="text-gray-600">Create a new job posting to find the best candidates</p>
+    </div>
+
+    <!-- Job Creation Form -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-red-800">Please correct the errors below</h3>
+                            <div class="mt-2 text-sm text-red-700">
+                                {{ form.non_field_errors }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <!-- Job Basic Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-gray-700">Job Title *</label>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.title.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.company_name.id_for_label }}" class="block text-sm font-medium text-gray-700">Company Name *</label>
+                    {{ form.company_name }}
+                    {% if form.company_name.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.company_name.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.category.id_for_label }}" class="block text-sm font-medium text-gray-700">Job Category *</label>
+                    {{ form.category }}
+                    {% if form.category.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.category.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.location.id_for_label }}" class="block text-sm font-medium text-gray-700">Location *</label>
+                    {{ form.location }}
+                    {% if form.location.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.location.errors.0 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Job Description -->
+            <div>
+                <label for="{{ form.description.id_for_label }}" class="block text-sm font-medium text-gray-700">Job Description *</label>
+                <div class="mt-1">
+                    {{ form.description }}
+                </div>
+                {% if form.description.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.description.errors.0 }}</p>
+                {% endif %}
+                <p class="mt-1 text-xs text-gray-500">Provide a detailed description of the job position.</p>
+            </div>
+            
+            <!-- Job Requirements -->
+            <div>
+                <label for="{{ form.requirements.id_for_label }}" class="block text-sm font-medium text-gray-700">Job Requirements *</label>
+                <div class="mt-1">
+                    {{ form.requirements }}
+                </div>
+                {% if form.requirements.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.requirements.errors.0 }}</p>
+                {% endif %}
+                <p class="mt-1 text-xs text-gray-500">List all requirements for this position.</p>
+            </div>
+            
+            <!-- Job Responsibilities -->
+            <div>
+                <label for="{{ form.responsibilities.id_for_label }}" class="block text-sm font-medium text-gray-700">Responsibilities *</label>
+                <div class="mt-1">
+                    {{ form.responsibilities }}
+                </div>
+                {% if form.responsibilities.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.responsibilities.errors.0 }}</p>
+                {% endif %}
+                <p class="mt-1 text-xs text-gray-500">Describe the key responsibilities for this role.</p>
+            </div>
+            
+            <!-- Skills Required -->
+            <div>
+                <label for="{{ form.skills_required.id_for_label }}" class="block text-sm font-medium text-gray-700">Skills Required *</label>
+                <div class="mt-1">
+                    {{ form.skills_required }}
+                </div>
+                {% if form.skills_required.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.skills_required.errors.0 }}</p>
+                {% endif %}
+                <p class="mt-1 text-xs text-gray-500">List the skills required, separated by commas. These will be used for AI matching.</p>
+            </div>
+            
+            <!-- Job Details -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <label for="{{ form.employment_type.id_for_label }}" class="block text-sm font-medium text-gray-700">Employment Type *</label>
+                    {{ form.employment_type }}
+                    {% if form.employment_type.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.employment_type.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.education_level.id_for_label }}" class="block text-sm font-medium text-gray-700">Education Level *</label>
+                    {{ form.education_level }}
+                    {% if form.education_level.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.education_level.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="{{ form.experience_required.id_for_label }}" class="block text-sm font-medium text-gray-700">Experience Required (years) *</label>
+                    {{ form.experience_required }}
+                    {% if form.experience_required.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.experience_required.errors.0 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Salary Range -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="{{ form.salary_min.id_for_label }}" class="block text-sm font-medium text-gray-700">Minimum Salary</label>
+                    {{ form.salary_min }}
+                    {% if form.salary_min.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.salary_min.errors.0 }}</p>
+                    {% endif %}
+                    <p class="mt-1 text-xs text-gray-500">Leave blank if you don't want to specify</p>
+                </div>
+                
+                <div>
+                    <label for="{{ form.salary_max.id_for_label }}" class="block text-sm font-medium text-gray-700">Maximum Salary</label>
+                    {{ form.salary_max }}
+                    {% if form.salary_max.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.salary_max.errors.0 }}</p>
+                    {% endif %}
+                    <p class="mt-1 text-xs text-gray-500">Leave blank if you don't want to specify</p>
+                </div>
+            </div>
+            
+            <!-- Expiry Date -->
+            <div>
+                <label for="{{ form.expiry_date.id_for_label }}" class="block text-sm font-medium text-gray-700">Expiry Date *</label>
+                {{ form.expiry_date }}
+                {% if form.expiry_date.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.expiry_date.errors.0 }}</p>
+                {% endif %}
+                <p class="mt-1 text-xs text-gray-500">The job posting will automatically expire on this date</p>
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="flex justify-end space-x-3 pt-5">
+                <a href="{% url 'dashboards:job_list' %}" class="px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Cancel
+                </a>
+                <button type="submit" class="inline-flex justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Post Job
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add any JavaScript needed for form enhancements here
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add styling to form elements
+        const inputs = document.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], select, textarea');
+        inputs.forEach(input => {
+            input.classList.add('mt-1', 'block', 'w-full', 'rounded-md', 'border-gray-300', 'shadow-sm', 'focus:border-blue-500', 'focus:ring-blue-500', 'sm:text-sm');
+        });
+    });
+</script>
+{% endblock %}
