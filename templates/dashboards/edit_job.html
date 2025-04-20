@@ -1,0 +1,280 @@
+{% extends 'dashboards/base.html' %}
+{% load static %}
+
+{% block title %}Edit Job - {{ job.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light">
+                    <li class="breadcrumb-item"><a href="{% url 'dashboards:recruiter_dashboard' %}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'dashboards:job_list' %}">Jobs</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'dashboards:job_detail' job.id %}">{{ job.title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            <h1 class="mb-0">Edit Job Posting</h1>
+            <p class="text-muted">Update the details for "{{ job.title }}"</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="card-title mb-4">Basic Information</h5>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+                            {{ form.title|add_class:"form-control" }}
+                            {% if form.title.errors %}
+                                {% for error in form.title.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if form.title.help_text %}
+                                <small class="form-text text-muted">{{ form.title.help_text }}</small>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.company_name.id_for_label }}">{{ form.company_name.label }}</label>
+                            {{ form.company_name|add_class:"form-control" }}
+                            {% if form.company_name.errors %}
+                                {% for error in form.company_name.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.category.id_for_label }}">{{ form.category.label }}</label>
+                                    {{ form.category|add_class:"form-control" }}
+                                    {% if form.category.errors %}
+                                        {% for error in form.category.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
+                                    {{ form.location|add_class:"form-control" }}
+                                    {% if form.location.errors %}
+                                        {% for error in form.location.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.employment_type.id_for_label }}">{{ form.employment_type.label }}</label>
+                                    {{ form.employment_type|add_class:"form-control" }}
+                                    {% if form.employment_type.errors %}
+                                        {% for error in form.employment_type.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.education_level.id_for_label }}">{{ form.education_level.label }}</label>
+                                    {{ form.education_level|add_class:"form-control" }}
+                                    {% if form.education_level.errors %}
+                                        {% for error in form.education_level.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.experience_required.id_for_label }}">{{ form.experience_required.label }}</label>
+                                    {{ form.experience_required|add_class:"form-control" }}
+                                    {% if form.experience_required.errors %}
+                                        {% for error in form.experience_required.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.expiry_date.id_for_label }}">{{ form.expiry_date.label }}</label>
+                                    {{ form.expiry_date|add_class:"form-control" }}
+                                    {% if form.expiry_date.errors %}
+                                        {% for error in form.expiry_date.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.salary_min.id_for_label }}">{{ form.salary_min.label }}</label>
+                                    {{ form.salary_min|add_class:"form-control" }}
+                                    {% if form.salary_min.errors %}
+                                        {% for error in form.salary_min.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.salary_max.id_for_label }}">{{ form.salary_max.label }}</label>
+                                    {{ form.salary_max|add_class:"form-control" }}
+                                    {% if form.salary_max.errors %}
+                                        {% for error in form.salary_max.errors %}
+                                            <div class="invalid-feedback d-block">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
+                            {{ form.status|add_class:"form-control" }}
+                            {% if form.status.errors %}
+                                {% for error in form.status.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5 class="card-title mb-4">Detailed Information</h5>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                            {{ form.description|add_class:"form-control" }}
+                            {% if form.description.errors %}
+                                {% for error in form.description.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <small class="form-text text-muted char-counter">0 characters</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.requirements.id_for_label }}">{{ form.requirements.label }}</label>
+                            {{ form.requirements|add_class:"form-control" }}
+                            {% if form.requirements.errors %}
+                                {% for error in form.requirements.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <small class="form-text text-muted char-counter">0 characters</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.responsibilities.id_for_label }}">{{ form.responsibilities.label }}</label>
+                            {{ form.responsibilities|add_class:"form-control" }}
+                            {% if form.responsibilities.errors %}
+                                {% for error in form.responsibilities.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <small class="form-text text-muted char-counter">0 characters</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.skills_required.id_for_label }}">{{ form.skills_required.label }}</label>
+                            {{ form.skills_required|add_class:"form-control" }}
+                            {% if form.skills_required.errors %}
+                                {% for error in form.skills_required.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <small class="form-text text-muted">Enter skills separated by commas, e.g., Python, JavaScript, SQL <i class="fas fa-info-circle" data-toggle="tooltip" title="Enter skills separated by commas, e.g., Python, JavaScript, SQL"></i></small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer bg-transparent text-right mt-4">
+                    <a href="{% url 'dashboards:job_detail' job.id %}" class="btn btn-outline-secondary mr-2">Cancel</a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Custom template filter function to simulate Django widget-tweaks
+    // This is just for code clarity - in a real app, you'd need the Django widget-tweaks package
+    // or manually add the classes to each field in your form
+    function add_class(field, css_class) {
+        // In a real template, this would be handled by the widget-tweaks filter
+        // This is just a placeholder for code clarity
+        return field;
+    }
+    
+    $(document).ready(function() {
+        // Initialize date picker for expiry date
+        const expiryDateField = $('#{{ form.expiry_date.id_for_label }}');
+        if (expiryDateField.length) {
+            expiryDateField.datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+                startDate: new Date()
+            });
+        }
+        
+        // Add character counter for text areas
+        $('textarea').each(function() {
+            const $textarea = $(this);
+            const $counter = $textarea.closest('.form-group').find('.char-counter');
+            
+            // Update counter on input
+            $textarea.on('input', function() {
+                const count = $textarea.val().length;
+                $counter.text(count + ' characters');
+            });
+            
+            // Initial update
+            $counter.text($textarea.val().length + ' characters');
+        });
+        
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+{% endblock %}
