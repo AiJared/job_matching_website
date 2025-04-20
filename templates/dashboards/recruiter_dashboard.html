@@ -1,24 +1,195 @@
 {% extends 'dashboards/base.html' %}
 
-{% block title %}Recruiter Dashboard - AI Job Matcher{% endblock %}
+{% block title %}Recruiter Dashboard{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">Recruiter Dashboard</h3>
+<div class="container mx-auto px-4 py-6">
+    <!-- Dashboard Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Recruiter Dashboard</h1>
+        <p class="text-gray-600">Welcome back, {{ request.user.full_name }}!</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Active Jobs Card -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm uppercase font-medium">Active Jobs</p>
+                    <h2 class="text-3xl font-bold text-gray-800">{{ active_jobs }}</h2>
+                </div>
+                <div class="p-3 bg-blue-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
             </div>
-            <div class="card-body">
-                <h4>Welcome, {{ user.full_name }}!</h4>
-                <p>This is your recruiter dashboard. Here you'll be able to:</p>
-                <ul>
-                    <li>Post new job openings</li>
-                    <li>View candidates matched to your jobs</li>
-                    <li>Manage candidate applications</li>
-                    <li>Track hiring progress</li>
-                </ul>
-                <p>We're still building this part of the application. Check back soon!</p>
+            <div class="mt-4">
+                <a href="{% url 'dashboards:job_list' %}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View all jobs →</a>
+            </div>
+        </div>
+
+        <!-- Total Applications Card -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm uppercase font-medium">Total Applications</p>
+                    <h2 class="text-3xl font-bold text-gray-800">{{ total_applications }}</h2>
+                </div>
+                <div class="p-3 bg-green-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'dashboards:applications_list' %}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View all applications →</a>
+            </div>
+        </div>
+
+        <!-- Pending Applications Card -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm uppercase font-medium">Pending Applications</p>
+                    <h2 class="text-3xl font-bold text-gray-800">{{ pending_applications }}</h2>
+                </div>
+                <div class="p-3 bg-yellow-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'dashboards:applications_list' %}?status=pending" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Review pending →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Latest Jobs Section -->
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="border-b px-6 py-4 flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-gray-800">Latest Job Postings</h3>
+                <a href="{% url 'dashboards:create_job' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Add New Job</a>
+            </div>
+            <div class="p-6">
+                {% if latest_jobs %}
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Title</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                {% for job in latest_jobs %}
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">{{ job.title }}</div>
+                                        <div class="text-sm text-gray-500">{{ job.company_name }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                            {% if job.status == 'active' %}bg-green-100 text-green-800
+                                            {% elif job.status == 'filled' %}bg-blue-100 text-blue-800
+                                            {% elif job.status == 'expired' %}bg-red-100 text-red-800
+                                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                                            {{ job.status|title }}
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ job.created_at|date:"M d, Y" }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <a href="{% url 'dashboards:job_detail' job_id=job.id %}" class="text-blue-600 hover:text-blue-900">View</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 text-right">
+                        <a href="{% url 'dashboards:job_list' %}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View all jobs →</a>
+                    </div>
+                {% else %}
+                    <div class="text-center py-8">
+                        <p class="text-gray-500 mb-4">You haven't posted any jobs yet.</p>
+                        <a href="{% url 'dashboards:create_job' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Post Your First Job</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Latest Applications Section -->
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="border-b px-6 py-4">
+                <h3 class="text-lg font-semibold text-gray-800">Recent Applications</h3>
+            </div>
+            <div class="p-6">
+                {% if latest_applications %}
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Candidate</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Title</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Match</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                {% for application in latest_applications %}
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">{{ application.candidate.user.full_name }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">{{ application.job.title }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                            {% if application.status == 'pending' %}bg-yellow-100 text-yellow-800
+                                            {% elif application.status == 'reviewing' %}bg-blue-100 text-blue-800
+                                            {% elif application.status == 'shortlisted' %}bg-purple-100 text-purple-800
+                                            {% elif application.status == 'rejected' %}bg-red-100 text-red-800
+                                            {% elif application.status == 'interview' %}bg-green-100 text-green-800
+                                            {% elif application.status == 'offer' %}bg-indigo-100 text-indigo-800
+                                            {% elif application.status == 'hired' %}bg-emerald-100 text-emerald-800
+                                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                                            {{ application.status|title }}
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-16 bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: {{ application.match_score }}%"></div>
+                                            </div>
+                                            <span class="ml-2 text-sm text-gray-600">{{ application.match_score|floatformat:0 }}%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <a href="{% url 'dashboards:application_detail' application_id=application.id %}" class="text-blue-600 hover:text-blue-900">View</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 text-right">
+                        <a href="{% url 'dashboards:applications_list' %}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View all applications →</a>
+                    </div>
+                {% else %}
+                    <div class="text-center py-8">
+                        <p class="text-gray-500">No applications have been received yet.</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
