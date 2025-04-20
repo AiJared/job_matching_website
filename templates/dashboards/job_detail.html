@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ job.title }} - Job Details{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Job Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">{{ job.title }}</h1>
+        <div>
+            <a href="{% url 'dashboards:edit_job' job.id %}" class="btn btn-primary">
+                <i class="fas fa-edit"></i> Edit Job
+            </a>
+            <div class="dropdown d-inline-block ml-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Status: {{ job.get_status_display }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="statusDropdown">
+                    <form action="{% url 'dashboards:change_job_status' job.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="status" value="active" class="dropdown-item {% if job.status == 'active' %}active{% endif %}">Active</button>
+                        <button type="submit" name="status" value="filled" class="dropdown-item {% if job.status == 'filled' %}active{% endif %}">Filled</button>
+                        <button type="submit" name="status" value="expired" class="dropdown-item {% if job.status == 'expired' %}active{% endif %}">Expired</button>
+                        <button type="submit" name="status" value="draft" class="dropdown-item {% if job.status == 'draft' %}active{% endif %}">Draft</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Info Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="card-title">{{ job.company_name }}</h5>
+                    <p class="badge badge-info">{{ job.category.name }}</p>
+                    <p class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
+                    <p class="text-muted"><i class="fas fa-briefcase"></i> {{ job.employment_type }}</p>
+                    <p class="text-muted"><i class="fas fa-graduation-cap"></i> {{ job.education_level }}</p>
+                    <p class="text-muted"><i class="fas fa-user-clock"></i> {{ job.experience_required }} years experience</p>
+                    {% if job.salary_min or job.salary_max %}
+                    <p class="text-muted">
+                        <i class="fas fa-money-bill-wave"></i> 
+                        {% if job.salary_min and job.salary_max %}
+                            ${{ job.salary_min|floatformat:0 }} - ${{ job.salary_max|floatformat:0 }}
+                        {% elif job.salary_min %}
+                            From ${{ job.salary_min|floatformat:0 }}
+                        {% elif job.salary_max %}
+                            Up to ${{ job.salary_max|floatformat:0 }}
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6 class="card-title">Job Details</h6>
+                            <p class="card-text"><strong>Posted:</strong> {{ job.created_at|date:"M d, Y" }}</p>
+                            <p class="card-text"><strong>Expires:</strong> {{ job.expiry_date|date:"M d, Y" }}</p>
+                            <p class="card-text"><strong>Status:</strong> <span class="badge badge-{% if job.status == 'active' %}success{% elif job.status == 'draft' %}secondary{% elif job.status == 'expired' %}danger{% else %}info{% endif %}">{{ job.get_status_display }}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Applications Stats -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Application Statistics</h5>
+        </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.total }}</h3>
+                        <p class="text-muted mb-0">Total Applications</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.pending }}</h3>
+                        <p class="text-muted mb-0">Pending</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.reviewing }}</h3>
+                        <p class="text-muted mb-0">Reviewing</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.shortlisted }}</h3>
+                        <p class="text-muted mb-0">Shortlisted</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.interview }}</h3>
+                        <p class="text-muted mb-0">Interview</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.offer }}</h3>
+                        <p class="text-muted mb-0">Offer Extended</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.hired }}</h3>
+                        <p class="text-muted mb-0">Hired</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="p-3 border rounded">
+                        <h3>{{ stats.rejected }}</h3>
+                        <p class="text-muted mb-0">Rejected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Description -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="jobTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="requirements-tab" data-toggle="tab" href="#requirements" role="tab" aria-controls="requirements" aria-selected="false">Requirements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="responsibilities-tab" data-toggle="tab" href="#responsibilities" role="tab" aria-controls="responsibilities" aria-selected="false">Responsibilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="jobTabsContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    {{ job.description|linebreaks }}
+                </div>
+                <div class="tab-pane fade" id="requirements" role="tabpanel" aria-labelledby="requirements-tab">
+                    {{ job.requirements|linebreaks }}
+                </div>
+                <div class="tab-pane fade" id="responsibilities" role="tabpanel" aria-labelledby="responsibilities-tab">
+                    {{ job.responsibilities|linebreaks }}
+                </div>
+                <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+                    {% with skills_list=job.skills_required.split(',') %}
+                    <div class="d-flex flex-wrap">
+                        {% for skill in skills_list %}
+                            <span class="badge badge-primary m-1 p-2">{{ skill|strip }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Applications -->
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Applications ({{ stats.total }})</h5>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter by Status
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="filterDropdown">
+                    <a class="dropdown-item" href="?">All</a>
+                    <a class="dropdown-item" href="?status=pending">Pending</a>
+                    <a class="dropdown-item" href="?status=reviewing">Reviewing</a>
+                    <a class="dropdown-item" href="?status=shortlisted">Shortlisted</a>
+                    <a class="dropdown-item" href="?status=interview">Interview</a>
+                    <a class="dropdown-item" href="?status=offer">Offer</a>
+                    <a class="dropdown-item" href="?status=hired">Hired</a>
+                    <a class="dropdown-item" href="?status=rejected">Rejected</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            {% if applications %}
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Candidate</th>
+                            <th>Match Score</th>
+                            <th>Status</th>
+                            <th>Applied On</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applications %}
+                        <tr>
+                            <td>{{ application.candidate.user.full_name }}</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress flex-grow-1" style="height: 8px;">
+                                        <div class="progress-bar {% if application.match_score >= 80 %}bg-success{% elif application.match_score >= 60 %}bg-info{% elif application.match_score >= 40 %}bg-warning{% else %}bg-danger{% endif %}" 
+                                            role="progressbar" 
+                                            style="width: {{ application.match_score }}%;" 
+                                            aria-valuenow="{{ application.match_score }}" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <span class="ml-2">{{ application.match_score|floatformat }}%</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge badge-{% if application.status == 'pending' %}secondary{% elif application.status == 'reviewing' %}info{% elif application.status == 'shortlisted' %}primary{% elif application.status == 'interview' %}warning{% elif application.status == 'offer' %}success{% elif application.status == 'hired' %}success{% elif application.status == 'rejected' %}danger{% elif application.status == 'declined' %}dark{% endif %}">
+                                    {{ application.get_status_display }}
+                                </span>
+                            </td>
+                            <td>{{ application.created_at|date:"M d, Y" }}</td>
+                            <td>
+                                <a href="{% url 'dashboards:application_detail' application.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <div class="mb-3">
+                    <i class="fas fa-file-alt fa-3x text-muted"></i>
+                </div>
+                <h5>No applications yet</h5>
+                <p class="text-muted">When candidates apply for this position, they will appear here.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
