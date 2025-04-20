@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Job Applications{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="mb-3">Job Applications</h1>
+            <p class="text-muted">Manage applications for your job postings</p>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-5">
+                    <label for="job" class="form-label">Filter by Job</label>
+                    <select class="form-select" id="job" name="job">
+                        <option value="">All Jobs</option>
+                        {% for job in jobs %}
+                            <option value="{{ job.id }}" {% if current_job == job.id|stringformat:"i" %}selected{% endif %}>
+                                {{ job.title }} at {{ job.company_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="status" class="form-label">Filter by Status</label>
+                    <select class="form-select" id="status" name="status">
+                        <option value="">All Statuses</option>
+                        {% for status_value, status_name in status_choices %}
+                            <option value="{{ status_value }}" {% if current_status == status_value %}selected{% endif %}>
+                                {{ status_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Applications List -->
+    <div class="card">
+        <div class="card-body">
+            {% if page_obj %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Candidate</th>
+                                <th>Job Position</th>
+                                <th>Status</th>
+                                <th>Match Score</th>
+                                <th>Applied On</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for application in page_obj %}
+                                <tr>
+                                    <td>{{ application.candidate.user.full_name }}</td>
+                                    <td>{{ application.job.title }}</td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if application.status == 'pending' %}bg-secondary
+                                            {% elif application.status == 'reviewing' %}bg-info
+                                            {% elif application.status == 'shortlisted' %}bg-primary
+                                            {% elif application.status == 'rejected' %}bg-danger
+                                            {% elif application.status == 'interview' %}bg-warning
+                                            {% elif application.status == 'offer' %}bg-success
+                                            {% elif application.status == 'hired' %}bg-success
+                                            {% elif application.status == 'declined' %}bg-dark
+                                            {% endif %}">
+                                            {% for status_value, status_name in status_choices %}
+                                                {% if status_value == application.status %}
+                                                    {{ status_name }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="progress" style="height: 20px;">
+                                            <div class="progress-bar 
+                                                {% if application.match_score < 40 %}bg-danger
+                                                {% elif application.match_score < 70 %}bg-warning
+                                                {% else %}bg-success{% endif %}" 
+                                                role="progressbar" 
+                                                style="width: {{ application.match_score }}%;" 
+                                                aria-valuenow="{{ application.match_score }}" 
+                                                aria-valuemin="0" 
+                                                aria-valuemax="100">
+                                                {{ application.match_score }}%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ application.created_at|date:"M d, Y" }}</td>
+                                    <td>
+                                        <a href="{% url 'dashboards:application_detail' application.id %}" class="btn btn-sm btn-outline-primary">
+                                            View Details
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                {% if page_obj.paginator.num_pages > 1 %}
+                <nav aria-label="Applications pagination" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}" aria-label="First">
+                                    <span aria-hidden="true">&laquo;&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="First">
+                                    <span aria-hidden="true">&laquo;&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <li class="page-item active"><a class="page-link" href="?page={{ num }}{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}">{{ num }}</a></li>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ num }}{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if current_job %}&job={{ current_job }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}" aria-label="Last">
+                                    <span aria-hidden="true">&raquo;&raquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Last">
+                                    <span aria-hidden="true">&raquo;&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            {% else %}
+                <div class="text-center py-5">
+                    <h4>No applications found</h4>
+                    <p class="text-muted">Try changing your filters or check back later.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
