@@ -3,6 +3,266 @@
 {% block title %}Recruiter Dashboard{% endblock %}
 
 {% block content %}
+<style>
+    /* Colors */
+    :root {
+        --primary-green: #2ecc71;
+        --light-green: #e8f5e9;
+        --medium-green: #4caf50;
+        --accent-green: #66bb6a;
+        --hover-green: #27ae60;
+        --text-dark: #333333;
+        --text-medium: #555555;
+        --text-light: #777777;
+        --border-color: #e0e0e0;
+    }
+
+    /* Base styles */
+    body {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        background-color: #f9fafb;
+        color: var(--text-dark);
+    }
+
+    .container {
+        max-width: 1400px;
+    }
+
+    /* Dashboard Header */
+    .container h1 {
+        color: var(--text-dark);
+        letter-spacing: -0.5px;
+    }
+
+    .container p {
+        color: var(--text-medium);
+    }
+
+    /* Card styles */
+    .bg-white {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .bg-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Override card background colors */
+    .bg-blue-100 {
+        background-color: var(--light-green) !important;
+    }
+
+    .bg-green-100 {
+        background-color: var(--light-green) !important;
+    }
+
+    .bg-yellow-100 {
+        background-color: #fef9e7 !important;
+    }
+
+    /* Override text colors */
+    .text-blue-600, .text-blue-800, .text-blue-900 {
+        color: var(--medium-green) !important;
+    }
+
+    .text-green-600, .text-green-800 {
+        color: var(--medium-green) !important;
+    }
+
+    .text-yellow-600, .text-yellow-800 {
+        color: #d4ac0d !important;
+    }
+
+    /* Button styles */
+    .bg-blue-600 {
+        background-color: var(--primary-green) !important;
+        transition: background-color 0.2s;
+    }
+
+    .bg-blue-600:hover, .bg-blue-700:hover {
+        background-color: var(--hover-green) !important;
+    }
+
+    .hover\:bg-blue-700:hover {
+        background-color: var(--hover-green) !important;
+    }
+
+    /* Table styles */
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    th {
+        font-weight: 600;
+        color: var(--text-medium);
+        padding: 12px 16px !important;
+        background-color: #f9fafb;
+    }
+
+    td {
+        padding: 14px 16px !important;
+    }
+
+    tbody tr:hover {
+        background-color: #f7fafc;
+    }
+
+    /* Status indicators */
+    .rounded-full {
+        padding: 4px 8px !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Match score progress bar */
+    .bg-blue-600.h-2\.5 {
+        background-color: var(--accent-green) !important;
+    }
+
+    /* Icon styling */
+    .p-3.bg-blue-100 svg, 
+    .p-3.bg-green-100 svg, 
+    .p-3.bg-yellow-100 svg {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+    }
+
+    .p-3.bg-blue-100 {
+        background-color: var(--light-green) !important;
+    }
+
+    .p-3.bg-blue-100 svg {
+        color: var(--primary-green) !important;
+    }
+
+    .p-3.bg-green-100 {
+        background-color: var(--light-green) !important;
+    }
+
+    .p-3.bg-green-100 svg {
+        color: var(--primary-green) !important;
+    }
+
+    .p-3.bg-yellow-100 svg {
+        color: #d4ac0d !important;
+    }
+
+    /* Status badge colors */
+    .bg-purple-100 {
+        background-color: #f3e5f5 !important;
+    }
+
+    .text-purple-800 {
+        color: #6a1b9a !important;
+    }
+
+    .bg-indigo-100 {
+        background-color: #e8eaf6 !important;
+    }
+
+    .text-indigo-800 {
+        color: #283593 !important;
+    }
+
+    .bg-emerald-100 {
+        background-color: #e3f2fd !important;
+    }
+
+    .text-emerald-800 {
+        color: #0277bd !important;
+    }
+
+    .bg-red-100 {
+        background-color: #ffebee !important;
+    }
+
+    .text-red-800 {
+        color: #c62828 !important;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1024px) {
+        .grid-cols-1.lg\:grid-cols-2 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .grid-cols-1.md\:grid-cols-3 {
+            grid-template-columns: 1fr;
+        }
+
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .overflow-x-auto {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% + 2rem);
+        }
+        
+        table {
+            width: 100%;
+            min-width: 600px;
+        }
+
+        .whitespace-nowrap {
+            white-space: normal;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .border-b.px-6.py-4.flex.justify-between.items-center {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .border-b.px-6.py-4.flex.justify-between.items-center a {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    /* Links and hover effects */
+    a.text-blue-600 {
+        font-weight: 500;
+        color: var(--medium-green) !important;
+        transition: color 0.15s ease;
+    }
+
+    a.text-blue-600:hover {
+        color: var(--hover-green) !important;
+        text-decoration: underline;
+    }
+
+    /* Cards shadow enhancement */
+    .shadow-md {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Empty state */
+    .text-center.py-8 {
+        padding: 2rem 0;
+    }
+
+    .text-center.py-8 p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+    }
+
+    /* Progress bar refinements */
+    .w-16.bg-gray-200.rounded-full.h-2\.5 {
+        width: 5rem;
+        background-color: #e0e0e0;
+    }
+</style>
+
 <div class="container mx-auto px-4 py-6">
     <!-- Dashboard Header -->
     <div class="mb-8">
