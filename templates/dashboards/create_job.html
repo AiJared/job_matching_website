@@ -51,12 +51,14 @@
                     {% endif %}
                 </div>
                 
+                <!-- Replace the category section with this simpler version -->
                 <div>
                     <label for="{{ form.category.id_for_label }}" class="block text-sm font-medium text-gray-700">Job Category *</label>
                     {{ form.category }}
                     {% if form.category.errors %}
                         <p class="mt-1 text-sm text-red-600">{{ form.category.errors.0 }}</p>
                     {% endif %}
+                    <p class="mt-1 text-xs text-gray-500">Enter the job category (e.g., Software Development, Healthcare, Marketing)</p>
                 </div>
                 
                 <div>
@@ -197,6 +199,7 @@
         inputs.forEach(input => {
             input.classList.add('mt-1', 'block', 'w-full', 'rounded-md', 'border-gray-300', 'shadow-sm', 'focus:border-blue-500', 'focus:ring-blue-500', 'sm:text-sm');
         });
+        
     });
 </script>
 {% endblock %}

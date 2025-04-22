@@ -8,7 +8,7 @@ from django.db.models import Count, Avg
 from django.http import JsonResponse
 from django.core.paginator import Paginator
 
-from dashboards.models import JobPosting, JobApplication, JobCategory
+from dashboards.models import JobPosting, JobApplication
 from dashboards.forms import JobPostingForm, ApplicationStatusUpdateForm
 from dashboards.ai_utils import generate_job_embedding, update_job_matches
 
@@ -111,7 +111,6 @@ def create_job(request):
     
     context = {
         'form': form,
-        'categories': JobCategory.objects.all(),
     }
     
     return render(request, 'dashboards/create_job.html', context)

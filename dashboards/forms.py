@@ -1,6 +1,6 @@
 # dashboards/forms.py
 from django import forms
-from .models import JobPosting, JobCategory, JobApplication
+from .models import JobPosting, JobApplication
 
 class JobPostingForm(forms.ModelForm):
     expiry_date = forms.DateField(
@@ -16,6 +16,7 @@ class JobPostingForm(forms.ModelForm):
             'requirements': forms.Textarea(attrs={'rows': 5}),
             'responsibilities': forms.Textarea(attrs={'rows': 5}),
             'skills_required': forms.Textarea(attrs={'rows': 3}),
+            'category': forms.TextInput(attrs={'placeholder': 'Enter job category'}),
         }
 
 class ApplicationStatusUpdateForm(forms.ModelForm):

@@ -1,11 +1,6 @@
 # dashboards/admin.py
 from django.contrib import admin
-from .models import JobCategory, JobPosting, Resume, JobApplication
-
-@admin.register(JobCategory)
-class JobCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'created_at')
-    search_fields = ('name',)
+from .models import JobPosting, Resume, JobApplication
 
 @admin.register(JobPosting)
 class JobPostingAdmin(admin.ModelAdmin):

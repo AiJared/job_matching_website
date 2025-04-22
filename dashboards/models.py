@@ -12,16 +12,6 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-class JobCategory(BaseModel):
-    name = models.CharField(_('name'), max_length=100)
-    description = models.TextField(_('description'), blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _('Job Category')
-        verbose_name_plural = _('Job Categories')
 
 class JobPosting(BaseModel):
     STATUS_CHOICES = (
@@ -34,7 +24,8 @@ class JobPosting(BaseModel):
     recruiter = models.ForeignKey(Recruiter, on_delete=models.CASCADE, related_name='job_postings')
     title = models.CharField(_('job title'), max_length=255)
     company_name = models.CharField(_('company name'), max_length=255)
-    category = models.ForeignKey(JobCategory, on_delete=models.CASCADE, related_name='jobs')
+    # Change from ForeignKey to CharField
+    category = models.CharField(_('job category'), max_length=100)
     description = models.TextField(_('job description'))
     requirements = models.TextField(_('job requirements'))
     responsibilities = models.TextField(_('responsibilities'))
