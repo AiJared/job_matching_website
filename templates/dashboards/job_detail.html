@@ -1,5 +1,6 @@
 {% extends 'dashboards/base.html' %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}{{ job.title }} - Job Details{% endblock %}
 
@@ -35,7 +36,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <h5 class="card-title">{{ job.company_name }}</h5>
-                    <p class="badge badge-info">{{ job.category.name }}</p>
+                    <p class="badge badge-info">{{ job.category }}</p>
                     <p class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
                     <p class="text-muted"><i class="fas fa-briefcase"></i> {{ job.employment_type }}</p>
                     <p class="text-muted"><i class="fas fa-graduation-cap"></i> {{ job.education_level }}</p>
@@ -156,13 +157,11 @@
                     {{ job.responsibilities|linebreaks }}
                 </div>
                 <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-                    {% with skills_list=job.skills_required.split(',') %}
                     <div class="d-flex flex-wrap">
-                        {% for skill in skills_list %}
-                            <span class="badge badge-primary m-1 p-2">{{ skill|strip }}</span>
+                        {% for skill in job.skills_required|split_string %}
+                            <span class="badge badge-primary m-1 p-2">{{ skill }}</span>
                         {% endfor %}
                     </div>
-                    {% endwith %}
                 </div>
             </div>
         </div>
