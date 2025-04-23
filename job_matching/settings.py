@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # local apps
     'accounts.apps.AccountsConfig',
     'dashboards.apps.DashboardsConfig',
+    'candidate.apps.CandidateConfig',
     # 3rd party apps
     'widget_tweaks',
 ]
