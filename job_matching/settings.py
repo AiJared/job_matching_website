@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     # local apps
     'accounts.apps.AccountsConfig',
     'dashboards.apps.DashboardsConfig',
+    # 3rd party apps
+    'widget_tweaks',
 ]
 
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
