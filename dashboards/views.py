@@ -146,7 +146,6 @@ def edit_job(request, job_id):
     context = {
         'form': form,
         'job': job_posting,
-        # 'categories': JobCategory.objects.all(),
     }
     
     return render(request, 'dashboards/edit_job.html', context)
