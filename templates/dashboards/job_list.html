@@ -304,7 +304,7 @@ nav[aria-label="Pagination"] a:hover {
                                 <div class="flex space-x-2">
                                     <a href="{% url 'dashboards:job_detail' job_id=job.id %}" class="text-blue-600 hover:text-blue-900">View</a>
                                     <a href="{% url 'dashboards:edit_job' job_id=job.id %}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                    <a href="{% url 'dashboards:job_applications' job_id=job.id %}" class="text-green-600 hover:text-green-900">Applications</a>
+                                    <a href="{% url 'dashboards:applications_list' %}?job={{ job.id }}" class="text-green-600 hover:text-green-900">Applications</a>
                                 </div>
                             </td>
                         </tr>
