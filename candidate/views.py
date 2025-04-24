@@ -66,7 +66,7 @@ def candidate_dashboard(request):
         'saved_jobs': saved_jobs,
     }
     
-    return render(request, 'candidate/dashboard.html', context)
+    return render(request, 'candidate/candidate_dashboard.html', context)
 
 @login_required
 @user_passes_test(is_candidate)
