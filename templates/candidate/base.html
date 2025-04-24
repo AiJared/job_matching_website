@@ -229,7 +229,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if user.role == 'Candidate' %}
-                                    <li><a class="dropdown-item" href="{% url 'dashboards:candidate_dashboard' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'candidate:candidate_dashboard' %}">Dashboard</a></li>
                                 {% elif user.role == 'Recruiter' %}
                                     <li><a class="dropdown-item" href="{% url 'dashboards:recruiter_dashboard' %}">Dashboard</a></li>
                                 {% elif user.is_admin %}

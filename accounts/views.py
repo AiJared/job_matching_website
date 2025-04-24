@@ -52,7 +52,7 @@ def login_view(request):
                 
                 # Redirect based on user role
                 if user.role == 'Candidate':
-                    return redirect('dashboards:candidate_dashboard')
+                    return redirect('candidate:candidate_dashboard')
                 elif user.role == 'Recruiter':
                     return redirect('dashboards:recruiter_dashboard')
                 else:
