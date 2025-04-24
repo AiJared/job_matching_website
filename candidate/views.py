@@ -218,12 +218,16 @@ def job_search(request):
     recent_searches = JobSearchHistory.objects.filter(
         candidate=candidate
     ).order_by('-timestamp')[:5]
+
+    # Get list of saved job IDs
+    saved_job_ids = SavedJob.objects.filter(candidate=candidate).values_list('job_id', flat=True)
     
     context = {
         'form': form,
         'jobs_with_scores': jobs_with_scores,
         'has_resume': has_resume,
         'recent_searches': recent_searches,
+        'saved_job_ids': list(saved_job_ids),  # Convert QuerySet to list for template comparison
     }
     
     return render(request, 'candidate/job_search.html', context)
