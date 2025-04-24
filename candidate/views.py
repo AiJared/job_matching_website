@@ -104,7 +104,7 @@ def upload_resume(request):
             update_candidate_matches(candidate)
             
             messages.success(request, "Your resume has been uploaded and is being processed.")
-            return redirect('candidate:dashboard')
+            return redirect('candidate:candidate_dashboard')
     else:
         form = ResumeUploadForm(instance=resume)
     
