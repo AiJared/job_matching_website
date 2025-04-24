@@ -130,7 +130,7 @@ def job_recommendations(request):
         resume = Resume.objects.get(candidate=candidate)
         if not resume.embedding_vector:
             messages.warning(request, "Your resume is still being processed. Please check back later.")
-            return redirect('candidate:dashboard')
+            return redirect('candidate:candidate_dashboard')
     except Resume.DoesNotExist:
         messages.error(request, "Please upload your resume first.")
         return redirect('candidate:upload_resume')
