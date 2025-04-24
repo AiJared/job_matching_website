@@ -1,0 +1,166 @@
+{% extends 'candidate/base.html' %}
+{% load static %}
+
+{% block title %}Job Recommendations{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Job Recommendations</h1>
+        <a href="{% url 'candidate:job_search' %}" class="btn btn-outline-primary">
+            <i class="fas fa-search"></i> Search Jobs
+        </a>
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="h4 mb-0">AI-Powered Job Matches</h2>
+                <span class="badge badge-light">{{ recommended_jobs|length }} matches</span>
+            </div>
+        </div>
+        <div class="card-body">
+            {% if recommended_jobs %}
+                <div class="mb-3">
+                    <p class="text-muted">
+                        <i class="fas fa-info-circle"></i> These job recommendations are personalized based on your resume and skill set.
+                        Higher match scores indicate better alignment with your profile.
+                    </p>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Company</th>
+                                <th>Location</th>
+                                <th>Match Score</th>
+                                <th>Posted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for recommendation in recommended_jobs %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'candidate:job_detail' recommendation.job.id %}" class="font-weight-bold text-dark">
+                                            {{ recommendation.job.title }}
+                                        </a>
+                                    </td>
+                                    <td>{{ recommendation.job.company.name }}</td>
+                                    <td><i class="fas fa-map-marker-alt text-secondary"></i> {{ recommendation.job.location }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress flex-grow-1" style="height: 10px;">
+                                                <div class="progress-bar bg-{% if recommendation.match_score >= 80 %}success{% elif recommendation.match_score >= 60 %}info{% elif recommendation.match_score >= 40 %}warning{% else %}danger{% endif %}" 
+                                                     role="progressbar" 
+                                                     style="width: {{ recommendation.match_score }}%;" 
+                                                     aria-valuenow="{{ recommendation.match_score }}" 
+                                                     aria-valuemin="0" 
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="ml-2 font-weight-bold">{{ recommendation.match_score }}%</span>
+                                        </div>
+                                    </td>
+                                    <td>{{ recommendation.job.created_at|timesince }} ago</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{% url 'candidate:job_detail' recommendation.job.id %}" class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-eye"></i> View
+                                            </a>
+                                            {% if recommendation.job in user.candidate.saved_jobs.all %}
+                                                <form method="post" action="{% url 'candidate:toggle_save_job' recommendation.job.id %}">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-heart"></i> Saved
+                                                    </button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{% url 'candidate:toggle_save_job' recommendation.job.id %}">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                        <i class="far fa-heart"></i> Save
+                                                    </button>
+                                                </form>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-search fa-4x text-muted"></i>
+                    </div>
+                    <h3>No recommendations found</h3>
+                    <p class="text-muted">
+                        We couldn't find any job matches at this time. This could be because:
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li>Your resume is still being processed</li>
+                        <li>There are no active jobs that match your profile</li>
+                        <li>You may need to update your resume with more details</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="{% url 'candidate:job_search' %}" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search Jobs Manually
+                        </a>
+                        <a href="{% url 'candidate:upload_resume' %}" class="btn btn-outline-secondary ml-2">
+                            <i class="fas fa-upload"></i> Update Resume
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="card mt-4">
+        <div class="card-header bg-info text-white">
+            <h3 class="h5 mb-0">How Job Matching Works</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <div class="bg-light p-3 rounded h-100 d-flex flex-column justify-content-center">
+                        <i class="fas fa-file-alt fa-2x text-primary mb-3"></i>
+                        <h5>Resume Analysis</h5>
+                        <p class="text-muted">Our AI analyzes your resume to extract skills, experience, and qualifications.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <div class="bg-light p-3 rounded h-100 d-flex flex-column justify-content-center">
+                        <i class="fas fa-project-diagram fa-2x text-primary mb-3"></i>
+                        <h5>AI Matching</h5>
+                        <p class="text-muted">We compare your profile against job requirements to find the best matches.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-light p-3 rounded h-100 d-flex flex-column justify-content-center">
+                        <i class="fas fa-percentage fa-2x text-primary mb-3"></i>
+                        <h5>Score Calculation</h5>
+                        <p class="text-muted">Each job receives a match score based on how well your profile fits the requirements.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <p class="text-muted">Keep your resume updated for the most accurate job recommendations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
