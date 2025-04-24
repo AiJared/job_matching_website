@@ -1,0 +1,215 @@
+{% extends 'candidate/base.html' %}
+{% load static %}
+
+{% block title %}Candidate Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Candidate Dashboard</h1>
+    
+    <!-- Profile Completion Card -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">Profile Completion</h5>
+        </div>
+        <div class="card-body">
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: {{ completion_percentage }}%;" 
+                     aria-valuenow="{{ completion_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                    {{ completion_percentage }}%
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Resume Status:</h6>
+                    <ul class="list-unstyled">
+                        {% if has_resume %}
+                            <li><i class="fas fa-check-circle text-success"></i> Resume uploaded</li>
+                            {% if resume_processed %}
+                                <li><i class="fas fa-check-circle text-success"></i> Resume processed</li>
+                            {% else %}
+                                <li><i class="fas fa-clock text-warning"></i> Resume processing</li>
+                            {% endif %}
+                        {% else %}
+                            <li><i class="fas fa-times-circle text-danger"></i> Resume not uploaded</li>
+                            <li><a href="{% url 'candidate:upload_resume' %}" class="btn btn-sm btn-outline-primary mt-2">Upload Resume</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6>Next Steps:</h6>
+                    <ul class="list-unstyled">
+                        {% if not has_resume %}
+                            <li><i class="fas fa-arrow-right"></i> Upload your resume</li>
+                        {% elif not resume_processed %}
+                            <li><i class="fas fa-arrow-right"></i> Wait for resume processing</li>
+                        {% else %}
+                            <li><i class="fas fa-arrow-right"></i> Browse job recommendations</li>
+                            <li><i class="fas fa-arrow-right"></i> Update your profile information</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Job Recommendations -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="card-title mb-0">Job Recommendations</h5>
+        </div>
+        <div class="card-body">
+            {% if recommended_jobs %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Company</th>
+                                <th>Location</th>
+                                <th>Match Score</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for recommendation in recommended_jobs %}
+                                <tr>
+                                    <td><a href="{% url 'candidate:job_detail' recommendation.job.id %}">{{ recommendation.job.title }}</a></td>
+                                    <td>{{ recommendation.job.company.name }}</td>
+                                    <td>{{ recommendation.job.location }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress flex-grow-1" style="height: 10px;">
+                                                <div class="progress-bar bg-success" role="progressbar" 
+                                                     style="width: {{ recommendation.match_score }}%;" 
+                                                     aria-valuenow="{{ recommendation.match_score }}" 
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="ml-2">{{ recommendation.match_score }}%</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'candidate:job_detail' recommendation.job.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="{% url 'candidate:job_recommendations' %}" class="btn btn-outline-success">View All Recommendations</a>
+                </div>
+            {% elif has_resume and resume_processed %}
+                <p class="text-center">No job recommendations found. We'll notify you when we find matches!</p>
+            {% else %}
+                <p class="text-center">Upload and process your resume to get personalized job recommendations.</p>
+                {% if not has_resume %}
+                    <div class="text-center">
+                        <a href="{% url 'candidate:upload_resume' %}" class="btn btn-primary">Upload Resume</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Recent Applications -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">Recent Applications</h5>
+                </div>
+                <div class="card-body">
+                    {% if recent_applications %}
+                        <ul class="list-group">
+                            {% for application in recent_applications %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <a href="{% url 'candidate:application_detail' application.id %}">{{ application.job.title }}</a>
+                                        <small class="d-block text-muted">{{ application.job.company.name }}</small>
+                                    </div>
+                                    <div>
+                                        <span class="badge badge-{% if application.status == 'pending' %}warning{% elif application.status == 'rejected' %}danger{% elif application.status == 'accepted' %}success{% else %}secondary{% endif %}">
+                                            {{ application.get_status_display }}
+                                        </span>
+                                        <small class="d-block text-muted">{{ application.created_at|date:"M d, Y" }}</small>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'candidate:application_list' %}" class="btn btn-sm btn-outline-info">View All Applications</a>
+                        </div>
+                    {% else %}
+                        <p class="text-center">You haven't applied to any jobs yet.</p>
+                        <div class="text-center">
+                            <a href="{% url 'candidate:job_search' %}" class="btn btn-sm btn-outline-primary">Find Jobs</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Saved Jobs -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="card-title mb-0">Saved Jobs</h5>
+                </div>
+                <div class="card-body">
+                    {% if saved_jobs %}
+                        <ul class="list-group">
+                            {% for saved in saved_jobs %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <a href="{% url 'candidate:job_detail' saved.job.id %}">{{ saved.job.title }}</a>
+                                        <small class="d-block text-muted">{{ saved.job.company.name }}</small>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">Saved on {{ saved.saved_at|date:"M d, Y" }}</small>
+                                        <form method="post" action="{% url 'candidate:toggle_save_job' saved.job.id %}" class="d-inline">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-sm btn-outline-danger ml-2">
+                                                <i class="fas fa-heart-broken"></i> Remove
+                                            </button>
+                                        </form>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'candidate:saved_jobs' %}" class="btn btn-sm btn-outline-secondary">View All Saved Jobs</a>
+                        </div>
+                    {% else %}
+                        <p class="text-center">You haven't saved any jobs yet.</p>
+                        <div class="text-center">
+                            <a href="{% url 'candidate:job_search' %}" class="btn btn-sm btn-outline-primary">Find Jobs</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Job Search Quick Access -->
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Quick Job Search</h5>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'candidate:job_search' %}" method="get" class="form-row">
+                <div class="col-md-5 mb-2">
+                    <input type="text" name="query" class="form-control" placeholder="Job title, keywords, or company">
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="text" name="location" class="form-control" placeholder="City or country">
+                </div>
+                <div class="col-md-3 mb-2">
+                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
