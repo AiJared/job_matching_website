@@ -1,0 +1,232 @@
+{% extends 'candidate/base.html' %}
+{% load static %}
+
+{% block title %}Job Search{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Find Your Next Job</h1>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <!-- Search Form -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">Job Search</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" action="{% url 'candidate:job_search' %}">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.query.id_for_label }}">Keywords</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            {{ form.query }}
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.location.id_for_label }}">Location</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            {{ form.location }}
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.category.id_for_label }}">Category</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                            </div>
+                            {{ form.category }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search Jobs
+                        </button>
+                        {% if form.query.value or form.location.value or form.category.value %}
+                            <a href="{% url 'candidate:job_search' %}" class="btn btn-outline-secondary ml-2">
+                                <i class="fas fa-times"></i> Clear Filters
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Recent Searches -->
+    {% if recent_searches %}
+    <div class="mb-4">
+        <h5>Recent Searches</h5>
+        <div class="d-flex flex-wrap">
+            {% for search in recent_searches %}
+                <div class="mr-2 mb-2">
+                    <a href="{% url 'candidate:job_search' %}?query={{ search.query|urlencode }}&location={{ search.location|urlencode }}&category={{ search.category|urlencode }}" class="badge badge-light text-dark p-2">
+                        {% if search.query %}{{ search.query }}{% endif %}
+                        {% if search.location %}<i class="fas fa-map-marker-alt ml-1"></i> {{ search.location }}{% endif %}
+                        {% if search.category %}<i class="fas fa-briefcase ml-1"></i> {{ search.category }}{% endif %}
+                        <small class="text-muted ml-1">{{ search.timestamp|timesince }} ago</small>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Search Results -->
+    <div class="card">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Search Results</h5>
+            <span class="badge badge-light">{{ jobs_with_scores|length }} jobs found</span>
+        </div>
+        <div class="card-body">
+            {% if not has_resume %}
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i> Upload your resume to see match scores and get personalized job recommendations.
+                    <a href="{% url 'candidate:upload_resume' %}" class="btn btn-sm btn-warning ml-2">Upload Resume</a>
+                </div>
+            {% endif %}
+            
+            {% if jobs_with_scores %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Company</th>
+                                <th>Location</th>
+                                {% if has_resume %}
+                                    <th>Match Score</th>
+                                {% endif %}
+                                <th>Posted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for job, match_score in jobs_with_scores %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'candidate:job_detail' job.id %}" class="font-weight-bold text-dark">
+                                            {{ job.title }}
+                                        </a>
+                                    </td>
+                                    <td>{{ job.company.name }}</td>
+                                    <td><i class="fas fa-map-marker-alt text-secondary"></i> {{ job.location }}</td>
+                                    {% if has_resume %}
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="progress flex-grow-1" style="height: 10px;">
+                                                    <div class="progress-bar bg-{% if match_score >= 80 %}success{% elif match_score >= 60 %}info{% elif match_score >= 40 %}warning{% else %}danger{% endif %}" 
+                                                         role="progressbar" 
+                                                         style="width: {{ match_score }}%;" 
+                                                         aria-valuenow="{{ match_score }}" 
+                                                         aria-valuemin="0" 
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ml-2">{{ match_score }}%</span>
+                                            </div>
+                                        </td>
+                                    {% endif %}
+                                    <td>{{ job.created_at|timesince }} ago</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{% url 'candidate:job_detail' job.id %}" class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-eye"></i> View
+                                            </a>
+                                            <!-- Toggle Save Job Button -->
+                                            <form method="post" action="{% url 'candidate:toggle_save_job' job.id %}">
+                                                {% csrf_token %}
+                                                {% if job.id in saved_job_ids %}
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-heart"></i> Saved
+                                                    </button>
+                                                {% else %}
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                        <i class="far fa-heart"></i> Save
+                                                    </button>
+                                                {% endif %}
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <div class="mb-3">
+                        <i class="fas fa-search fa-4x text-muted"></i>
+                    </div>
+                    <h3>No jobs found</h3>
+                    <p class="text-muted">
+                        We couldn't find any job matches for your search criteria.
+                    </p>
+                    <div class="mt-3">
+                        <a href="{% url 'candidate:job_search' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-redo"></i> Reset Search
+                        </a>
+                        <a href="{% url 'candidate:job_recommendations' %}" class="btn btn-outline-success ml-2">
+                            <i class="fas fa-thumbs-up"></i> View Recommendations
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Job Search Tips -->
+    <div class="card mt-4">
+        <div class="card-header bg-info text-white">
+            <h5 class="card-title mb-0">Job Search Tips</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="media">
+                        <i class="fas fa-lightbulb fa-2x text-warning mr-3"></i>
+                        <div class="media-body">
+                            <h6>Use Keywords</h6>
+                            <p class="text-muted small">Include relevant skills, job titles, or company names in your search.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="media">
+                        <i class="fas fa-map-marked-alt fa-2x text-success mr-3"></i>
+                        <div class="media-body">
+                            <h6>Expand Location</h6>
+                            <p class="text-muted small">Try searching with broader location terms for more opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="media">
+                        <i class="fas fa-sync-alt fa-2x text-primary mr-3"></i>
+                        <div class="media-body">
+                            <h6>Check Regularly</h6>
+                            <p class="text-muted small">New jobs are added daily. Check back often for fresh opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
