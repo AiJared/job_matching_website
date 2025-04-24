@@ -1,0 +1,114 @@
+{% extends 'candidate/base.html' %}
+{% load static %}
+
+{% block title %}{% if is_update %}Update Resume{% else %}Upload Resume{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">{% if is_update %}Update Resume{% else %}Upload Resume{% endif %}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h5>Resume Guidelines:</h5>
+                        <ul>
+                            <li>Accepted formats: PDF, DOC, DOCX</li>
+                            <li>Maximum file size: 5MB</li>
+                            <li>Include your relevant skills, education, and work experience</li>
+                            <li>Keep your resume updated for better job matching</li>
+                        </ul>
+                    </div>
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        
+                        {% if is_update %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i> You already have a resume uploaded. Uploading a new one will replace your current resume and require reprocessing.
+                            </div>
+                        {% endif %}
+                        
+                        <div class="form-group">
+                            <label for="{{ form.file.id_for_label }}">Resume File</label>
+                            <div class="custom-file">
+                                {{ form.file }}
+                                <label class="custom-file-label" for="{{ form.file.id_for_label }}">
+                                    {% if is_update %}Choose new file or keep existing{% else %}Choose file{% endif %}
+                                </label>
+                            </div>
+                            {% if form.file.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.file.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <small class="form-text text-muted">PDF, DOC, or DOCX files only (max 5MB)</small>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                {% if is_update %}Update Resume{% else %}Upload Resume{% endif %}
+                            </button>
+                            <a href="{% url 'candidate:candidate_dashboard' %}" class="btn btn-outline-secondary ml-2">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="text-muted">
+                        <small>
+                            <i class="fas fa-robot mr-1"></i> Your resume will be automatically analyzed to match you with suitable job opportunities. This process may take a few minutes after upload.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            {% if is_update %}
+            <div class="card mt-4">
+                <div class="card-header bg-secondary text-white">
+                    <h3 class="h5 mb-0">Resume Processing Status</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-3">
+                            <i class="fas {% if resume.is_processed %}fa-check-circle text-success{% else %}fa-spinner fa-spin text-warning{% endif %} fa-2x"></i>
+                        </div>
+                        <div>
+                            {% if resume.is_processed %}
+                                <h5 class="mb-1">Resume Processed</h5>
+                                <p class="mb-0 text-muted">Your resume has been processed and is being used for job matching.</p>
+                            {% else %}
+                                <h5 class="mb-1">Processing Resume</h5>
+                                <p class="mb-0 text-muted">Your resume is still being processed. This may take a few minutes.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    // Show filename in file input
+    document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+        var fileName = e.target.files[0].name;
+        var label = e.target.nextElementSibling;
+        label.innerHTML = fileName;
+    });
+</script>
+{% endblock %}
+{% endblock %}
