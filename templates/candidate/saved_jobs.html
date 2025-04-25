@@ -1,0 +1,74 @@
+{% extends "candidate/base.html" %}
+{% load static %}
+
+{% block title %}Saved Jobs{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Messages -->
+    {% if messages %}
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h2">Saved Jobs</h1>
+            <p class="text-muted">Jobs you've bookmarked for later</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {% if saved_jobs %}
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    {% for saved in saved_jobs %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ saved.job.title }}</h5>
+                                <p class="card-text">{{ saved.job.description|truncatechars:120 }}</p>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">Saved on {{ saved.saved_at|date:"M d, Y" }}</small>
+                                    <div class="btn-group">
+                                        <a href="{% url 'candidate:job_detail' saved.job.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                                        {% if saved.job.id in applied_job_ids %}
+                                            <button class="btn btn-sm btn-outline-success" disabled>Applied</button>
+                                        {% else %}
+                                            <a href="{% url 'candidate:job_detail' saved.job.id %}#apply" class="btn btn-sm btn-outline-secondary">Apply</a>
+                                        {% endif %}
+                                        <a href="{% url 'candidate:toggle_save_job' saved.job.id %}" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-bookmark"></i> Unsave
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-bookmark fa-4x text-muted"></i>
+                    </div>
+                    <h3>No Saved Jobs</h3>
+                    <p class="text-muted">You haven't saved any jobs yet. When you find jobs you're interested in, save them for later.</p>
+                    <a href="{% url 'candidate:job_recommendations' %}" class="btn btn-primary mt-3">
+                        <i class="fas fa-search"></i> Browse Recommended Jobs
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
