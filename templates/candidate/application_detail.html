@@ -1,0 +1,155 @@
+{% extends "candidate/base.html" %}
+{% load static %}
+
+{% block title %}Application Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Messages -->
+    {% if messages %}
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'candidate:application_list' %}">My Applications</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Application Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Application Details Column -->
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h2 class="h4 mb-0">Application for {{ application.job.title }}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h5>Application Status</h5>
+                            <div class="mb-3">
+                                {% if application.status == 'pending' %}
+                                    <span class="badge bg-warning p-2">Pending Review</span>
+                                {% elif application.status == 'reviewed' %}
+                                    <span class="badge bg-info p-2">Reviewed</span>
+                                {% elif application.status == 'interview' %}
+                                    <span class="badge bg-primary p-2">Interview Stage</span>
+                                {% elif application.status == 'accepted' %}
+                                    <span class="badge bg-success p-2">Accepted</span>
+                                {% elif application.status == 'rejected' %}
+                                    <span class="badge bg-danger p-2">Rejected</span>
+                                {% else %}
+                                    <span class="badge bg-secondary p-2">{{ application.status }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Applied On</h5>
+                            <p>{{ application.created_at|date:"F j, Y" }}</p>
+                        </div>
+                    </div>
+
+                    <h5>Your Cover Letter</h5>
+                    <div class="mb-4 p-3 bg-light rounded">
+                        {{ application.cover_letter|linebreaks }}
+                    </div>
+
+                    <h5>About the Job</h5>
+                    <div class="mb-4">
+                        {{ application.job.description|linebreaks }}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'candidate:job_detail' application.job.id %}" class="btn btn-outline-primary">
+                            <i class="fas fa-eye"></i> View Job Details
+                        </a>
+                        <a href="{% url 'candidate:application_list' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Applications
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-4">
+            <!-- Match Score Card -->
+            {% if application.match_score %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Match Score</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="display-4 fw-bold mb-3">{{ application.match_score }}%</div>
+                    
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: {{ application.match_score }}%" 
+                             aria-valuenow="{{ application.match_score }}" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100"></div>
+                    </div>
+                    
+                    {% if application.match_score >= 80 %}
+                    <div class="alert alert-success">
+                        Strong match for this position!
+                    </div>
+                    {% elif application.match_score >= 60 %}
+                    <div class="alert alert-info">
+                        Good match for this position.
+                    </div>
+                    {% else %}
+                    <div class="alert alert-warning">
+                        Your profile could use some improvements to better match this job.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Application Timeline Card -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Application Timeline</h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <i class="fas fa-paper-plane text-primary me-2"></i>
+                                    Application Submitted
+                                </div>
+                                <small class="text-muted">{{ application.created_at|date:"M d, Y" }}</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <i class="fas fa-clock text-warning me-2"></i>
+                                    Current Status: {{ application.status|title }}
+                                </div>
+                                <small class="text-muted">{{ application.updated_at|date:"M d, Y" }}</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
