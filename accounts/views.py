@@ -24,7 +24,7 @@ def login_view(request):
     if request.user.is_authenticated:
         # Redirect based on user role
         if request.user.role == 'Candidate':
-            return redirect('dashboards:candidate_dashboard')
+            return redirect('candidate:candidate_dashboard')
         elif request.user.role == 'Recruiter':
             return redirect('dashboards:recruiter_dashboard')
         else:
