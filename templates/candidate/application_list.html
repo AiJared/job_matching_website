@@ -1,0 +1,104 @@
+{% extends "candidate/base.html" %}
+{% load static %}
+
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Messages -->
+    {% if messages %}
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h2">My Job Applications</h1>
+            <p class="text-muted">Track all your job applications in one place</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {% if applications %}
+                <div class="card shadow-sm">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Applied Date</th>
+                                    <th>Status</th>
+                                    <th>Match Score</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for application in applications %}
+                                <tr>
+                                    <td>{{ application.job.title }}</td>
+                                    <td>{{ application.created_at|date:"M d, Y" }}</td>
+                                    <td>
+                                        {% if application.status == 'pending' %}
+                                            <span class="badge bg-warning">Pending</span>
+                                        {% elif application.status == 'reviewed' %}
+                                            <span class="badge bg-info">Reviewed</span>
+                                        {% elif application.status == 'interview' %}
+                                            <span class="badge bg-primary">Interview</span>
+                                        {% elif application.status == 'rejected' %}
+                                            <span class="badge bg-danger">Rejected</span>
+                                        {% elif application.status == 'accepted' %}
+                                            <span class="badge bg-success">Accepted</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary">{{ application.status }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if application.match_score %}
+                                            <div class="progress" style="height: 10px; width: 100px;">
+                                                <div class="progress-bar bg-success" role="progressbar" 
+                                                     style="width: {{ application.match_score }}%" 
+                                                     aria-valuenow="{{ application.match_score }}" 
+                                                     aria-valuemin="0" 
+                                                     aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                            <small class="text-muted">{{ application.match_score }}%</small>
+                                        {% else %}
+                                            <span class="text-muted">N/A</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i> View
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <div class="mb-4">
+                        <i class="fas fa-file-search fa-4x text-muted"></i>
+                    </div>
+                    <h3>No Applications Yet</h3>
+                    <p class="text-muted">You haven't applied to any jobs yet.</p>
+                    <a href="{% url 'candidate:job_recommendations' %}" class="btn btn-primary mt-3">
+                        <i class="fas fa-search"></i> Browse Recommended Jobs
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
