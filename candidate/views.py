@@ -139,8 +139,12 @@ def job_recommendations(request):
     job_matches = get_recommended_jobs(candidate)
     recommended_jobs = [{'job': job, 'match_score': round(score, 1)} for job, score in job_matches]
     
+    # 🛠 Fix: define saved_job_ids
+    saved_job_ids = SavedJob.objects.filter(candidate=candidate).values_list('job_id', flat=True)
+
     context = {
         'recommended_jobs': recommended_jobs,
+        'saved_job_ids': list(saved_job_ids),  # convert QuerySet to list
     }
     
     return render(request, 'candidate/job_recommendations.html', context)
@@ -302,12 +306,13 @@ def job_detail(request, job_id):
 def toggle_save_job(request, job_id):
     """Toggle job saved status"""
     if request.method != 'POST':
-        return JsonResponse({'error': 'Invalid request method'}, status=400)
+        return redirect('candidate:job_recommendations')  # Redirect instead of JSON error
     
     try:
         candidate = request.user.candidate
     except Candidate.DoesNotExist:
-        return JsonResponse({'error': 'Candidate profile not found'}, status=404)
+        messages.error(request, "Candidate profile not found")
+        return redirect('accounts:profile')
     
     job = get_object_or_404(JobPosting, id=job_id)
     
@@ -316,9 +321,11 @@ def toggle_save_job(request, job_id):
     if not created:
         # Already saved, so unsave it
         saved_job.delete()
-        return JsonResponse({'status': 'unsaved'})
+        messages.info(request, "Job removed from your saved list.")
+    else:
+        messages.success(request, "Job saved successfully.")
     
-    return JsonResponse({'status': 'saved'})
+    return redirect('candidate:job_recommendations')
 
 @login_required
 @user_passes_test(is_candidate)
