@@ -155,7 +155,9 @@ class Recruiter(Profile):
         return self.user.username
     
 class Candidate(Profile):
-    pass
+    skills = models.TextField(_('skills'), blank=True, null=True)
+    education = models.TextField(_('education'), blank=True, null=True)
+    experience = models.TextField(_('experience'), blank=True, null=True)
 
     def __str__(self):
         return self.user.username
