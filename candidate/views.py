@@ -105,6 +105,11 @@ def upload_resume(request):
         messages.error(request, "Candidate profile not found")
         return redirect('accounts:profile')
     
+    # Profile Completion Enforcement
+    if not candidate.skills or not candidate.education or not candidate.experience:
+        messages.warning(request, "Please complete your profile before uploading your resume.")
+        return redirect('candidate:complete_profile')
+    
     # Check if resume already exists
     try:
         resume = Resume.objects.get(candidate=candidate)
