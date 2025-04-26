@@ -21,6 +21,33 @@ def is_candidate(user):
 
 @login_required
 @user_passes_test(is_candidate)
+def complete_profile(request):
+    """View for completing candidate profile (skills, education, experience)"""
+    try:
+        candidate = request.user.candidate
+    except Candidate.DoesNotExist:
+        messages.error(request, "Candidate profile not found.")
+        return redirect('accounts:profile')
+    
+    if request.method == 'POST':
+        from .forms import CandidateProfileForm
+        form = CandidateProfileForm(request.POST, instance=candidate)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully! Now you can upload your resume.")
+            return redirect('candidate:upload_resume')
+    else:
+        from .forms import CandidateProfileForm
+        form = CandidateProfileForm(instance=candidate)
+    
+    context = {
+        'form': form,
+    }
+    return render(request, 'candidate/complete_profile.html', context)
+
+
+@login_required
+@user_passes_test(is_candidate)
 def candidate_dashboard(request):
     """Main candidate dashboard view"""
     try:
