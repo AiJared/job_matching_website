@@ -4,6 +4,26 @@ from django.utils.translation import gettext as _
 from dashboards.models import Resume, JobApplication
 from accounts.models import Candidate
 
+class CandidateProfileForm(forms.ModelForm):
+    """Form for candidate to update skills, education, and experience"""
+    class Meta:
+        model = Candidate
+        fields = ['skills', 'education', 'experience']
+        widgets = {
+            'skills': forms.Textarea(attrs={
+                'rows': 3,
+                'placeholder': _('List your skills separated by commas, e.g., Python, Django, SQL')
+            }),
+            'education': forms.Textarea(attrs={
+                'rows': 4,
+                'placeholder': _('Describe your education, degrees, institutions...')
+            }),
+            'experience': forms.Textarea(attrs={
+                'rows': 4,
+                'placeholder': _('Describe your work experience, previous roles, responsibilities...')
+            }),
+        }
+
 class ResumeUploadForm(forms.ModelForm):
     """Form for uploading a candidate's resume"""
     class Meta:
@@ -13,16 +33,12 @@ class ResumeUploadForm(forms.ModelForm):
     def clean_file(self):
         file = self.cleaned_data.get('file')
         if file:
-            # Check file size
             if file.size > 5 * 1024 * 1024:  # 5MB limit
                 raise forms.ValidationError(_("File size must be no more than 5MB."))
-            
-            # Check file extension
             allowed_extensions = ['pdf', 'docx', 'doc']
             ext = file.name.split('.')[-1].lower()
             if ext not in allowed_extensions:
                 raise forms.ValidationError(_(f"Only {', '.join(allowed_extensions)} files are allowed."))
-        
         return file
 
 class JobApplicationForm(forms.ModelForm):
@@ -51,9 +67,3 @@ class JobSearchForm(forms.Form):
         required=False,
         widget=forms.TextInput(attrs={'placeholder': _('Job category')})
     )
-
-class ProfileUpdateForm(forms.ModelForm):
-    """Form for updating candidate profile information"""
-    class Meta:
-        model = Candidate
-        fields = []  # Add specific candidate fields if you have any in your Candidate model
