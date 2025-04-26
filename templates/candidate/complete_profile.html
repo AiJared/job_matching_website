@@ -1,0 +1,59 @@
+{% extends 'candidate/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}Complete Profile{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Complete Your Profile</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="{{ form.skills.id_for_label }}">Skills (comma separated)</label>
+                    {{ form.skills|add_class:"form-control" }}
+                    {% if form.skills.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.skills.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.education.id_for_label }}">Education Background</label>
+                    {{ form.education|add_class:"form-control" }}
+                    {% if form.education.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.education.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.experience.id_for_label }}">Experience Summary</label>
+                    {{ form.experience|add_class:"form-control" }}
+                    {% if form.experience.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.experience.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save and Continue
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
