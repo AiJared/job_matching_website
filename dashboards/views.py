@@ -206,6 +206,11 @@ def application_detail(request, application_id):
         job__recruiter=request.user.recruiter
     )
     
+    # ✅ Fix for splitting skills
+    skills_list = []
+    if application.resume and application.resume.skills:
+        skills_list = [skill.strip() for skill in application.resume.skills.split(',')]
+    
     if request.method == 'POST':
         form = ApplicationStatusUpdateForm(request.POST, instance=application)
         if form.is_valid():
@@ -218,9 +223,11 @@ def application_detail(request, application_id):
     context = {
         'application': application,
         'form': form,
+        'skills_list': skills_list,  # ✅ pass skills_list to template
     }
     
     return render(request, 'dashboards/application_detail.html', context)
+
 
 @login_required
 @user_passes_test(is_recruiter)

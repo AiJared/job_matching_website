@@ -1,4 +1,6 @@
 {% extends 'dashboards/base.html' %}
+{% load widget_tweaks %}
+
 {% load static %}
 
 {% block title %}Application Details - {{ application.candidate.user.full_name }}{% endblock %}
@@ -106,17 +108,16 @@
                     </ul>
                     <div class="tab-content p-3" id="resumeTabsContent">
                         <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-                            {% if application.resume.skills %}
+                            {% if skills_list %}
                                 <div class="d-flex flex-wrap">
-                                    {% with skills_list=application.resume.skills.split(',') %}
-                                        {% for skill in skills_list %}
-                                            <span class="badge badge-info m-1 p-2">{{ skill|strip }}</span>
-                                        {% endfor %}
-                                    {% endwith %}
+                                    {% for skill in skills_list %}
+                                        <span class="badge badge-info m-1 p-2">{{ skill }}</span>
+                                    {% endfor %}
                                 </div>
                             {% else %}
                                 <p class="text-muted">No skills information extracted.</p>
                             {% endif %}
+
                         </div>
                         <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                             {% if application.resume.education %}
