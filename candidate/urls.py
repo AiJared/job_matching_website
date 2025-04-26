@@ -6,6 +6,7 @@ app_name = 'candidate'
 
 urlpatterns = [
     path('candidate_dashboard/', views.candidate_dashboard, name='candidate_dashboard'),
+    path('complete_profile/', views.complete_profile, name='complete_profile'),
     path('resume/upload/', views.upload_resume, name='upload_resume'),
     path('jobs/recommendations/', views.job_recommendations, name='job_recommendations'),
     path('jobs/search/', views.job_search, name='job_search'),
