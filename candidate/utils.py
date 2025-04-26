@@ -11,25 +11,45 @@ from accounts.models import Candidate
 def process_resume(resume_id):
     """Process a resume, extract features, and generate embedding"""
     from dashboards.ai_utils import generate_resume_embedding, prepare_resume_features
+    import traceback
     
     try:
         resume = Resume.objects.get(id=resume_id)
+        print(f"Processing resume ID: {resume_id}")
         
-        # In a real application, you would extract text and parse the resume here
-        # For now, we'll use placeholder data assuming text extraction happens elsewhere
+        # Extract text if needed (in a real app, you'd use a library to extract text from the resume file)
         if not resume.extracted_text:
+            print("No extracted text found, using placeholder")
             resume.extracted_text = "Placeholder extracted text"
+            resume.save()
         
-        # Generate embedding if it doesn't exist
-        if not resume.embedding_vector:
-            embedding = generate_resume_embedding(resume)
-            if embedding is not None:
-                resume.embedding_vector = embedding.tobytes()
-                resume.save()
+        # For debugging, print available fields
+        print(f"Resume has skills: {bool(resume.skills)}")
+        print(f"Resume has education: {bool(resume.education)}")
+        print(f"Resume has experience: {bool(resume.experience)}")
+        
+        # Generate embedding
+        print("Attempting to generate embedding...")
+        embedding = generate_resume_embedding(resume)
+        
+        if embedding is not None:
+            print(f"Embedding generated successfully, shape: {embedding.shape}")
+            resume.embedding_vector = embedding.tobytes()
+            resume.is_processed = True  # Mark as processed
+            resume.save()
+            print("Resume marked as processed")
             
-        return True
+            # Update job matches
+            update_candidate_matches(resume.candidate)
+            
+            return True
+        else:
+            print("Failed to generate embedding - returned None")
+            return False
+            
     except Exception as e:
         print(f"Error processing resume: {e}")
+        print(traceback.format_exc())
         return False
 
 def get_recommended_jobs(candidate, limit=10):

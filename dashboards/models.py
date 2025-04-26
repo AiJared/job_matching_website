@@ -56,6 +56,7 @@ class Resume(BaseModel):
     education = models.TextField(_('education'), blank=True, null=True)
     experience = models.TextField(_('experience'), blank=True, null=True)
     embedding_vector = models.BinaryField(_('resume embedding vector'), null=True, blank=True)
+    is_processed = models.BooleanField(_('is processed'), default=False)  # Add this field
     
     def __str__(self):
         return f"Resume of {self.candidate.user.full_name}"
