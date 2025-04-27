@@ -10,47 +10,44 @@ from accounts.models import Candidate
 
 def process_resume(resume_id):
     """Process a resume, extract features, and generate embedding"""
-    from dashboards.ai_utils import generate_resume_embedding, prepare_resume_features
+    from dashboards.ai_utils import generate_resume_embedding, prepare_resume_features, update_job_matches
     import traceback
-    
+
     try:
         resume = Resume.objects.get(id=resume_id)
         print(f"Processing resume ID: {resume_id}")
-        
-        # Extract text if needed (in a real app, you'd use a library to extract text from the resume file)
+
+        # Only update extracted_text if it's truly needed in future (now skipped)
         if not resume.extracted_text:
-            print("No extracted text found, using placeholder")
-            resume.extracted_text = "Placeholder extracted text"
+            resume.extracted_text = "Placeholder text from resume upload."
             resume.save()
-        
-        # For debugging, print available fields
-        print(f"Resume has skills: {bool(resume.skills)}")
-        print(f"Resume has education: {bool(resume.education)}")
-        print(f"Resume has experience: {bool(resume.experience)}")
-        
+
+        # No more unnecessary logs about missing skills/education/experience
+
         # Generate embedding
-        print("Attempting to generate embedding...")
+        print("Generating embedding from candidate-provided fields...")
         embedding = generate_resume_embedding(resume)
-        
+
         if embedding is not None:
-            print(f"Embedding generated successfully, shape: {embedding.shape}")
+            print(f"Embedding generated successfully. Shape: {embedding.shape}")
             resume.embedding_vector = embedding.tobytes()
-            resume.is_processed = True  # Mark as processed
+            resume.is_processed = True
             resume.save()
-            print("Resume marked as processed")
-            
-            # Update job matches
+            print("Resume marked as processed.")
+
+            # Update matches
             update_candidate_matches(resume.candidate)
-            
+
             return True
         else:
-            print("Failed to generate embedding - returned None")
+            print("Embedding generation failed, returned None.")
             return False
-            
+
     except Exception as e:
         print(f"Error processing resume: {e}")
         print(traceback.format_exc())
         return False
+
 
 def get_recommended_jobs(candidate, limit=10):
     """Get job recommendations for a candidate based on resume match score"""

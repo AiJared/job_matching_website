@@ -89,64 +89,49 @@ def prepare_resume_features(resume):
 #         print(f"Error generating job embedding: {e}")
 #         return None
 def generate_job_embedding(job_posting):
-    """Generate embedding vector for a job posting using text processing"""
-    job_preprocessor = load_preprocessor(JOB_PREPROCESSOR_PATH)
-    
-    if not job_preprocessor:
-        return None
-    
-    # Extract features from job posting
+    """Generate embedding vector for a job posting using text processing."""
+    print("Generating job embedding from job posting fields...")
+
     features = prepare_job_features(job_posting)
-    
-    # Create a simple embedding based on text features
+
+    text_data = ' '.join([
+        features.get('title') or '',
+        features.get('required_skills') or '',
+        features.get('description') or '',
+        features.get('requirements') or '',
+        features.get('responsibilities') or '',
+        str(features.get('min_experience') or ''),
+        features.get('education_level') or '',
+        features.get('location') or '',
+        features.get('employment_type') or ''
+    ]).lower().strip()
+
+    if not text_data:
+        print("Warning: No text found in job posting. Using default text.")
+        text_data = "default job posting skills requirements education"
+
     try:
-        # Concatenate text fields
-        text_data = ' '.join([
-            features['title'],
-            features['required_skills'],
-            features['description'],
-            features['requirements'],
-            features['responsibilities'],
-            str(features['min_experience']),
-            features['education_level'],
-            features['location'],
-            features['employment_type']
-        ])
-        
-        # Convert to lowercase
-        text_data = text_data.lower()
-        
-        # Create a basic embedding (hash-based)
         import hashlib
         import numpy as np
-        
-        # Create a 64-dimensional embedding using hashing trick
+
         embedding = np.zeros(64)
-        
-        # Split text into words
-        words = text_data.split()
-        
-        # Use word hashing to create embedding
-        for word in words:
+
+        for word in text_data.split():
             hash_value = int(hashlib.md5(word.encode()).hexdigest(), 16)
             embedding[hash_value % 64] += 1
-        
-        # Normalize embedding
+
         norm = np.linalg.norm(embedding)
         if norm > 0:
             embedding = embedding / norm
-            
-        # Reshape to match expected format
-        return embedding.reshape(1, -1)
-        
-    except Exception as e:
-        print(f"Error generating job embedding: {e}")
-        # return None
-        # After all your processing...
 
-        # Final step (replace your old return)
+        print("Job embedding generated successfully.")
         return embedding.reshape(1, -1).astype(np.float32)
 
+    except Exception as e:
+        print(f"Error generating job embedding: {e}")
+        import traceback
+        print(traceback.format_exc())
+        return None
 
 
 # def generate_resume_embedding(resume):
@@ -204,72 +189,53 @@ def generate_job_embedding(job_posting):
 #         print(traceback.format_exc())
 #         return None
 def generate_resume_embedding(resume):
-    """Generate embedding vector for a resume using text processing"""
-    print("Using simulated candidate model...")
+    """Generate embedding vector for a resume based on manually filled fields."""
+    print("Generating candidate resume embedding from form fields...")
+    
     candidate_preprocessor = load_preprocessor(CANDIDATE_PREPROCESSOR_PATH)
-    
     if not candidate_preprocessor:
-        print("Failed to load candidate preprocessor")
+        print("Failed to load candidate preprocessor.")
         return None
-    
-    # Extract features from resume
+
+    # Build a clean text from actual candidate-provided fields
     features = prepare_resume_features(resume)
-    
-    # Create a simple embedding based on text features
+
+    # ✅ Assemble text properly
+    skills = features.get('skills') or ""
+    education = features.get('education') or ""
+    experience = features.get('experience') or ""
+
+    text_data = f"{skills} {education} {experience}".strip().lower()
+
+    if not text_data:
+        print("Warning: No skills, education, or experience provided by candidate.")
+        text_data = "default resume candidate skills education experience"
+
+    # ✅ Hash-based simple embedding
     try:
-        # Safely handle None values in the text fields
-        text_parts = []
-        for field in ['skills', 'education', 'experience', 'extracted_text']:
-            if features.get(field):
-                text_parts.append(str(features[field]))
-            else:
-                # Use empty string if field is None or empty
-                text_parts.append("")
-                print(f"Warning: Resume field '{field}' is empty or None")
-        
-        # Concatenate text fields
-        text_data = ' '.join(text_parts)
-        
-        # If we have no text at all, use placeholder text
-        if not text_data.strip():
-            print("Warning: All resume text fields are empty. Using placeholder text.")
-            text_data = "resume placeholder generic skills education experience"
-        
-        # Convert to lowercase
-        text_data = text_data.lower()
-        
-        # Create a basic embedding (hash-based)
         import hashlib
         import numpy as np
-        
-        # Create a 64-dimensional embedding using hashing trick
+
         embedding = np.zeros(64)
-        
-        # Split text into words
-        words = text_data.split()
-        
-        # Use word hashing to create embedding
-        for word in words:
+
+        for word in text_data.split():
             hash_value = int(hashlib.md5(word.encode()).hexdigest(), 16)
             embedding[hash_value % 64] += 1
-        
-        # Normalize embedding
+
+        # Normalize
         norm = np.linalg.norm(embedding)
         if norm > 0:
             embedding = embedding / norm
-            
-        # Reshape to match expected format
-        return embedding.reshape(1, -1)
-        
+
+        # Return in the correct format
+        print("Embedding generated successfully.")
+        return embedding.reshape(1, -1).astype(np.float32)
+
     except Exception as e:
         print(f"Error generating resume embedding: {e}")
         import traceback
         print(traceback.format_exc())
-        # return None
-        # After all your processing...
-
-        # Final step (replace your old return)
-        return embedding.reshape(1, -1).astype(np.float32)
+        return None
 
 
 
