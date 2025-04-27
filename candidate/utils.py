@@ -9,23 +9,26 @@ from dashboards.ai_utils import load_tf_model, load_preprocessor, calculate_matc
 from accounts.models import Candidate
 
 def process_resume(resume_id):
-    """Process a resume, extract features, and generate embedding"""
-    from dashboards.ai_utils import generate_resume_embedding, prepare_resume_features, update_job_matches
+    """Process a resume, generate embedding based ONLY on form fields (skills, education, experience)"""
+    from dashboards.ai_utils import generate_resume_embedding
     import traceback
 
     try:
         resume = Resume.objects.get(id=resume_id)
+        candidate = resume.candidate
+
         print(f"Processing resume ID: {resume_id}")
-
-        # Only update extracted_text if it's truly needed in future (now skipped)
-        if not resume.extracted_text:
-            resume.extracted_text = "Placeholder text from resume upload."
-            resume.save()
-
-        # No more unnecessary logs about missing skills/education/experience
-
-        # Generate embedding
         print("Generating embedding from candidate-provided fields...")
+
+        # 🛠 SYNC candidate profile fields into resume before generating embedding
+        resume.skills = candidate.skills
+        resume.education = candidate.education
+        resume.experience = candidate.experience
+        resume.save()
+
+        # We DO NOT care about extracted_text anymore
+
+        # Generate embedding based on the fields
         embedding = generate_resume_embedding(resume)
 
         if embedding is not None:
@@ -33,14 +36,15 @@ def process_resume(resume_id):
             resume.embedding_vector = embedding.tobytes()
             resume.is_processed = True
             resume.save()
+
             print("Resume marked as processed.")
 
-            # Update matches
+            # Update job matches
             update_candidate_matches(resume.candidate)
 
             return True
         else:
-            print("Embedding generation failed, returned None.")
+            print("Failed to generate embedding - returned None")
             return False
 
     except Exception as e:

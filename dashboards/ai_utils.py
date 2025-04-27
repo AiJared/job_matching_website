@@ -16,16 +16,6 @@ MATCHING_MODEL_PATH = os.path.join(settings.BASE_DIR, 'ai_models', 'matching_mod
 JOB_PREPROCESSOR_PATH = os.path.join(settings.BASE_DIR, 'ai_models', 'job_preprocessor.pkl')
 CANDIDATE_PREPROCESSOR_PATH = os.path.join(settings.BASE_DIR, 'ai_models', 'candidate_preprocessor.pkl')
 
-# # Load TensorFlow models
-# def load_tf_model(path):
-#     try:
-#         # Allow Lambda deserialization
-#         keras.config.enable_unsafe_deserialization()
-#         model = tf.keras.models.load_model(path)
-#         return model
-#     except Exception as e:
-#         print(f"Error loading TensorFlow model from {path}: {e}")
-#         return None
 def load_tf_model(path):
     """Simulated model loading - returns a placeholder"""
     print(f"Using simulated model instead of loading from {path}")
@@ -67,27 +57,7 @@ def prepare_resume_features(resume):
     }
     return features
 
-# def generate_job_embedding(job_posting):
-#     """Generate embedding vector for a job posting using the job encoder model"""
-#     job_model = load_tf_model(JOB_MODEL_PATH)
-#     job_preprocessor = load_preprocessor(JOB_PREPROCESSOR_PATH)
-    
-#     if not job_model or not job_preprocessor:
-#         return None
-    
-#     # Extract features from job posting
-#     features = prepare_job_features(job_posting)
-    
-#     # Apply preprocessor transformation
-#     try:
-#         processed_features = job_preprocessor.transform(features)
-        
-#         # Get the embedding from the job encoder model
-#         embedding = job_model.predict(processed_features)
-#         return embedding
-#     except Exception as e:
-#         print(f"Error generating job embedding: {e}")
-#         return None
+
 def generate_job_embedding(job_posting):
     """Generate embedding vector for a job posting using text processing."""
     print("Generating job embedding from job posting fields...")
@@ -133,61 +103,6 @@ def generate_job_embedding(job_posting):
         print(traceback.format_exc())
         return None
 
-
-# def generate_resume_embedding(resume):
-#     """Generate embedding vector for a resume using the candidate encoder model"""
-    
-#     print("Loading candidate model and preprocessor...")
-#     candidate_model = load_tf_model(CANDIDATE_MODEL_PATH)
-#     candidate_preprocessor = load_preprocessor(CANDIDATE_PREPROCESSOR_PATH)
-    
-#     if not candidate_model:
-#         print(f"Failed to load candidate model from {CANDIDATE_MODEL_PATH}")
-#         return None
-        
-#     if not candidate_preprocessor:
-#         print(f"Failed to load candidate preprocessor from {CANDIDATE_PREPROCESSOR_PATH}")
-#         return None
-    
-#     # Extract features from resume
-#     print("Preparing resume features...")
-#     features = prepare_resume_features(resume)
-#     print(f"Features extracted: {features.keys()}")
-    
-#     # Apply preprocessor transformation
-#     try:
-#         print("Transforming features with preprocessor...")
-        
-#         # First check if we need to use a DataFrame
-#         if hasattr(candidate_preprocessor, 'feature_names_in_'):
-#             print(f"Preprocessor expects these features: {candidate_preprocessor.feature_names_in_}")
-            
-#         # Try different approaches based on what the preprocessor might expect
-#         try:
-#             # Try direct transformation first
-#             processed_features = candidate_preprocessor.transform(features)
-#         except Exception:
-#             try:
-#                 # Try with pandas DataFrame next
-#                 features_df = pd.DataFrame([features])
-#                 processed_features = candidate_preprocessor.transform(features_df)
-#             except Exception:
-#                 # Try with a dictionary containing a single list item for each feature
-#                 features_dict = {k: [v] for k, v in features.items()}
-#                 features_df = pd.DataFrame(features_dict)
-#                 processed_features = candidate_preprocessor.transform(features_df)
-                
-#         print("Feature transformation successful")
-        
-#         # Get the embedding from the candidate encoder model
-#         print("Generating prediction from model...")
-#         embedding = candidate_model.predict(processed_features)
-#         print(f"Embedding generated with shape: {embedding.shape}")
-#         return embedding
-#     except Exception as e:
-#         print(f"Error in generate_resume_embedding: {e}")
-#         print(traceback.format_exc())
-#         return None
 def generate_resume_embedding(resume):
     """Generate embedding vector for a resume based on manually filled fields."""
     print("Generating candidate resume embedding from form fields...")
@@ -237,63 +152,6 @@ def generate_resume_embedding(resume):
         print(traceback.format_exc())
         return None
 
-
-
-# def calculate_match_score(job_embedding, resume_embedding):
-#     """Calculate match score using the matching model or cosine similarity"""
-#     # Try to use the matching model if available
-#     matching_model = load_tf_model(MATCHING_MODEL_PATH)
-    
-#     if matching_model and job_embedding is not None and resume_embedding is not None:
-#         try:
-#             # Prepare input for matching model
-#             job_vector = np.frombuffer(job_embedding, dtype=np.float32).reshape(1, -1)
-#             resume_vector = np.frombuffer(resume_embedding, dtype=np.float32).reshape(1, -1)
-            
-#             # Concatenate or prepare the inputs as expected by the matching model
-#             model_input = [job_vector, resume_vector]  # Adjust based on how your model expects inputs
-            
-#             # Get predicted match score
-#             match_score = float(matching_model.predict(model_input)[0][0])
-            
-#             # Scale to 0-100 if needed
-#             if match_score <= 1.0:
-#                 match_score = match_score * 100
-                
-#             return match_score
-#         except Exception as e:
-#             print(f"Error using matching model: {e}")
-#             # Fall back to cosine similarity if there's an error
-    
-#     # Fall back to cosine similarity if matching model isn't available or there was an error
-#     if job_embedding is None or resume_embedding is None:
-#         return 0
-    
-#     # Convert binary fields to numpy arrays if needed
-#     if isinstance(job_embedding, bytes):
-#         job_vector = np.frombuffer(job_embedding, dtype=np.float32)
-#     else:
-#         job_vector = job_embedding.flatten()
-        
-#     if isinstance(resume_embedding, bytes):
-#         resume_vector = np.frombuffer(resume_embedding, dtype=np.float32)
-#     else:
-#         resume_vector = resume_embedding.flatten()
-    
-#     # Calculate cosine similarity
-#     dot_product = np.dot(job_vector, resume_vector)
-#     norm_job = np.linalg.norm(job_vector)
-#     norm_resume = np.linalg.norm(resume_vector)
-    
-#     if norm_job == 0 or norm_resume == 0:
-#         return 0
-    
-#     similarity = dot_product / (norm_job * norm_resume)
-    
-#     # Convert similarity to a percentage score (0-100)
-#     match_score = (similarity + 1) / 2 * 100
-    
-#     return match_score
 
 def calculate_match_score(job_embedding, resume_embedding):
     """Calculate match score using cosine similarity"""
@@ -353,35 +211,6 @@ def update_job_matches(job_posting):
                 application.match_score = match_score
                 application.save(update_fields=['match_score', 'updated_at'])
 
-# def test_model_loading():
-#     """Test function to verify model loading"""
-#     import os
-#     print(f"Current working directory: {os.getcwd()}")
-#     print(f"Looking for models in: {os.path.join(os.getcwd(), 'ai_models')}")
-    
-#     # Check if model files exist
-#     print(f"Job model exists: {os.path.exists(JOB_MODEL_PATH)}")
-#     print(f"Candidate model exists: {os.path.exists(CANDIDATE_MODEL_PATH)}")
-#     print(f"Matching model exists: {os.path.exists(MATCHING_MODEL_PATH)}")
-#     print(f"Job preprocessor exists: {os.path.exists(JOB_PREPROCESSOR_PATH)}")
-#     print(f"Candidate preprocessor exists: {os.path.exists(CANDIDATE_PREPROCESSOR_PATH)}")
-    
-#     # Try loading the models
-#     job_model = load_tf_model(JOB_MODEL_PATH)
-#     candidate_model = load_tf_model(CANDIDATE_MODEL_PATH)
-#     matching_model = load_tf_model(MATCHING_MODEL_PATH)
-    
-#     # Try loading the preprocessors
-#     job_preprocessor = load_preprocessor(JOB_PREPROCESSOR_PATH)
-#     candidate_preprocessor = load_preprocessor(CANDIDATE_PREPROCESSOR_PATH)
-    
-#     return {
-#         'job_model': job_model is not None,
-#         'candidate_model': candidate_model is not None,
-#         'matching_model': matching_model is not None,
-#         'job_preprocessor': job_preprocessor is not None,
-#         'candidate_preprocessor': candidate_preprocessor is not None
-#     }
 
 def test_model_loading():
     """Test function to verify simulated model functionality"""

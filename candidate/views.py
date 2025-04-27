@@ -12,7 +12,7 @@ from django.db.models import Q
 from accounts.models import Candidate
 from dashboards.models import Resume, JobPosting, JobApplication
 from .models import SavedJob, JobSearchHistory, ProfileCompletionTask
-from .forms import ResumeUploadForm, JobApplicationForm, JobSearchForm
+from .forms import CandidateProfileForm, ResumeUploadForm, JobApplicationForm, JobSearchForm
 from .utils import process_resume, get_recommended_jobs, get_profile_completion_percentage, update_candidate_matches
 
 def is_candidate(user):
@@ -22,28 +22,43 @@ def is_candidate(user):
 @login_required
 @user_passes_test(is_candidate)
 def complete_profile(request):
-    """View for completing candidate profile (skills, education, experience)"""
-    try:
-        candidate = request.user.candidate
-    except Candidate.DoesNotExist:
-        messages.error(request, "Candidate profile not found.")
-        return redirect('accounts:profile')
-    
+    """View for candidates to complete their profile (skills, education, experience)"""
+    candidate = request.user.candidate
+
     if request.method == 'POST':
-        from .forms import CandidateProfileForm
         form = CandidateProfileForm(request.POST, instance=candidate)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile updated successfully! Now you can upload your resume.")
-            return redirect('candidate:upload_resume')
+
+            # Auto-sync Resume model fields
+            try:
+                resume = Resume.objects.get(candidate=candidate)
+
+                resume.skills = candidate.skills
+                resume.education = candidate.education
+                resume.experience = candidate.experience
+
+                # Reset processed embedding
+                resume.embedding_vector = None
+                resume.is_processed = False
+
+                resume.save()
+
+                # Trigger re-processing embedding
+                process_resume(resume.id)
+
+                messages.success(request, "Your profile and resume have been updated and reprocessed successfully!")
+            except Resume.DoesNotExist:
+                # No resume uploaded yet; nothing to sync
+                messages.success(request, "Your profile has been updated successfully!")
+
+            return redirect('candidate:candidate_dashboard')
+        else:
+            messages.error(request, "Please correct the errors below.")
     else:
-        from .forms import CandidateProfileForm
         form = CandidateProfileForm(instance=candidate)
-    
-    context = {
-        'form': form,
-    }
-    return render(request, 'candidate/complete_profile.html', context)
+
+    return render(request, 'candidate/complete_profile.html', {'form': form})
 
 
 @login_required
