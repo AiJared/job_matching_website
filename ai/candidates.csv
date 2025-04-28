@@ -1,0 +1,1501 @@
+id,skills,experience,education,location,career_field,relocation
+1,e-discovery brief writing mediation teaching,2,High School,Raleigh,Legal,False
+2,employee retention labor laws succession planning,4,High School,Kansas City,Human Resources,False
+3,influencer marketing social media marketing buffer hootsuite google ads inbound marketing customer journey,4,Associate,Orlando,Marketing,True
+4,differentiated instruction instructional design lesson planning stem education blackboard canvas student support,8,Bachelor,Miami,Education,False
+5,testing project management industrial design failure analysis cad plc quality assurance upselling,6,High School,San Francisco,Engineering,False
+6,proposal writing consultative selling presentations customer acquisition lead generation solution selling,4,Master,San Francisco,Sales,False
+7,mailchimp hubspot a/b testing seo tools hootsuite crm software public relations hr compliance,3,Bachelor,Tampa,Marketing,False
+8,diversity & inclusion organizational development employee retention change management labor laws hr analytics interviewing stem education educational administration classroom management,5,Master,Portland,Human Resources,True
+9,cfa audit sap cash flow analysis capital markets derivatives pivot tables google ads facebook ads,4,Bachelor,Minneapolis,Finance,False
+10,gcp django react nosql jenkins,1,Master,Nashville,Software & IT,False
+11,storytelling a/b testing sem copywriting plc engineering design blueprint reading,3,High School,Dallas,Marketing,False
+12,employee relations talent management succession planning adp hr compliance,2,PhD,St. Louis,Human Resources,False
+13,quotas closing techniques contract negotiation salesforce,20,Associate,Orlando,Sales,True
+14,django rust mysql hibernate git,11,Associate,Baltimore,Software & IT,False
+15,copywriting ux design figma color theory editing workforce planning,7,Bachelor,Washington DC,Arts & Media,True
+16,objection handling customer retention sales strategy,5,Master,Houston,Sales,True
+17,microcontrollers autocad gd&t industrial design,11,Bachelor,St. Louis,Engineering,True
+18,css git jenkins java node.js scikit-learn,14,Master,Chicago,Software & IT,False
+19,adp succession planning workforce planning,4,Bachelor,Salt Lake City,Human Resources,True
+20,patient assessment infection control therapy,6,Master,Los Angeles,Healthcare,False
+21,user research illustration user testing storytelling premiere pro adobe indesign,0,High School,Tampa,Arts & Media,False
+22,talent management change management organizational development workforce planning career development interviewing accounting financial analysis,2,Bachelor,Philadelphia,Human Resources,True
+23,pivot tables power bi excel python audit,3,High School,Indianapolis,Finance,True
+24,storytelling google analytics inbound marketing,1,Master,Cincinnati,Marketing,False
+25,sem branding customer journey seo buffer simulation,10,Bachelor,Pittsburgh,Marketing,True
+26,anatomy patient assessment infection control physiology case management medical terminology phlebotomy,10,Bachelor,Detroit,Healthcare,True
+27,psychiatric evaluation therapy clinical research physiology clinical documentation pharmacology critical care territory management cross-selling,13,Bachelor,San Francisco,Healthcare,False
+28,bloomberg terminal r sap financial modeling,4,Master,Washington DC,Finance,True
+29,document review drafting client counseling intellectual property legal analysis mediation derivatives r,3,Associate,Raleigh,Legal,False
+30,content creation marketing automation mailchimp adobe creative suite hubspot,9,Bachelor,Philadelphia,Marketing,True
+31,product development materials science process improvement manufacturing processes circuit design fluid dynamics industrial design,9,Bachelor,Cincinnati,Engineering,True
+32,differentiated instruction special education student support canvas instructional design,5,Master,Cincinnati,Education,True
+33,kubernetes python swift .net rest api aws rust,7,Master,San Diego,Software & IT,True
+34,postgresql html javascript c++ rust kubernetes docker circuit design structural analysis fluid dynamics,2,Bachelor,St. Louis,Software & IT,True
+35,negotiation client relationship management prospecting customer retention upselling,6,PhD,Detroit,Sales,False
+36,content strategy hubspot canva analytics digital marketing storytelling financial statements regulatory compliance,17,Bachelor,Tampa,Marketing,False
+37,financial statements portfolio management audit excel,7,Bachelor,Los Angeles,Finance,True
+38,graphql django node.js javascript rust,19,High School,Pittsburgh,Software & IT,False
+39,ui design 3d modeling illustration,4,PhD,Baltimore,Arts & Media,False
+40,a/b testing content strategy campaign management google analytics email marketing,7,Bachelor,Remote,Marketing,False
+41,moodle iep development lms diagnosis cpr patient education,2,Master,Salt Lake City,Education,False
+42,thermodynamics catia failure analysis structural analysis project management,9,Bachelor,New York,Engineering,True
+43,regulatory compliance derivatives financial reporting mergers and acquisitions investment management banking,10,Master,San Antonio,Finance,False
+44,content strategy analytics seo tools market research affiliate marketing canva customer journey,6,Bachelor,Pittsburgh,Marketing,True
+45,corporate finance internal controls regulatory compliance academic writing,1,Bachelor,San Francisco,Finance,True
+46,hris systems adp talent management bamboo hr hr policies,3,Bachelor,San Antonio,Human Resources,False
+47,customer acquisition b2c sales objection handling solution selling presentations account management b2b sales,7,High School,Indianapolis,Sales,False
+48,materials science gd&t autocad quality assurance matlab plc,3,PhD,Minneapolis,Engineering,True
+49,employee training payroll processing diversity & inclusion benefits administration organizational development,3,High School,Chicago,Human Resources,False
+50,capital markets power bi budget management sql patient assessment,3,High School,Philadelphia,Finance,False
+51,pipeline management sales upselling sales analytics crm,13,Bachelor,Pittsburgh,Sales,True
+52,hr policies adp benefits administration hr analytics labor laws employee relations,7,Bachelor,St. Louis,Human Resources,False
+53,plc technical documentation catia materials science finite element analysis 3d modeling,2,Bachelor,Cincinnati,Engineering,True
+54,talent management payroll processing recruiting labor laws change management employee relations gaap,7,High School,Salt Lake City,Human Resources,True
+55,medical terminology case management vital signs patient assessment preventive care electronic health records student support iep development mentoring,4,High School,Boston,Healthcare,False
+56,solution selling cold calling consultative selling sales hubspot,4,Master,Salt Lake City,Sales,False
+57,power bi python sap portfolio management financial reporting budget management excel academic advising classroom management student assessment,1,Bachelor,Remote,Finance,True
+58,talent management workforce planning diversity & inclusion,7,High School,Salt Lake City,Human Resources,False
+59,lesson planning mentoring educational technology educational psychology internal controls,6,Associate,Remote,Education,False
+60,curriculum development student engagement blackboard educational psychology lesson planning mentoring,4,Bachelor,San Antonio,Education,True
+61,customer retention cross-selling objection handling sales enablement hubspot,21,Bachelor,Miami,Sales,True
+62,business development consultative selling cold calling,8,Master,Houston,Sales,True
+63,git mysql django tensorflow scikit-learn javascript,3,Associate,Salt Lake City,Software & IT,False
+64,wireframing invision storytelling color theory,1,High School,San Francisco,Arts & Media,True
+65,hris systems change management employee retention labor laws workday diversity & inclusion hr analytics,2,Master,Phoenix,Human Resources,True
+66,lesson planning stem education moodle research classroom management,4,Bachelor,Portland,Education,False
+67,customer journey google analytics hubspot crm software,5,Bachelor,Los Angeles,Marketing,False
+68,spring scikit-learn swift postgresql javascript,3,Associate,Remote,Software & IT,False
+69,physiology phlebotomy patient care,3,Bachelor,Seattle,Healthcare,True
+70,e-discovery patent law legal analysis trademark law legal documentation,4,Bachelor,Dallas,Legal,True
+71,visual design wireframing adobe photoshop branding ux design animation illustration,8,High School,Miami,Arts & Media,False
+72,psychiatric evaluation surgery preventive care imaging medical records disease management adobe indesign wireframing,5,High School,Portland,Healthcare,False
+73,crm software ppc google analytics branding digital marketing,1,High School,Tampa,Marketing,True
+74,ansys simulation solidworks process improvement root cause analysis,6,Associate,Dallas,Engineering,False
+75,b2b sales consultative selling crm objection handling sales funnel management cross-selling upselling,2,Bachelor,San Diego,Sales,False
+76,sem inbound marketing content creation crm software mailchimp branding,5,Master,Tampa,Marketing,True
+77,mechanical design solidworks cad project management sales enablement,2,Associate,Seattle,Engineering,False
+78,anatomy medical records medication management,3,Associate,Orlando,Healthcare,True
+79,postgresql numpy ruby c# mysql django user research color theory,1,Master,Kansas City,Software & IT,False
+80,civil procedure lexisnexis trademark law document review arbitration corporate law b2c sales sales,3,High School,San Antonio,Legal,True
+81,recruiting workday labor laws redux tensorflow,2,High School,Remote,Human Resources,False
+82,php mysql react pandas c# surgery treatment planning electronic health records,3,PhD,Remote,Software & IT,True
+83,rest api docker nosql scikit-learn mediation,8,Bachelor,Detroit,Software & IT,False
+84,inbound marketing branding copywriting sem affiliate marketing content strategy crm software sql power bi,3,Master,Columbus,Marketing,False
+85,applicant tracking systems diversity & inclusion workday,9,Bachelor,Baltimore,Human Resources,False
+86,sales forecasting objection handling consultative selling sketch typography figma,3,Master,Boston,Sales,False
+87,mysql hibernate php rest api,3,High School,Cincinnati,Software & IT,False
+88,google analytics hootsuite customer journey mailchimp content strategy,3,Master,Columbus,Marketing,True
+89,student assessment instructional design student support lesson planning excel derivatives cpa,7,Associate,Phoenix,Education,True
+90,technical documentation prototyping thermodynamics project management quality control industrial design fluid dynamics,4,Bachelor,Pittsburgh,Engineering,False
+91,structural analysis prototyping simulation circuit design failure analysis,2,Associate,San Antonio,Engineering,False
+92,civil procedure corporate law litigation,6,Master,Tampa,Legal,True
+93,pharmacology infection control psychiatric evaluation patient assessment case management,1,Bachelor,Columbus,Healthcare,True
+94,adobe creative suite google analytics campaign management inbound marketing,1,High School,New York,Marketing,False
+95,prototyping matlab finite element analysis,4,High School,Denver,Engineering,True
+96,java ruby sql,17,Associate,Houston,Software & IT,True
+97,illustration 3d modeling premiere pro content strategy adobe photoshop,3,Master,St. Louis,Arts & Media,False
+98,facebook ads market research google analytics social media marketing cpr anatomy,2,Bachelor,Nashville,Marketing,True
+99,sketch ui design typography user research copywriting adobe indesign creative direction,10,Bachelor,Los Angeles,Arts & Media,True
+100,blueprint reading cad catia structural analysis system design autocad,3,Bachelor,Denver,Engineering,True
+101,blueprint reading technical documentation root cause analysis,0,Bachelor,Washington DC,Engineering,True
+102,therapy healthcare regulations diagnosis treatment planning cpr b2b sales negotiation sales funnel management,15,Master,San Antonio,Healthcare,True
+103,hubspot presentations solution selling account management therapy,27,High School,Kansas City,Sales,True
+104,physiology medication management infection control,5,Master,St. Louis,Healthcare,True
+105,student counseling teaching stem education lms lesson planning pedagogy litigation deposition,3,Bachelor,St. Louis,Education,True
+106,project management testing root cause analysis catia failure analysis materials science,3,Bachelor,Los Angeles,Engineering,False
+107,pytorch docker rust django python sem canva,11,High School,Denver,Software & IT,False
+108,sales contract negotiation account management upselling solution selling,1,Associate,Cincinnati,Sales,True
+109,courtroom procedure negotiation intellectual property deposition criminal law due diligence,3,High School,Portland,Legal,True
+110,educational psychology student counseling educational assessment canvas mentoring,15,Bachelor,Nashville,Education,True
+111,creative direction ux design premiere pro wireframing teaching student assessment educational psychology,2,Master,San Francisco,Arts & Media,False
+112,project management process improvement matlab quality assurance pandas jenkins ruby,2,Master,Pittsburgh,Engineering,False
+113,consultative selling sales forecasting closing techniques,9,Bachelor,Washington DC,Sales,True
+114,public relations hootsuite inbound marketing,3,Bachelor,San Francisco,Marketing,True
+115,python git php hibernate spring react rust iep development,2,Bachelor,Detroit,Software & IT,False
+116,sketching typography blender responsive design ui design adobe illustrator litigation family law,5,PhD,Atlanta,Arts & Media,True
+117,a/b testing ppc analytics content strategy canva hubspot,2,Master,St. Louis,Marketing,False
+118,process improvement product development failure analysis 3d modeling manufacturing processes system design matlab,5,Master,Detroit,Engineering,True
+119,facebook ads market research customer journey digital marketing google ads,8,Bachelor,Minneapolis,Marketing,True
+120,c# javascript nosql django rest api ruby mongodb,4,Associate,Minneapolis,Software & IT,False
+121,storytelling wireframing sketching prototyping premiere pro branding,4,Associate,Portland,Arts & Media,True
+122,quality assurance failure analysis microcontrollers plc process improvement blueprint reading,9,Master,San Jose,Engineering,True
+123,marketing automation copywriting public relations google ads,3,Master,Cleveland,Marketing,True
+124,interviewing career development hr compliance change management talent management,13,Associate,Miami,Human Resources,True
+125,microcontrollers cad materials science root cause analysis project management autocad,2,Bachelor,Tampa,Engineering,True
+126,emergency care patient education treatment planning,3,Master,Chicago,Healthcare,True
+127,seo digital marketing hubspot,1,Bachelor,St. Louis,Marketing,False
+128,applicant tracking systems performance management recruiting employee onboarding,3,Bachelor,Los Angeles,Human Resources,False
+129,organizational development talent acquisition hr compliance sales analytics objection handling closing techniques,9,High School,Los Angeles,Human Resources,True
+130,django java html mysql scikit-learn talent acquisition,9,Associate,Miami,Software & IT,True
+131,ppc digital marketing seo tools content creation gd&t mechanical design fluid dynamics,3,High School,Houston,Marketing,False
+132,educational administration educational leadership teaching academic advising mentoring student assessment,3,Master,Atlanta,Education,True
+133,typescript rest api css,4,High School,Portland,Software & IT,False
+134,derivatives pivot tables cash flow analysis sap salesforce consultative selling,7,Master,Dallas,Finance,False
+135,patient assessment patient care treatment planning healthcare regulations electronic health records,9,Associate,Salt Lake City,Healthcare,False
+136,spring tensorflow redux scikit-learn react javascript,6,Bachelor,Remote,Software & IT,True
+137,accounting tableau portfolio management cpa,3,Bachelor,Charlotte,Finance,True
+138,benefits administration employee onboarding organizational development applicant tracking systems,8,Master,San Antonio,Human Resources,False
+139,civil procedure negotiation case management,0,Master,Portland,Legal,False
+140,bloomberg terminal capital markets internal controls forecasting educational leadership canvas,3,Master,Remote,Finance,False
+141,negotiation litigation intellectual property client counseling westlaw patient education clinical documentation medical terminology,12,Master,Houston,Legal,False
+142,westlaw brief writing e-discovery legal ethics ui design after effects typography,7,Bachelor,Charlotte,Legal,True
+143,branding art direction animation content strategy figma,10,Bachelor,Remote,Arts & Media,False
+144,forecasting sap python r plc,9,Master,Denver,Finance,False
+145,manufacturing processes project management simulation testing quality assurance,23,Bachelor,Baltimore,Engineering,True
+146,patient education medical records electronic health records phlebotomy medication management copywriting,2,Master,Phoenix,Healthcare,True
+147,sketching wireframing color theory premiere pro art direction storyboarding ux design,3,Bachelor,Kansas City,Arts & Media,False
+148,kotlin azure gcp postgresql mongodb c++,3,Bachelor,Tampa,Software & IT,False
+149,student counseling stem education classroom management,2,Master,San Francisco,Education,False
+150,lexisnexis client counseling legal research,5,Bachelor,Nashville,Legal,False
+151,ppc canva crm software copywriting simulation,6,Bachelor,New York,Marketing,False
+152,electronic health records patient assessment psychiatric evaluation vital signs legal documentation,1,Bachelor,St. Louis,Healthcare,True
+153,redux rest api python django react pandas docker,2,Bachelor,Atlanta,Software & IT,True
+154,blender art direction photography animation,2,Associate,Houston,Arts & Media,True
+155,cross-selling account management b2c sales proposal writing,21,Associate,Philadelphia,Sales,False
+156,google classroom educational psychology student counseling student support lms pedagogy course development,6,Associate,Dallas,Education,True
+157,content creation hubspot facebook ads affiliate marketing customer journey buffer hootsuite due diligence mediation,3,Bachelor,Dallas,Marketing,True
+158,trial experience document review negotiation case management corporate law lexisnexis legal analysis accounting,9,Associate,Orlando,Legal,True
+159,change management career development adp compensation benefits administration employee relations,5,Master,Chicago,Human Resources,True
+160,therapy clinical research emergency care psychiatric evaluation preventive care imaging,8,Bachelor,Remote,Healthcare,True
+161,matlab engineering design finite element analysis technical documentation cad campaign management,4,Master,Cincinnati,Engineering,True
+162,legal documentation due diligence negotiation user research storytelling,7,Bachelor,Columbus,Legal,True
+163,risk assessment tableau mergers and acquisitions r,3,Associate,New York,Finance,False
+164,contract negotiation sales analytics pipeline management consultative selling lead generation crm presentations,4,Bachelor,Washington DC,Sales,False
+165,product development prototyping solidworks finite element analysis plc,0,High School,Pittsburgh,Engineering,True
+166,hr compliance conflict resolution workforce planning labor laws employee relations adp,6,Bachelor,San Jose,Human Resources,False
+167,seo google ads affiliate marketing campaign management,3,Bachelor,Cincinnati,Marketing,True
+168,materials science project management matlab system design cad,4,Associate,San Diego,Engineering,True
+169,legal writing negotiation patent law drafting regulatory compliance legal research e-discovery workforce planning hr analytics career development,2,Associate,Austin,Legal,True
+170,mediation lexisnexis trial experience family law patent law civil procedure research,3,Bachelor,Cleveland,Legal,False
+171,cpa banking risk assessment r tableau cfa,3,Bachelor,Chicago,Finance,True
+172,responsive design photography copywriting adobe photoshop layout design cinema 4d,9,Associate,Remote,Arts & Media,False
+173,cash flow analysis audit power bi,7,Master,Pittsburgh,Finance,False
+174,presentations pipeline management salesforce sales funnel management,34,Bachelor,Dallas,Sales,True
+175,employee retention hr policies career development copywriting,5,PhD,Remote,Human Resources,True
+176,copywriting videography invision sketch typography user testing art direction,7,Associate,Los Angeles,Arts & Media,True
+177,b2b sales closing techniques territory management b2c sales prospecting sales enablement financial modeling,5,Master,Salt Lake City,Sales,True
+178,performance management workforce planning applicant tracking systems payroll processing critical care infection control disease management,5,Master,San Antonio,Human Resources,False
+179,westlaw legal research case management trial experience contract law lexisnexis risk assessment forecasting,6,Bachelor,Tampa,Legal,False
+180,c# nosql kotlin java flask,4,Bachelor,Pittsburgh,Software & IT,False
+181,simulation prototyping manufacturing processes circuit design microcontrollers,6,Bachelor,Phoenix,Engineering,True
+182,industrial design quality assurance microcontrollers matlab,4,Bachelor,Phoenix,Engineering,True
+183,photography invision ui design branding wireframing adobe photoshop sales strategy lead generation,2,Bachelor,Nashville,Arts & Media,True
+184,compensation employee training recruiting organizational development hris systems talent acquisition r,2,Bachelor,Phoenix,Human Resources,False
+185,marketing automation market research email marketing,2,Master,Chicago,Marketing,True
+186,adobe illustrator after effects copywriting ux design typography,6,Bachelor,St. Louis,Arts & Media,True
+187,cpa accounting gaap,2,High School,Philadelphia,Finance,True
+188,differentiated instruction stem education educational psychology legal writing case management,14,Associate,Minneapolis,Education,True
+189,sql kubernetes rest api python git typescript node.js,4,Associate,Cincinnati,Software & IT,True
+190,financial modeling sql financial analysis python creative direction,3,Bachelor,San Diego,Finance,True
+191,blackboard educational assessment instructional design educational technology,2,Bachelor,St. Louis,Education,False
+192,anatomy preventive care imaging,12,Bachelor,Austin,Healthcare,False
+193,emergency care physiology medical terminology phlebotomy medical records scala typescript,11,High School,Phoenix,Healthcare,False
+194,corporate law family law trial experience legal ethics legal writing,5,High School,Atlanta,Legal,True
+195,employee onboarding employee relations employee training hris systems,2,Bachelor,Atlanta,Human Resources,True
+196,bloomberg terminal investment management budget management internal controls .net kotlin docker,6,Associate,Denver,Finance,False
+197,cpr medical terminology clinical research emergency care electronic health records critical care,6,Bachelor,San Diego,Healthcare,False
+198,corporate law due diligence courtroom procedure mediation negotiation seo a/b testing adobe creative suite,6,High School,Washington DC,Legal,True
+199,hubspot affiliate marketing buffer customer journey sem,6,High School,Pittsburgh,Marketing,True
+200,google analytics copywriting social media marketing hootsuite analytics,16,Associate,Miami,Marketing,False
+201,storytelling photography ux design figma,2,Bachelor,Remote,Arts & Media,True
+202,php django sql kotlin spring mysql node.js,9,Bachelor,Seattle,Software & IT,False
+203,taxation budget management cfa portfolio management gaap financial statements python,3,Bachelor,Los Angeles,Finance,True
+204,node.js flask scala mysql c# oracle,6,Bachelor,Cleveland,Software & IT,True
+205,crm b2c sales business development b2b sales sales presentations sales analytics,3,Bachelor,Miami,Sales,True
+206,premiere pro branding layout design art direction,25,Bachelor,Dallas,Arts & Media,False
+207,figma cinema 4d wireframing ui design,5,Associate,Phoenix,Arts & Media,True
+208,quickbooks sap cash flow analysis python audit derivatives sql ppc,9,Bachelor,Salt Lake City,Finance,False
+209,google analytics analytics social media marketing branding,1,High School,Cincinnati,Marketing,False
+210,branding facebook ads inbound marketing email marketing campaign management google analytics,2,Master,Chicago,Marketing,True
+211,rehabilitation critical care psychiatric evaluation healthcare regulations preventive care,2,Master,Cleveland,Healthcare,True
+212,quickbooks financial reporting taxation,2,Master,San Francisco,Finance,False
+213,westlaw legal research intellectual property negotiation client counseling e-discovery,7,PhD,San Jose,Legal,True
+214,iep development instructional design educational administration pedagogy lesson planning curriculum development,2,Bachelor,Detroit,Education,False
+215,social media marketing sem hootsuite influencer marketing crm software,1,High School,Austin,Marketing,False
+216,branding canva seo,4,High School,Charlotte,Marketing,False
+217,docker jenkins spring mongodb typescript,3,Master,San Francisco,Software & IT,True
+218,.net kotlin python tensorflow scala numpy,1,Associate,Columbus,Software & IT,True
+219,kotlin kubernetes numpy gcp node.js,0,High School,Pittsburgh,Software & IT,False
+220,market research customer journey outbound marketing digital marketing buffer,2,Bachelor,Charlotte,Marketing,False
+221,adp recruiting hr compliance,5,PhD,Chicago,Human Resources,False
+222,e-discovery legal documentation mediation client counseling legal writing document review,1,Bachelor,Boston,Legal,True
+223,financial statements accounting forecasting cfa pivot tables,1,High School,Los Angeles,Finance,True
+224,educational assessment student counseling instructional design,6,Bachelor,Remote,Education,True
+225,typography user testing branding ui design,1,High School,Orlando,Arts & Media,False
+226,laboratory testing cpr physiology vital signs rehabilitation psychiatric evaluation infection control,1,PhD,New York,Healthcare,True
+227,lms google classroom academic advising classroom management pedagogy educational leadership course development,4,Associate,Houston,Education,True
+228,workday employee engagement career development interviewing employee training,4,Bachelor,St. Louis,Human Resources,True
+229,differentiated instruction pedagogy student engagement student support clinical documentation critical care vital signs,5,Bachelor,Boston,Education,True
+230,prototyping adobe illustrator invision user research,2,Master,Austin,Arts & Media,False
+231,branding crm software customer journey canva content creation affiliate marketing campaign management,8,Master,Pittsburgh,Marketing,False
+232,structural analysis prototyping finite element analysis technical documentation,6,Bachelor,Los Angeles,Engineering,True
+233,market research public relations seo digital marketing,2,Associate,San Antonio,Marketing,False
+234,clinical research imaging surgery patient education,5,Bachelor,Nashville,Healthcare,True
+235,quality control plc solidworks sales forecasting sales analytics,2,High School,St. Louis,Engineering,False
+236,thermodynamics root cause analysis process improvement solidworks client relationship management,5,High School,Detroit,Engineering,True
+237,react docker php postgresql ruby java,4,Associate,Washington DC,Software & IT,False
+238,adp performance management payroll processing organizational development employee onboarding coaching benefits administration,4,High School,Denver,Human Resources,False
+239,engineering design catia materials science failure analysis,4,Bachelor,Boston,Engineering,False
+240,legal ethics lexisnexis drafting contract law corporate law patent law deposition instructional design educational leadership,1,Bachelor,Los Angeles,Legal,False
+241,crm client relationship management quotas sales forecasting business development,2,Bachelor,Detroit,Sales,False
+242,customer retention b2c sales pipeline management sales funnel management,2,Master,Los Angeles,Sales,False
+243,matlab industrial design engineering design career development adp,13,High School,Indianapolis,Engineering,False
+244,presentations cross-selling sales analytics quotas sales b2c sales hubspot employee retention workday,5,Bachelor,Indianapolis,Sales,True
+245,closing techniques sales funnel management customer retention negotiation .net ruby,2,Bachelor,Houston,Sales,True
+246,sales cross-selling crm prospecting salesforce,3,Bachelor,San Francisco,Sales,False
+247,differentiated instruction curriculum development iep development educational technology educational psychology lms blackboard,3,Associate,Denver,Education,False
+248,performance management workday employee retention employee onboarding applicant tracking systems labor laws talent management negotiation customer acquisition,9,Associate,Washington DC,Human Resources,True
+249,css graphql kotlin,4,Bachelor,New York,Software & IT,False
+250,testing prototyping failure analysis 3d modeling matlab thermodynamics criminal law,7,Master,Philadelphia,Engineering,False
+251,content creation a/b testing hootsuite ppc,3,Master,Minneapolis,Marketing,False
+252,javascript django docker rust,9,High School,Seattle,Software & IT,True
+253,educational assessment lesson planning lms educational administration moodle stem education buffer canva,7,Associate,San Jose,Education,False
+254,corporate finance banking python budget management,1,Bachelor,San Antonio,Finance,False
+255,public relations sem seo,20,High School,Kansas City,Marketing,True
+256,spring graphql flask sql kotlin php kubernetes imaging,4,Associate,Miami,Software & IT,False
+257,cfa taxation mergers and acquisitions financial reporting family law,9,Bachelor,Baltimore,Finance,False
+258,ruby php oracle html kubernetes docker nosql due diligence patent law litigation,1,Bachelor,San Diego,Software & IT,True
+259,drafting client counseling legal research civil procedure adobe creative suite,2,Bachelor,San Francisco,Legal,False
+260,hris systems workday compensation performance management coaching applicant tracking systems organizational development,5,High School,Cleveland,Human Resources,True
+261,typescript java javascript,3,Bachelor,Minneapolis,Software & IT,False
+262,lms academic writing educational psychology instructional design pedagogy stem education,5,Bachelor,San Diego,Education,True
+263,accounting budget management python student support student counseling,3,Master,Chicago,Finance,False
+264,disease management patient assessment patient education anatomy clinical documentation surgery,5,High School,Detroit,Healthcare,True
+265,recruiting employee engagement talent management hr compliance bamboo hr change management coaching color theory,2,Bachelor,Los Angeles,Human Resources,False
+266,contract negotiation negotiation sales enablement sales strategy b2b sales sales copywriting prototyping,2,Bachelor,Austin,Sales,True
+267,diagnosis anatomy clinical research,3,Associate,Cleveland,Healthcare,False
+268,pipeline management account management cold calling prospecting contract negotiation sales enablement upselling,9,Bachelor,Miami,Sales,False
+269,coaching employee onboarding succession planning hr analytics seo google ads content strategy,0,Associate,Cleveland,Human Resources,True
+270,banking pivot tables sap workforce planning,3,Master,Seattle,Finance,False
+271,responsive design sketch illustration storytelling adobe indesign after effects infection control patient assessment clinical documentation,3,Associate,Detroit,Arts & Media,False
+272,medical records critical care case management cpr medication management preventive care patient education after effects layout design,8,Bachelor,Dallas,Healthcare,False
+273,docker pandas pytorch scala,1,High School,Phoenix,Software & IT,True
+274,seo a/b testing inbound marketing social media marketing digital marketing crm software,4,PhD,Washington DC,Marketing,False
+275,teaching mentoring blackboard educational technology,1,Associate,Chicago,Education,False
+276,nosql numpy node.js gcp kotlin javascript canvas educational administration student assessment,6,Bachelor,San Antonio,Software & IT,False
+277,gaap internal controls accounting financial statements financial reporting python corporate finance,8,Master,San Diego,Finance,False
+278,branding responsive design ui design layout design user research due diligence litigation westlaw,3,Associate,Boston,Arts & Media,True
+279,process improvement thermodynamics simulation legal research corporate law,26,Bachelor,Cleveland,Engineering,True
+280,talent management adp coaching labor laws,3,Bachelor,Atlanta,Human Resources,False
+281,educational assessment student counseling iep development blackboard research instructional design student assessment,5,Bachelor,Salt Lake City,Education,True
+282,trial experience legal writing corporate law arbitration courtroom procedure legal documentation,3,Bachelor,San Antonio,Legal,False
+283,seo tools affiliate marketing content creation marketing automation canva facebook ads customer journey educational psychology iep development special education,6,Associate,Cincinnati,Marketing,True
+284,student counseling instructional design student engagement blackboard teaching academic advising,8,Bachelor,Pittsburgh,Education,True
+285,employee training career development compensation labor laws applicant tracking systems employee engagement,2,Associate,San Jose,Human Resources,True
+286,adp employee onboarding bamboo hr workday organizational development,8,Bachelor,San Francisco,Human Resources,False
+287,legal ethics family law case management e-discovery courtroom procedure westlaw legal writing,1,High School,Los Angeles,Legal,True
+288,patient education diagnosis medical terminology clinical documentation,1,Associate,Pittsburgh,Healthcare,False
+289,courtroom procedure client counseling legal ethics drafting corporate law legal documentation deposition numpy,2,High School,Kansas City,Legal,False
+290,business development presentations objection handling sales strategy client relationship management account management,2,High School,Los Angeles,Sales,True
+291,tableau corporate finance python portfolio management internal controls audit seo tools,3,High School,Nashville,Finance,True
+292,accounting financial modeling forecasting audit,3,Master,Indianapolis,Finance,False
+293,numpy postgresql git mysql,7,High School,Austin,Software & IT,True
+294,canvas google classroom research academic writing moodle instructional design student engagement,4,Bachelor,Cleveland,Education,True
+295,matlab microcontrollers industrial design,4,Associate,San Jose,Engineering,False
+296,change management applicant tracking systems recruiting hr policies talent acquisition adp employee relations,17,PhD,Washington DC,Human Resources,True
+297,benefits administration interviewing workday employee training,12,Bachelor,Austin,Human Resources,False
+298,animation ux design storytelling storyboarding 3d modeling branding videography,1,Bachelor,Charlotte,Arts & Media,True
+299,marketing automation market research canva seo tools copywriting,2,Associate,Philadelphia,Marketing,True
+300,tableau investment management gaap r medication management diagnosis vital signs,4,Bachelor,Seattle,Finance,False
+301,bamboo hr organizational development adp compensation change management employee training hr analytics,4,Bachelor,San Antonio,Human Resources,False
+302,customer journey market research digital marketing marketing automation crm software,7,Bachelor,Salt Lake City,Marketing,False
+303,benefits administration talent acquisition payroll processing,2,Associate,Phoenix,Human Resources,True
+304,negotiation b2b sales sales forecasting prospecting customer acquisition wireframing art direction,5,Master,Atlanta,Sales,True
+305,3d modeling simulation microcontrollers industrial design interviewing payroll processing employee retention,1,Bachelor,Orlando,Engineering,True
+306,scikit-learn jenkins spring numpy,3,Associate,Orlando,Software & IT,True
+307,hubspot campaign management facebook ads copywriting storytelling buffer,3,Bachelor,Minneapolis,Marketing,True
+308,preventive care disease management anatomy,12,Bachelor,Dallas,Healthcare,False
+309,redux flask aws node.js case management legal research,6,High School,Nashville,Software & IT,False
+310,student support google classroom lesson planning canvas blackboard,3,High School,Los Angeles,Education,False
+311,numpy nosql django azure sales funnel management account management cross-selling,4,High School,St. Louis,Software & IT,True
+312,sales enablement sales strategy prospecting,2,Bachelor,Tampa,Sales,True
+313,audit quickbooks derivatives,1,Master,Orlando,Finance,True
+314,influencer marketing content creation crm software email marketing mailchimp figma,7,Bachelor,Philadelphia,Marketing,True
+315,sales strategy territory management solution selling pipeline management consultative selling,26,Bachelor,Remote,Sales,True
+316,benefits administration bamboo hr workday applicant tracking systems workforce planning,12,PhD,Los Angeles,Human Resources,True
+317,investment management excel mergers and acquisitions pivot tables financial reporting accounting,1,Master,Philadelphia,Finance,False
+318,typography layout design sketching adobe photoshop ux design adobe illustrator animation,9,High School,San Antonio,Arts & Media,False
+319,contract negotiation closing techniques sales analytics sales consultative selling,8,Master,Indianapolis,Sales,False
+320,google classroom academic advising classroom management,11,Bachelor,Tampa,Education,True
+321,mentoring educational leadership educational administration classroom management student support,32,Bachelor,Raleigh,Education,False
+322,forecasting quickbooks derivatives r,11,Bachelor,Nashville,Finance,False
+323,mediation legal documentation case management westlaw arbitration courtroom procedure legal writing campaign management analytics digital marketing,4,Master,Austin,Legal,True
+324,lesson planning classroom management teaching course development academic advising stem education employee training workday,2,High School,Charlotte,Education,True
+325,risk assessment cash flow analysis cpa forecasting financial reporting python sap,14,Master,Baltimore,Finance,True
+326,matlab plc system design email marketing digital marketing,3,Bachelor,Raleigh,Engineering,True
+327,therapy critical care preventive care patient care case management anatomy medical records,5,Bachelor,Raleigh,Healthcare,True
+328,mentoring lms lesson planning regulatory compliance power bi,3,Bachelor,Miami,Education,False
+329,educational technology lms student assessment student counseling,5,Bachelor,Tampa,Education,False
+330,prototyping 3d modeling creative direction cinema 4d,21,PhD,Indianapolis,Arts & Media,True
+331,prospecting sales forecasting b2c sales,3,High School,Detroit,Sales,False
+332,westlaw mediation legal research deposition,2,Master,Charlotte,Legal,False
+333,process improvement solidworks plc root cause analysis testing system design mechanical design,4,Associate,San Diego,Engineering,True
+334,territory management b2c sales sales analytics sales strategy pipeline management negotiation cross-selling,6,Bachelor,Pittsburgh,Sales,True
+335,anatomy clinical documentation patient assessment medication management phlebotomy pharmacology imaging,5,PhD,Detroit,Healthcare,False
+336,adobe indesign editing wireframing capital markets,2,Associate,Pittsburgh,Arts & Media,True
+337,drafting westlaw client counseling intellectual property family law,4,Bachelor,Baltimore,Legal,True
+338,git spring java sql scikit-learn css,2,Bachelor,Charlotte,Software & IT,True
+339,banking financial statements internal controls quickbooks,4,Associate,Baltimore,Finance,True
+340,academic writing google classroom blackboard,4,Bachelor,Baltimore,Education,False
+341,teaching blackboard educational assessment instructional design intellectual property,23,High School,Cleveland,Education,True
+342,illustration prototyping user testing art direction responsive design,2,Bachelor,Cleveland,Arts & Media,True
+343,succession planning employee retention conflict resolution talent acquisition coaching workforce planning,1,Bachelor,Portland,Human Resources,False
+344,b2c sales customer retention crm westlaw,5,Master,Orlando,Sales,True
+345,python flask pandas postgresql,2,Bachelor,New York,Software & IT,False
+346,treatment planning patient education clinical research laboratory testing imaging pharmacology surgery financial modeling cfa financial statements,2,PhD,San Jose,Healthcare,True
+347,gcp scala rust django c# sales customer retention contract negotiation,1,PhD,Pittsburgh,Software & IT,False
+348,capital markets sql sap r cfa cpa lms,3,High School,Austin,Finance,True
+349,lead generation customer retention sales forecasting b2c sales salesforce sales customer acquisition therapy patient care,7,Associate,Remote,Sales,True
+350,excel cash flow analysis corporate finance r accounting quickbooks risk assessment anatomy,7,PhD,Cincinnati,Finance,False
+351,brief writing lexisnexis due diligence trademark law courtroom procedure document review regulatory compliance,2,Bachelor,New York,Legal,True
+352,trademark law corporate law legal research patent law negotiation educational psychology student counseling,1,High School,Austin,Legal,True
+353,preventive care patient assessment phlebotomy medical records,5,Associate,Remote,Healthcare,True
+354,3d modeling user research videography visual design workday payroll processing hr analytics,4,High School,Remote,Arts & Media,False
+355,presentations proposal writing sales strategy prospecting account management hubspot,29,Master,Remote,Sales,False
+356,copywriting hootsuite adobe creative suite campaign management,5,Master,San Francisco,Marketing,True
+357,invision creative direction responsive design photography adobe illustrator,1,Bachelor,Miami,Arts & Media,True
+358,canvas educational assessment teaching lms course development educational administration moodle,6,Bachelor,Los Angeles,Education,False
+359,thermodynamics mechanical design plc process improvement technical documentation,2,Bachelor,Cincinnati,Engineering,False
+360,art direction user testing sketching ui design copywriting ux design,2,Bachelor,Philadelphia,Arts & Media,True
+361,special education research iep development,2,Master,Cincinnati,Education,False
+362,affiliate marketing content creation outbound marketing seo tools a/b testing buffer influencer marketing,3,Bachelor,Chicago,Marketing,False
+363,adp compensation benefits administration employee engagement employee retention talent management diversity & inclusion proposal writing territory management,4,Bachelor,Columbus,Human Resources,True
+364,facebook ads content creation a/b testing affiliate marketing ppc customer journey,8,Associate,San Jose,Marketing,True
+365,customer retention account management territory management cross-selling sales analytics proposal writing business development mergers and acquisitions audit,14,Master,Raleigh,Sales,False
+366,rest api flask swift node.js spring c#,4,Master,Charlotte,Software & IT,True
+367,negotiation trial experience drafting litigation,7,Bachelor,San Antonio,Legal,False
+368,kotlin c# hibernate numpy jenkins redux scala,3,Bachelor,Salt Lake City,Software & IT,False
+369,content creation customer journey storytelling digital marketing sql budget management forecasting,1,Associate,Baltimore,Marketing,False
+370,manufacturing processes system design failure analysis quality assurance circuit design moodle classroom management,14,Bachelor,Orlando,Engineering,False
+371,videography invision ui design storyboarding adobe illustrator blender,3,Bachelor,Seattle,Arts & Media,False
+372,.net python spring javascript accounting risk assessment investment management,3,Associate,San Francisco,Software & IT,False
+373,laboratory testing patient assessment electronic health records risk assessment gaap taxation,6,High School,Boston,Healthcare,True
+374,trademark law criminal law regulatory compliance,5,Master,New York,Legal,True
+375,campaign management copywriting inbound marketing therapy infection control,17,Bachelor,Cleveland,Marketing,True
+376,project management finite element analysis materials science quality control,4,High School,Salt Lake City,Engineering,False
+377,brief writing patent law legal ethics civil procedure litigation corporate law legal analysis,6,Master,Baltimore,Legal,True
+378,thermodynamics testing fluid dynamics matlab manufacturing processes nosql php flask,1,Master,New York,Engineering,False
+379,css postgresql swift rest api internal controls power bi cpa,1,Associate,Indianapolis,Software & IT,False
+380,cold calling hubspot sales funnel management pipeline management b2c sales,5,High School,Atlanta,Sales,False
+381,capital markets python sql,7,Master,Indianapolis,Finance,False
+382,plc blueprint reading gd&t root cause analysis prototyping quality assurance microcontrollers,10,Associate,Houston,Engineering,False
+383,user testing copywriting videography figma,7,Associate,Charlotte,Arts & Media,True
+384,instructional design student assessment course development blackboard,2,Master,Cincinnati,Education,True
+385,kubernetes scala react pytorch kotlin,1,High School,Columbus,Software & IT,False
+386,workforce planning performance management talent acquisition employee training recruiting hr analytics career development,9,Associate,Indianapolis,Human Resources,True
+387,lexisnexis intellectual property contract law due diligence e-discovery legal ethics brief writing,1,Bachelor,Remote,Legal,True
+388,market research inbound marketing influencer marketing,2,High School,San Antonio,Marketing,False
+389,objection handling sales enablement cross-selling sales funnel management b2b sales client counseling due diligence civil procedure,4,Bachelor,Denver,Sales,False
+390,autocad testing simulation,8,Bachelor,Washington DC,Engineering,False
+391,interviewing hr analytics organizational development hris systems mailchimp market research digital marketing,11,High School,Atlanta,Human Resources,True
+392,pedagogy teaching educational technology student engagement iep development google classroom,1,Associate,St. Louis,Education,True
+393,catia microcontrollers project management matlab solidworks,3,Bachelor,Remote,Engineering,True
+394,infection control patient education rehabilitation pharmacology emergency care outbound marketing,23,Bachelor,Dallas,Healthcare,True
+395,legal documentation corporate law courtroom procedure due diligence,2,Associate,Phoenix,Legal,True
+396,pharmacology medication management disease management sql,3,Master,Tampa,Healthcare,True
+397,google classroom moodle teaching stem education student assessment student engagement pedagogy benefits administration labor laws,2,High School,San Jose,Education,True
+398,document review family law case management arbitration,5,Bachelor,New York,Legal,False
+399,financial reporting gaap accounting capital markets banking,2,Master,Portland,Finance,False
+400,marketing automation crm software mailchimp e-discovery drafting legal documentation,12,Bachelor,San Antonio,Marketing,False
+401,pharmacology rehabilitation physiology treatment planning patient education imaging,7,Bachelor,Detroit,Healthcare,True
+402,spring flask numpy scikit-learn typescript,0,Associate,Denver,Software & IT,True
+403,failure analysis finite element analysis solidworks,2,Bachelor,Kansas City,Engineering,True
+404,simulation project management quality control cad testing manufacturing processes engineering design,11,Bachelor,New York,Engineering,False
+405,trademark law drafting mediation deposition aws,1,Master,Salt Lake City,Legal,False
+406,lesson planning curriculum development google classroom educational leadership course development arbitration,2,Master,Minneapolis,Education,True
+407,project management manufacturing processes gd&t technical documentation cad microcontrollers,1,High School,Miami,Engineering,True
+408,document review e-discovery intellectual property corporate law,4,Master,Detroit,Legal,False
+409,art direction content strategy invision user research editing visual design layout design upselling,7,Bachelor,Nashville,Arts & Media,False
+410,r capital markets cfa gaap banking taxation financial analysis css,4,Associate,Portland,Finance,True
+411,editing prototyping copywriting art direction,1,High School,Boston,Arts & Media,True
+412,business development negotiation account management presentations,8,High School,San Jose,Sales,False
+413,videography illustration ux design layout design mysql,1,Bachelor,Chicago,Arts & Media,True
+414,engineering design simulation manufacturing processes ansys,1,Associate,St. Louis,Engineering,True
+415,taxation r accounting excel gaap power bi derivatives,6,High School,St. Louis,Finance,False
+416,classroom management lesson planning student support mentoring research critical care clinical documentation,8,Bachelor,Atlanta,Education,False
+417,deposition mediation document review trial experience civil procedure,7,Bachelor,Remote,Legal,False
+418,trial experience case management legal ethics intellectual property legal writing e-discovery,4,High School,San Francisco,Legal,True
+419,prototyping failure analysis blueprint reading root cause analysis engineering design,6,Associate,Houston,Engineering,True
+420,bamboo hr workday diversity & inclusion benefits administration employee training,0,Bachelor,Nashville,Human Resources,False
+421,videography blender copywriting solidworks,1,High School,Tampa,Arts & Media,True
+422,educational leadership course development educational technology student support educational assessment mentoring educational administration,2,High School,San Diego,Education,False
+423,cpr patient assessment patient education,16,Associate,Chicago,Healthcare,True
+424,content strategy storyboarding invision copywriting,5,Associate,Philadelphia,Arts & Media,True
+425,mediation legal ethics courtroom procedure patent law contract law php,6,Bachelor,Cleveland,Legal,False
+426,client counseling case management brief writing civil procedure patent law litigation document review,4,High School,Indianapolis,Legal,True
+427,matlab quality assurance materials science thermodynamics failure analysis gd&t,2,Master,Miami,Engineering,False
+428,sales analytics sales solution selling sales strategy customer acquisition lead generation,6,Bachelor,Seattle,Sales,True
+429,outbound marketing marketing automation public relations campaign management canva,2,Bachelor,Detroit,Marketing,True
+430,gd&t plc circuit design catia laboratory testing medical terminology,4,Bachelor,Austin,Engineering,False
+431,technical documentation autocad plc manufacturing processes simulation matlab prototyping,4,Associate,Columbus,Engineering,True
+432,autocad materials science cad prototyping finite element analysis,0,Bachelor,Minneapolis,Engineering,True
+433,courtroom procedure lexisnexis civil procedure mediation e-discovery legal analysis criminal law,5,Bachelor,Charlotte,Legal,True
+434,circuit design project management system design ansys matlab engineering design,3,Bachelor,Dallas,Engineering,False
+435,legal documentation legal writing intellectual property corporate law criminal law mediation,2,Bachelor,Columbus,Legal,False
+436,closing techniques sales analytics hubspot business development cross-selling proposal writing upselling portfolio management sql,22,High School,Detroit,Sales,True
+437,organizational development talent management workforce planning change management interviewing stem education,5,Master,Portland,Human Resources,False
+438,digital marketing email marketing a/b testing seo canva sem,2,Bachelor,Indianapolis,Marketing,True
+439,sketching responsive design premiere pro adobe photoshop adobe illustrator client counseling criminal law case management,2,Master,San Jose,Arts & Media,True
+440,regulatory compliance deposition document review westlaw arbitration,2,Master,Orlando,Legal,False
+441,crm software analytics seo marketing automation,27,PhD,Detroit,Marketing,True
+442,storytelling storyboarding videography,1,Bachelor,Austin,Arts & Media,True
+443,docker jenkins react ruby django .net tensorflow,4,Associate,Philadelphia,Software & IT,True
+444,responsive design animation wireframing visual design color theory 3d modeling,9,Associate,San Antonio,Arts & Media,False
+445,failure analysis gd&t matlab industrial design circuit design pedagogy,7,Bachelor,San Jose,Engineering,True
+446,quotas sales consultative selling account management customer acquisition cross-selling,12,High School,Pittsburgh,Sales,False
+447,invision copywriting sketch color theory ui design responsive design cinema 4d,7,Master,Denver,Arts & Media,True
+448,engineering design project management testing,3,PhD,Seattle,Engineering,True
+449,sem branding content strategy content creation hubspot,1,Associate,Charlotte,Marketing,True
+450,family law legal ethics legal analysis trademark law trial experience,8,Bachelor,Tampa,Legal,False
+451,westlaw brief writing legal ethics,3,Associate,San Diego,Legal,True
+452,javascript flask swift numpy graphql kubernetes java cash flow analysis,4,Associate,San Diego,Software & IT,True
+453,pedagogy lms educational assessment,6,Bachelor,Los Angeles,Education,True
+454,risk assessment sap financial modeling forecasting portfolio management,7,High School,Salt Lake City,Finance,True
+455,hootsuite campaign management branding market research testing,3,Bachelor,Columbus,Marketing,True
+456,sales funnel management client relationship management negotiation quotas solution selling b2b sales,4,High School,Baltimore,Sales,True
+457,mechanical design structural analysis finite element analysis solidworks fluid dynamics,4,Master,Remote,Engineering,True
+458,client counseling trademark law patent law brief writing negotiation,5,Master,Seattle,Legal,True
+459,academic advising educational leadership course development stem education student support mysql gcp,16,High School,Atlanta,Education,False
+460,sales forecasting territory management crm,6,Associate,Columbus,Sales,False
+461,b2c sales objection handling upselling solution selling sales analytics salesforce,5,Master,San Diego,Sales,False
+462,e-discovery document review litigation drafting brief writing,15,Associate,Washington DC,Legal,True
+463,compensation succession planning performance management bamboo hr applicant tracking systems workday employee engagement branding content creation canva,1,Associate,Atlanta,Human Resources,True
+464,academic writing special education teaching course development educational leadership differentiated instruction student support,8,Bachelor,Columbus,Education,False
+465,customer acquisition sales enablement presentations quotas solution selling proposal writing contract negotiation capital markets financial reporting financial statements,1,Associate,Chicago,Sales,False
+466,root cause analysis materials science catia technical documentation adobe illustrator,1,Bachelor,Baltimore,Engineering,False
+467,succession planning adp benefits administration talent management hris systems hr compliance,3,Master,Phoenix,Human Resources,False
+468,content creation marketing automation seo tools content strategy hootsuite google analytics google ads,14,PhD,Minneapolis,Marketing,False
+469,r capital markets regulatory compliance mergers and acquisitions financial statements financial modeling sap regulatory compliance patent law,7,Master,Nashville,Finance,True
+470,medical terminology critical care diagnosis psychiatric evaluation clinical documentation clinical research pharmacology academic writing differentiated instruction lms,1,Bachelor,Salt Lake City,Healthcare,False
+471,anatomy healthcare regulations patient assessment medical terminology clinical documentation phlebotomy,1,Bachelor,Miami,Healthcare,False
+472,family law regulatory compliance patent law,1,High School,Columbus,Legal,False
+473,creative direction cinema 4d layout design animation,2,Bachelor,Tampa,Arts & Media,False
+474,litigation legal ethics client counseling,2,Bachelor,Salt Lake City,Legal,True
+475,employee engagement performance management hr policies bamboo hr employee retention coaching employee onboarding customer acquisition,3,Bachelor,Tampa,Human Resources,False
+476,e-discovery courtroom procedure case management trial experience sales forecasting closing techniques,0,Bachelor,Pittsburgh,Legal,False
+477,public relations google ads seo social media marketing crm software hubspot,5,Master,Charlotte,Marketing,True
+478,tensorflow graphql c# gcp,5,Bachelor,Pittsburgh,Software & IT,False
+479,payroll processing employee retention hris systems talent acquisition hr policies interviewing e-discovery,2,Associate,Phoenix,Human Resources,True
+480,java hibernate kotlin azure gcp c#,3,PhD,Kansas City,Software & IT,False
+481,digital marketing copywriting affiliate marketing social media marketing inbound marketing storytelling,5,Master,Baltimore,Marketing,False
+482,failure analysis structural analysis process improvement finite element analysis mechanical design,8,Bachelor,San Jose,Engineering,False
+483,mediation trial experience criminal law e-discovery drafting client counseling,8,Bachelor,Kansas City,Legal,True
+484,psychiatric evaluation phlebotomy anatomy treatment planning emergency care clinical research patient assessment,7,Bachelor,Minneapolis,Healthcare,True
+485,b2c sales prospecting presentations student engagement educational technology lms,2,Bachelor,Miami,Sales,False
+486,gd&t mechanical design ansys solidworks,10,PhD,San Antonio,Engineering,True
+487,microcontrollers technical documentation plc,2,High School,Cleveland,Engineering,False
+488,nosql c# docker aws scikit-learn mongodb javascript,2,Bachelor,Indianapolis,Software & IT,False
+489,solution selling quotas customer acquisition sales closing techniques contract negotiation,11,Master,Remote,Sales,True
+490,classroom management google classroom teaching mentoring iep development student engagement change management,8,Associate,Atlanta,Education,False
+491,kubernetes rest api css sql mongodb python pandas,4,Bachelor,San Antonio,Software & IT,True
+492,regulatory compliance portfolio management sql crm,4,Bachelor,Dallas,Finance,True
+493,django rest api html mysql,1,Master,Austin,Software & IT,False
+494,color theory user testing art direction,3,Master,Kansas City,Arts & Media,True
+495,clinical research patient care disease management healthcare regulations diagnosis laboratory testing flask rust scala,5,Bachelor,Philadelphia,Healthcare,False
+496,typography animation after effects photography premiere pro,6,Associate,Boston,Arts & Media,False
+497,legal writing mediation patent law contract law,6,Associate,Boston,Legal,True
+498,cad mechanical design quality control testing thermodynamics seo email marketing,3,Bachelor,San Jose,Engineering,False
+499,employee engagement compensation benefits administration employee onboarding succession planning change management hr analytics,2,Master,Miami,Human Resources,False
+500,technical documentation mechanical design plc contract negotiation sales strategy sales,2,Associate,Minneapolis,Engineering,False
+501,phlebotomy psychiatric evaluation medical records healthcare regulations,15,Associate,Phoenix,Healthcare,False
+502,storytelling animation prototyping branding user testing editing blender,7,Master,Portland,Arts & Media,False
+503,regulatory compliance patent law civil procedure litigation due diligence lexisnexis,2,Master,San Antonio,Legal,False
+504,objection handling sales enablement cross-selling upselling,4,Bachelor,San Francisco,Sales,False
+505,recruiting hr analytics performance management adobe creative suite,4,High School,Tampa,Human Resources,False
+506,b2b sales contract negotiation cross-selling crm pipeline management negotiation objection handling,4,Master,Pittsburgh,Sales,False
+507,medication management vital signs emergency care preventive care physiology imaging treatment planning,3,Associate,Raleigh,Healthcare,False
+508,treatment planning medication management infection control phlebotomy structural analysis,3,High School,Raleigh,Healthcare,True
+509,change management recruiting employee onboarding payroll processing,2,High School,Orlando,Human Resources,True
+510,banking audit financial statements cfa budget management risk assessment sql closing techniques proposal writing,3,Master,Austin,Finance,True
+511,ui design wireframing ux design photography storyboarding,8,Associate,San Diego,Arts & Media,False
+512,hr analytics compensation employee training recruiting hr compliance employee relations,1,Associate,Minneapolis,Human Resources,False
+513,marketing automation sem adobe creative suite,10,Master,San Jose,Marketing,True
+514,taxation investment management excel regulatory compliance pivot tables budget management bloomberg terminal,7,High School,Nashville,Finance,True
+515,marketing automation canva content strategy outbound marketing,2,Bachelor,Remote,Marketing,False
+516,project management structural analysis thermodynamics solidworks mechanical design technical documentation,6,Bachelor,San Antonio,Engineering,True
+517,figma ux design adobe photoshop,4,Bachelor,Seattle,Arts & Media,True
+518,academic writing course development research special education educational administration educational technology disease management patient assessment,14,Master,Columbus,Education,True
+519,php gcp git node.js typescript visual design user testing,5,Bachelor,Remote,Software & IT,True
+520,oracle c# html java scikit-learn scala postgresql,15,Bachelor,San Diego,Software & IT,True
+521,employee retention employee engagement payroll processing workforce planning employee onboarding conflict resolution,2,High School,Kansas City,Human Resources,True
+522,clinical research medical terminology medical records patient care laboratory testing healthcare regulations psychiatric evaluation talent acquisition,4,PhD,Nashville,Healthcare,True
+523,html spring java,3,Master,Kansas City,Software & IT,True
+524,creative direction responsive design content strategy art direction blender animation ux design,8,High School,San Diego,Arts & Media,False
+525,creative direction layout design responsive design postgresql,3,High School,Minneapolis,Arts & Media,False
+526,student support curriculum development academic writing pedagogy instructional design,13,Bachelor,Dallas,Education,False
+527,applicant tracking systems diversity & inclusion adp employee relations,14,Associate,Boston,Human Resources,False
+528,labor laws employee onboarding hr analytics succession planning compensation,4,Bachelor,Raleigh,Human Resources,False
+529,testing mechanical design manufacturing processes microcontrollers,5,Bachelor,Cincinnati,Engineering,True
+530,differentiated instruction academic writing blackboard educational technology simulation,4,High School,Dallas,Education,False
+531,brief writing due diligence legal analysis intellectual property legal writing,2,Bachelor,Chicago,Legal,False
+532,customer journey branding hootsuite,5,Master,Miami,Marketing,False
+533,solidworks simulation prototyping process improvement closing techniques customer retention sales analytics,1,High School,Chicago,Engineering,False
+534,mentoring educational psychology moodle educational technology stem education instructional design hubspot,3,Bachelor,Salt Lake City,Education,False
+535,flask rust tensorflow mongodb azure redux kubernetes,2,Bachelor,Columbus,Software & IT,False
+536,wireframing copywriting animation blender user testing photography storyboarding,4,Master,Austin,Arts & Media,True
+537,excel corporate finance mergers and acquisitions quickbooks cash flow analysis financial reporting,5,Bachelor,Phoenix,Finance,False
+538,cad solidworks ansys thermodynamics patent law negotiation,4,Bachelor,Philadelphia,Engineering,False
+539,matlab finite element analysis process improvement materials science fluid dynamics quality control civil procedure,15,High School,San Jose,Engineering,True
+540,cinema 4d branding after effects art direction,3,Bachelor,Austin,Arts & Media,False
+541,quotas prospecting territory management negotiation closing techniques business development,10,Associate,Phoenix,Sales,True
+542,adobe creative suite market research content strategy facebook ads customer journey campaign management,5,Master,Seattle,Marketing,False
+543,classroom management teaching research curriculum development course development typography,1,Bachelor,Tampa,Education,True
+544,healthcare regulations electronic health records preventive care treatment planning emergency care patient assessment,17,Master,New York,Healthcare,True
+545,contract negotiation sales crm account management salesforce b2b sales territory management,3,PhD,Salt Lake City,Sales,False
+546,patent law brief writing negotiation numpy aws tensorflow,5,Bachelor,Minneapolis,Legal,False
+547,arbitration document review case management trademark law legal analysis courtroom procedure,2,Bachelor,Orlando,Legal,True
+548,interviewing payroll processing conflict resolution hr policies employee training bamboo hr,2,High School,Salt Lake City,Human Resources,False
+549,educational technology moodle student assessment academic advising pedagogy westlaw,2,Bachelor,Tampa,Education,False
+550,disease management treatment planning diagnosis criminal law corporate law mediation,6,Bachelor,Philadelphia,Healthcare,False
+551,sales forecasting lead generation sales enablement sales strategy upselling closing techniques,4,Associate,Baltimore,Sales,False
+552,branding content strategy customer journey mailchimp outbound marketing buffer,11,Master,Cincinnati,Marketing,True
+553,treatment planning case management phlebotomy infection control affiliate marketing marketing automation campaign management,3,Bachelor,Orlando,Healthcare,False
+554,student support classroom management moodle google classroom cpr emergency care,20,Bachelor,Boston,Education,False
+555,failure analysis circuit design industrial design autocad catia,6,Bachelor,St. Louis,Engineering,False
+556,storytelling illustration after effects,4,High School,Dallas,Arts & Media,False
+557,forecasting r mergers and acquisitions employee relations,1,Master,Dallas,Finance,False
+558,electronic health records disease management imaging rehabilitation phlebotomy brief writing legal writing contract law,5,High School,Portland,Healthcare,True
+559,pipeline management crm consultative selling,4,High School,Indianapolis,Sales,True
+560,javascript spring swift git kotlin mysql tensorflow classroom management student assessment,3,High School,Houston,Software & IT,True
+561,brief writing negotiation mediation corporate law document review contract law client counseling email marketing content creation market research,10,Associate,Charlotte,Legal,False
+562,legal documentation client counseling family law e-discovery litigation,4,Bachelor,Dallas,Legal,False
+563,classroom management student engagement iep development,4,Associate,Miami,Education,True
+564,structural analysis finite element analysis process improvement root cause analysis thermodynamics engineering design,3,Bachelor,Detroit,Engineering,True
+565,workforce planning organizational development hr policies recruiting labor laws,7,Bachelor,Kansas City,Human Resources,True
+566,editing creative direction adobe photoshop,6,High School,Cleveland,Arts & Media,False
+567,prototyping catia product development gd&t trial experience legal documentation client counseling,3,Master,Raleigh,Engineering,False
+568,spring c# gcp html typescript graphql hubspot branding,11,Associate,New York,Software & IT,False
+569,banking corporate finance audit internal controls gaap,9,Bachelor,Chicago,Finance,False
+570,emergency care medical records phlebotomy critical care,1,Master,Chicago,Healthcare,False
+571,marketing automation hootsuite copywriting canva facebook ads market research,3,High School,Portland,Marketing,True
+572,canvas blackboard mentoring,8,Bachelor,Charlotte,Education,True
+573,regulatory compliance capital markets r derivatives investment management,5,Bachelor,St. Louis,Finance,True
+574,blueprint reading gd&t root cause analysis catia finite element analysis,9,Associate,Phoenix,Engineering,True
+575,diversity & inclusion hr compliance applicant tracking systems recruiting employee retention e-discovery trial experience,4,Bachelor,Orlando,Human Resources,False
+576,excel financial reporting regulatory compliance,7,Bachelor,Boston,Finance,False
+577,pedagogy differentiated instruction teaching canvas mentoring cpr psychiatric evaluation medical records,3,High School,Cleveland,Education,False
+578,document review family law legal documentation trial experience case management,4,Master,San Jose,Legal,False
+579,employee engagement talent management adp employee onboarding performance management career development payroll processing,4,Associate,Indianapolis,Human Resources,False
+580,pipeline management presentations territory management customer acquisition sales analytics objection handling consultative selling,6,Associate,Columbus,Sales,False
+581,lexisnexis legal analysis document review negotiation,1,Bachelor,San Francisco,Legal,True
+582,academic advising educational leadership student assessment,9,Bachelor,Philadelphia,Education,True
+583,critical care laboratory testing patient education,5,Master,Baltimore,Healthcare,True
+584,proposal writing crm hubspot contract negotiation,2,PhD,Kansas City,Sales,False
+585,investment management power bi capital markets,1,Associate,New York,Finance,False
+586,redux ruby graphql flask c# payroll processing benefits administration hris systems,2,Master,Pittsburgh,Software & IT,False
+587,succession planning employee engagement organizational development adobe creative suite social media marketing content strategy,16,Associate,San Jose,Human Resources,True
+588,b2c sales lead generation customer retention business development customer acquisition solution selling,6,Bachelor,Columbus,Sales,True
+589,regulatory compliance trial experience litigation family law lexisnexis deposition pandas spring,3,Associate,Washington DC,Legal,True
+590,educational leadership classroom management course development student support student counseling mentoring research,2,PhD,San Diego,Education,True
+591,blender responsive design premiere pro adobe illustrator ui design academic writing,2,Associate,Houston,Arts & Media,False
+592,gaap taxation mergers and acquisitions,5,Bachelor,Washington DC,Finance,False
+593,due diligence case management trademark law internal controls,10,Bachelor,San Antonio,Legal,True
+594,simulation blueprint reading engineering design circuit design fluid dynamics project management system design sales strategy b2b sales upselling,3,High School,Pittsburgh,Engineering,True
+595,color theory after effects editing videography invision cinema 4d,11,Associate,Orlando,Arts & Media,False
+596,inbound marketing seo tools marketing automation a/b testing social media marketing market research stem education,3,Bachelor,Boston,Marketing,False
+597,plc catia ansys prototyping failure analysis,1,Associate,Atlanta,Engineering,True
+598,docker spring python css pytorch azure,1,Associate,New York,Software & IT,True
+599,matlab cad quality assurance technical documentation product development system design root cause analysis physiology,6,PhD,Atlanta,Engineering,True
+600,pipeline management prospecting closing techniques proposal writing sales forecasting hubspot contract negotiation,1,Bachelor,Minneapolis,Sales,True
+601,solidworks blueprint reading thermodynamics technical documentation product development,1,Master,Cleveland,Engineering,False
+602,b2c sales lead generation pipeline management account management b2b sales sales hubspot,11,High School,Chicago,Sales,True
+603,python financial modeling investment management corporate finance financial analysis cpa forecasting,1,PhD,Pittsburgh,Finance,False
+604,tensorflow kotlin aws pytorch swift html c++,10,Master,Detroit,Software & IT,False
+605,storyboarding 3d modeling ui design user testing layout design,6,Master,Orlando,Arts & Media,False
+606,student engagement blackboard differentiated instruction educational administration,1,Bachelor,San Francisco,Education,False
+607,engineering design testing materials science,3,High School,Dallas,Engineering,False
+608,campaign management hootsuite sem outbound marketing,4,Bachelor,Cleveland,Marketing,True
+609,business development sales enablement sales funnel management presentations client relationship management copywriting marketing automation analytics,1,Master,Remote,Sales,True
+610,salesforce account management lead generation closing techniques negotiation cross-selling sales strategy,2,Bachelor,Portland,Sales,True
+611,sketching premiere pro creative direction illustration ux design after effects,10,Bachelor,Minneapolis,Arts & Media,False
+612,brief writing legal writing arbitration,8,Associate,Phoenix,Legal,False
+613,moodle classroom management special education curriculum development academic writing educational administration lms,5,Bachelor,Detroit,Education,False
+614,b2b sales sales strategy quotas customer acquisition closing techniques business development creative direction after effects ui design,3,Bachelor,Charlotte,Sales,True
+615,patent law contract law drafting affiliate marketing,9,Bachelor,Remote,Legal,False
+616,regulatory compliance forecasting financial modeling,3,Bachelor,Cincinnati,Finance,False
+617,cad root cause analysis industrial design,6,High School,New York,Engineering,True
+618,materials science project management catia failure analysis quickbooks investment management financial statements,25,Bachelor,St. Louis,Engineering,False
+619,sales funnel management b2c sales objection handling closing techniques customer journey inbound marketing sem,3,Associate,St. Louis,Sales,False
+620,critical care medical records patient assessment rehabilitation medication management blueprint reading project management,6,Master,Minneapolis,Healthcare,False
+621,legal writing regulatory compliance criminal law trademark law legal ethics deposition case management,3,Bachelor,Minneapolis,Legal,False
+622,regulatory compliance risk assessment cash flow analysis aws typescript .net,4,Associate,Philadelphia,Finance,True
+623,content creation mailchimp email marketing sem google analytics,6,Bachelor,Seattle,Marketing,False
+624,contract negotiation solution selling pipeline management,5,Associate,Miami,Sales,True
+625,google ads sem a/b testing buffer ppc crm software facebook ads finite element analysis simulation technical documentation,0,High School,Denver,Marketing,False
+626,surgery cpr diagnosis emergency care laboratory testing employee retention,1,Associate,Remote,Healthcare,True
+627,adobe photoshop after effects figma wireframing creative direction content strategy,2,Associate,Los Angeles,Arts & Media,False
+628,intellectual property legal research courtroom procedure family law westlaw legal ethics,4,Master,Boston,Legal,True
+629,psychiatric evaluation case management rehabilitation,4,Master,Portland,Healthcare,True
+630,google classroom blackboard moodle canvas,5,Bachelor,Chicago,Education,False
+631,structural analysis process improvement autocad system design quality control circuit design project management,6,Master,Charlotte,Engineering,False
+632,react sql nosql html scala,3,Bachelor,Los Angeles,Software & IT,True
+633,client counseling drafting trial experience family law legal analysis case management corporate law customer acquisition,8,Master,Minneapolis,Legal,True
+634,trial experience regulatory compliance westlaw trademark law civil procedure matlab manufacturing processes,5,Master,Philadelphia,Legal,False
+635,employee training interviewing hr analytics conflict resolution,4,Bachelor,Seattle,Human Resources,False
+636,talent acquisition hris systems workday recruiting employee onboarding interviewing,5,Master,New York,Human Resources,False
+637,cpr physiology disease management patient care emergency care medical records,10,Bachelor,Minneapolis,Healthcare,False
+638,banking accounting python cash flow analysis adobe indesign,2,Master,Cleveland,Finance,False
+639,editing storytelling sketch,5,Bachelor,Cleveland,Arts & Media,True
+640,adobe indesign sketching photography prototyping copywriting,6,Bachelor,Nashville,Arts & Media,False
+641,influencer marketing a/b testing hootsuite sem facebook ads,2,Master,Raleigh,Marketing,True
+642,medical terminology infection control treatment planning medical records clinical documentation critical care,12,Associate,Dallas,Healthcare,True
+643,ux design figma adobe indesign 3d modeling branding client counseling,1,Bachelor,Boston,Arts & Media,False
+644,copywriting figma prototyping,1,Bachelor,Miami,Arts & Media,False
+645,swift react html rust,2,PhD,Chicago,Software & IT,False
+646,wireframing user testing adobe indesign layout design,7,Associate,Cleveland,Arts & Media,True
+647,performance management hr policies change management talent management workforce planning employee engagement,7,Master,Boston,Human Resources,True
+648,mechanical design catia thermodynamics autocad failure analysis root cause analysis prototyping customer journey,6,Master,Denver,Engineering,False
+649,objection handling negotiation sales analytics photography,2,High School,Nashville,Sales,False
+650,ui design responsive design user research copywriting cinema 4d,6,High School,Minneapolis,Arts & Media,False
+651,gaap mergers and acquisitions banking,1,Bachelor,Kansas City,Finance,False
+652,autocad catia plc thermodynamics microcontrollers system design coaching,1,Bachelor,Baltimore,Engineering,False
+653,benefits administration hr analytics workforce planning adp diversity & inclusion,2,Bachelor,San Jose,Human Resources,True
+654,stem education blackboard student counseling educational psychology student support differentiated instruction course development,5,Bachelor,Houston,Education,True
+655,invision art direction wireframing after effects customer acquisition customer retention,10,Associate,New York,Arts & Media,False
+656,process improvement project management fluid dynamics 3d modeling failure analysis,8,Master,San Jose,Engineering,False
+657,brief writing family law document review e-discovery mediation case management,2,Bachelor,Washington DC,Legal,False
+658,educational leadership educational psychology lesson planning,6,Bachelor,Orlando,Education,False
+659,research google classroom lms lesson planning iep development educational administration curriculum development,10,Master,Boston,Education,True
+660,content strategy crm software content creation analytics buffer google analytics financial analysis quickbooks,3,Bachelor,Raleigh,Marketing,False
+661,jenkins sql redux node.js,1,PhD,Tampa,Software & IT,True
+662,nosql rust gcp pytorch ppc inbound marketing,3,Associate,San Jose,Software & IT,False
+663,mailchimp canva crm software ppc hootsuite public relations regulatory compliance negotiation,7,Associate,Portland,Marketing,True
+664,coaching employee training employee relations hr analytics payroll processing,7,Bachelor,Orlando,Human Resources,True
+665,quotas sales funnel management objection handling crm presentations,7,Associate,Columbus,Sales,True
+666,contract negotiation client relationship management crm solution selling closing techniques banking financial reporting,2,Associate,St. Louis,Sales,True
+667,adobe creative suite hubspot crm software content creation,8,Master,Dallas,Marketing,False
+668,legal ethics arbitration legal documentation creative direction copywriting,1,Bachelor,Salt Lake City,Legal,False
+669,sem hubspot facebook ads google analytics market research lead generation,2,High School,Denver,Marketing,True
+670,google classroom special education student assessment student support teaching research,1,Bachelor,Remote,Education,True
+671,premiere pro 3d modeling storyboarding ux design adobe photoshop responsive design,14,Associate,San Francisco,Arts & Media,False
+672,power bi taxation investment management audit derivatives banking,11,High School,Miami,Finance,True
+673,e-discovery regulatory compliance westlaw trademark law client counseling mediation,2,Bachelor,Los Angeles,Legal,True
+674,tableau audit capital markets bloomberg terminal,1,High School,Chicago,Finance,True
+675,emergency care diagnosis medical terminology treatment planning pharmacology medical records,5,Bachelor,Phoenix,Healthcare,False
+676,courtroom procedure contract law arbitration,5,Master,San Antonio,Legal,True
+677,diversity & inclusion benefits administration adp organizational development workforce planning talent acquisition,1,Associate,Remote,Human Resources,False
+678,investment management audit banking capital markets taxation,1,Master,Austin,Finance,False
+679,case management diagnosis cpr medical terminology,9,Associate,Atlanta,Healthcare,False
+680,mediation legal documentation trademark law criminal law document review legal analysis legal ethics,2,Bachelor,Nashville,Legal,False
+681,cfa investment management risk assessment financial analysis mergers and acquisitions cpa forecasting,3,Bachelor,Cincinnati,Finance,True
+682,public relations influencer marketing affiliate marketing google ads,7,Associate,Columbus,Marketing,False
+683,taxation portfolio management cash flow analysis bloomberg terminal corporate finance family law litigation,4,Bachelor,Phoenix,Finance,False
+684,c# flask aws css disease management phlebotomy medical records,0,High School,Atlanta,Software & IT,False
+685,copywriting sem ppc influencer marketing editing,8,Associate,Detroit,Marketing,True
+686,b2c sales quotas solution selling account management pipeline management prospecting objection handling,9,Bachelor,San Francisco,Sales,True
+687,c++ scikit-learn sql azure django rest api,3,Bachelor,San Francisco,Software & IT,True
+688,hr compliance diversity & inclusion applicant tracking systems hris systems conflict resolution labor laws employee relations,6,Bachelor,Cleveland,Human Resources,False
+689,proposal writing sales enablement cold calling presentations payroll processing workday applicant tracking systems,1,High School,Nashville,Sales,True
+690,surgery therapy vital signs medical records laboratory testing wireframing illustration,24,Associate,Remote,Healthcare,True
+691,patient assessment rehabilitation patient care treatment planning critical care patient education,2,High School,Nashville,Healthcare,False
+692,stem education educational assessment instructional design iep development,19,High School,Philadelphia,Education,True
+693,layout design cinema 4d premiere pro,2,Associate,New York,Arts & Media,False
+694,pedagogy educational technology curriculum development iep development,2,High School,Baltimore,Education,True
+695,invision 3d modeling responsive design adobe photoshop ux design typography videography,2,Associate,Miami,Arts & Media,False
+696,layout design sketch cinema 4d creative direction,5,Master,Baltimore,Arts & Media,True
+697,audit quickbooks tableau bloomberg terminal accounting excel,1,Bachelor,San Antonio,Finance,True
+698,cinema 4d photography art direction adobe photoshop illustration branding 3d modeling,6,Master,Orlando,Arts & Media,True
+699,physiology infection control psychiatric evaluation anatomy engineering design,1,Associate,Phoenix,Healthcare,True
+700,benefits administration labor laws recruiting hr analytics employee relations,4,Master,Denver,Human Resources,True
+701,trial experience document review courtroom procedure trademark law intellectual property deposition due diligence,2,Master,Detroit,Legal,True
+702,engineering design project management testing,4,Bachelor,Miami,Engineering,True
+703,financial statements taxation budget management bloomberg terminal power bi derivatives banking,9,Associate,Nashville,Finance,True
+704,responsive design storytelling content strategy illustration editing,2,Associate,Columbus,Arts & Media,False
+705,financial analysis banking cfa power bi r financial reporting cpa upselling pipeline management b2c sales,1,High School,Boston,Finance,False
+706,bamboo hr hris systems adp interviewing prospecting,1,Bachelor,Washington DC,Human Resources,False
+707,customer retention presentations b2c sales account management,1,Master,Miami,Sales,False
+708,google ads branding ppc hubspot storytelling adobe creative suite,3,PhD,Columbus,Marketing,True
+709,cold calling closing techniques sales enablement,5,Associate,San Francisco,Sales,True
+710,preventive care case management therapy clinical research treatment planning rehabilitation,1,Bachelor,Orlando,Healthcare,False
+711,anatomy preventive care case management patient assessment medical terminology surgery b2c sales hubspot,3,Bachelor,Salt Lake City,Healthcare,True
+712,presentations closing techniques cold calling salesforce sales enablement,3,Bachelor,Raleigh,Sales,False
+713,plc testing cad,9,Master,Austin,Engineering,False
+714,document review negotiation lexisnexis,4,Master,Miami,Legal,True
+715,academic advising mentoring educational psychology instructional design interviewing workday,4,Master,Columbus,Education,True
+716,instructional design iep development blackboard,9,High School,Chicago,Education,True
+717,sales enablement sales analytics closing techniques,1,Bachelor,San Francisco,Sales,True
+718,wireframing user research illustration invision,7,Bachelor,Atlanta,Arts & Media,True
+719,crm software content strategy canva hootsuite sales analytics sales strategy,4,Bachelor,Indianapolis,Marketing,False
+720,compensation employee retention hr compliance,2,Master,Portland,Human Resources,False
+721,internal controls quickbooks mergers and acquisitions budget management power bi excel financial modeling sales,2,Bachelor,Remote,Finance,False
+722,instructional design lesson planning educational technology educational administration course development,6,High School,Denver,Education,True
+723,mechanical design manufacturing processes thermodynamics materials science circuit design catia microcontrollers,6,Bachelor,Kansas City,Engineering,True
+724,employee engagement payroll processing conflict resolution career development employee retention performance management talent acquisition,1,Associate,Los Angeles,Human Resources,True
+725,student assessment academic writing differentiated instruction google classroom educational assessment,4,Master,Charlotte,Education,True
+726,sketching premiere pro ui design wireframing storyboarding,1,Associate,Phoenix,Arts & Media,True
+727,mediation legal ethics civil procedure case management,9,Bachelor,Seattle,Legal,False
+728,audit sap accounting,5,Bachelor,Raleigh,Finance,True
+729,finite element analysis blueprint reading system design mechanical design industrial design autocad 3d modeling,2,High School,Cleveland,Engineering,False
+730,content strategy content creation mailchimp email marketing a/b testing,6,Master,Atlanta,Marketing,True
+731,cross-selling crm negotiation territory management ppc inbound marketing analytics,2,High School,Seattle,Sales,False
+732,matlab root cause analysis 3d modeling plc,3,High School,Houston,Engineering,False
+733,a/b testing content strategy seo tools power bi financial analysis corporate finance,2,PhD,Seattle,Marketing,True
+734,root cause analysis microcontrollers quality assurance cad circuit design thermodynamics prototyping google analytics content strategy marketing automation,2,Bachelor,Portland,Engineering,False
+735,django pytorch java scikit-learn,13,Master,San Diego,Software & IT,True
+736,postgresql javascript git spring .net mysql,2,PhD,Raleigh,Software & IT,True
+737,3d modeling structural analysis simulation root cause analysis,7,PhD,Denver,Engineering,True
+738,product development manufacturing processes engineering design system design plc solidworks prototyping,20,Associate,Los Angeles,Engineering,False
+739,differentiated instruction canvas google classroom student engagement,7,Associate,St. Louis,Education,True
+740,oracle docker pytorch .net c# scala salesforce b2b sales solution selling,8,Master,St. Louis,Software & IT,False
+741,phlebotomy patient care vital signs treatment planning healthcare regulations diagnosis hr compliance,8,PhD,Los Angeles,Healthcare,False
+742,storytelling social media marketing adobe creative suite hootsuite hubspot buffer campaign management cinema 4d ui design,4,Bachelor,Charlotte,Marketing,False
+743,hubspot pipeline management customer retention contract negotiation sales funnel management lead generation financial analysis cpa financial statements,4,Master,Baltimore,Sales,True
+744,regulatory compliance derivatives capital markets r investment management excel,7,Associate,Dallas,Finance,False
+745,academic advising academic writing student counseling,8,Associate,San Jose,Education,True
+746,moodle canvas academic advising iep development curriculum development educational psychology academic writing,1,Bachelor,Cincinnati,Education,True
+747,taxation gaap sql corporate finance python cash flow analysis derivatives,3,Bachelor,Miami,Finance,True
+748,physiology patient education imaging clinical research,4,Master,Houston,Healthcare,True
+749,digital marketing storytelling seo tools hubspot canva a/b testing sem negotiation mediation,5,Bachelor,Nashville,Marketing,False
+750,anatomy rehabilitation vital signs therapy patient assessment patient care hr analytics employee retention talent management,11,Bachelor,Atlanta,Healthcare,True
+751,react scikit-learn javascript azure tensorflow structural analysis quality control,1,Bachelor,Cincinnati,Software & IT,True
+752,copywriting adobe indesign visual design storyboarding,4,Bachelor,San Jose,Arts & Media,False
+753,business development quotas customer acquisition territory management customer retention upselling taxation cpa,4,High School,Charlotte,Sales,False
+754,differentiated instruction curriculum development educational psychology mentoring,16,Bachelor,St. Louis,Education,True
+755,surgery critical care pharmacology healthcare regulations case management videography figma layout design,3,High School,Remote,Healthcare,False
+756,contract law family law deposition drafting intellectual property lexisnexis,4,Associate,Tampa,Legal,False
+757,course development blackboard curriculum development educational leadership,3,High School,Indianapolis,Education,True
+758,pytorch typescript pandas flask scikit-learn tensorflow cad,3,Associate,Remote,Software & IT,False
+759,succession planning interviewing workforce planning coaching hris systems,1,Bachelor,Austin,Human Resources,False
+760,blender adobe photoshop after effects invision videography branding illustration instructional design google classroom,10,Bachelor,Minneapolis,Arts & Media,False
+761,root cause analysis 3d modeling mechanical design process improvement thermodynamics,2,Bachelor,St. Louis,Engineering,True
+762,curriculum development academic writing educational technology iep development differentiated instruction educational assessment course development labor laws performance management workday,11,Bachelor,Phoenix,Education,False
+763,phlebotomy rehabilitation case management tensorflow,2,Associate,Baltimore,Healthcare,True
+764,ppc canva adobe creative suite branding campaign management employee training applicant tracking systems,6,Bachelor,Washington DC,Marketing,True
+765,educational technology blackboard educational assessment educational administration google classroom moodle,2,High School,Raleigh,Education,True
+766,canvas academic advising google classroom educational administration lesson planning iep development educational assessment,17,Associate,St. Louis,Education,True
+767,business development proposal writing contract negotiation pipeline management prospecting customer retention customer acquisition trial experience,16,Bachelor,Los Angeles,Sales,True
+768,creative direction branding premiere pro sketching,4,Bachelor,Cincinnati,Arts & Media,False
+769,customer acquisition pipeline management sales strategy,5,High School,Portland,Sales,True
+770,power bi internal controls corporate finance financial modeling,7,High School,Salt Lake City,Finance,True
+771,physiology case management infection control patient care treatment planning critical care,1,PhD,Kansas City,Healthcare,False
+772,digital marketing outbound marketing google analytics affiliate marketing seo,6,Bachelor,Los Angeles,Marketing,False
+773,creative direction cinema 4d premiere pro,15,High School,Indianapolis,Arts & Media,True
+774,diversity & inclusion interviewing compensation python,4,Associate,Miami,Human Resources,False
+775,pharmacology infection control healthcare regulations phlebotomy rehabilitation cpr preventive care,3,Bachelor,Dallas,Healthcare,True
+776,git swift .net postgresql,1,Bachelor,Boston,Software & IT,False
+777,typography content strategy blender color theory cinema 4d user testing adobe indesign,4,Master,Tampa,Arts & Media,False
+778,plc testing thermodynamics solidworks quality control content strategy facebook ads,17,Associate,Chicago,Engineering,True
+779,student assessment mentoring educational administration teaching,4,Bachelor,Boston,Education,True
+780,payroll processing compensation diversity & inclusion cpr therapy,3,Bachelor,San Diego,Human Resources,True
+781,diagnosis emergency care preventive care electronic health records imaging clinical documentation critical care,4,Associate,Detroit,Healthcare,True
+782,premiere pro creative direction user research art direction animation blender storyboarding educational administration classroom management,10,Bachelor,San Francisco,Arts & Media,False
+783,quality assurance ansys failure analysis illustration,1,Master,Boston,Engineering,True
+784,portfolio management excel financial analysis banking quickbooks financial statements sap,8,Master,Indianapolis,Finance,True
+785,territory management sales analytics cross-selling,0,Master,Austin,Sales,False
+786,oracle python java,8,Bachelor,Raleigh,Software & IT,True
+787,document review trial experience arbitration deposition,3,PhD,Boston,Legal,False
+788,prototyping content strategy ui design creative direction figma branding blender,1,Associate,Atlanta,Arts & Media,True
+789,wireframing illustration layout design art direction sketching creative direction case management,7,PhD,Denver,Arts & Media,True
+790,iep development special education research google classroom student assessment,7,High School,Remote,Education,False
+791,campaign management market research storytelling hootsuite content strategy inbound marketing branding,3,Bachelor,San Diego,Marketing,False
+792,legal writing patent law arbitration contract law negotiation hubspot b2b sales sales analytics,2,Associate,Miami,Legal,True
+793,branding ux design blender photography illustration layout design premiere pro clinical documentation disease management,6,Associate,San Francisco,Arts & Media,True
+794,ruby nosql python flask html sql,5,Bachelor,Charlotte,Software & IT,False
+795,storytelling seo copywriting scala rest api git,3,Bachelor,Cleveland,Marketing,False
+796,prototyping failure analysis technical documentation product development mechanical design testing,6,Master,Minneapolis,Engineering,True
+797,curriculum development student engagement blackboard special education research iep development,2,High School,Pittsburgh,Education,False
+798,client relationship management sales analytics b2b sales,1,Bachelor,Phoenix,Sales,False
+799,sql css pytorch rest api .net kubernetes ruby courtroom procedure arbitration,1,High School,Miami,Software & IT,True
+800,adobe illustrator animation storytelling visual design branding color theory,1,Associate,San Francisco,Arts & Media,False
+801,solution selling sales forecasting sales strategy crm sales analytics territory management,6,Bachelor,Los Angeles,Sales,False
+802,educational leadership academic advising student support instructional design moodle,2,Bachelor,Seattle,Education,True
+803,talent management adp recruiting succession planning,2,High School,Charlotte,Human Resources,False
+804,blackboard special education curriculum development student engagement,12,Associate,Phoenix,Education,False
+805,c# jenkins azure sql mysql graphql django,8,Bachelor,Nashville,Software & IT,True
+806,pandas php oracle scikit-learn kotlin sql jenkins,2,High School,Philadelphia,Software & IT,True
+807,mediation courtroom procedure legal ethics contract law negotiation legal analysis due diligence special education,3,High School,Tampa,Legal,False
+808,art direction layout design color theory content strategy bloomberg terminal forecasting,3,Associate,Charlotte,Arts & Media,True
+809,curriculum development blackboard special education academic advising lms solution selling,8,Bachelor,Atlanta,Education,False
+810,healthcare regulations cpr imaging disease management patient education critical care medical records technical documentation,12,High School,Pittsburgh,Healthcare,False
+811,r gaap internal controls,1,High School,Nashville,Finance,True
+812,regulatory compliance quickbooks derivatives,2,Associate,Minneapolis,Finance,False
+813,patient education cpr psychiatric evaluation medical terminology disease management pharmacology docker,8,Associate,St. Louis,Healthcare,False
+814,swift c++ aws css html,2,Associate,San Francisco,Software & IT,False
+815,industrial design ansys microcontrollers manufacturing processes structural analysis,2,High School,Indianapolis,Engineering,True
+816,risk assessment derivatives taxation,2,Bachelor,Cleveland,Finance,True
+817,color theory editing copywriting content strategy ux design storytelling preventive care patient care therapy,2,PhD,San Francisco,Arts & Media,False
+818,inbound marketing sem marketing automation,9,Associate,Remote,Marketing,False
+819,hris systems recruiting hr policies,2,Bachelor,New York,Human Resources,True
+820,canvas differentiated instruction moodle derivatives sql regulatory compliance,1,Master,San Jose,Education,True
+821,plc mechanical design product development matlab manufacturing processes,9,High School,Washington DC,Engineering,True
+822,research curriculum development teaching canvas educational assessment educational psychology copywriting,4,Bachelor,Cleveland,Education,False
+823,financial analysis regulatory compliance forecasting,16,Master,San Diego,Finance,True
+824,negotiation document review legal research trial experience contract law legal ethics regulatory compliance,4,Associate,San Antonio,Legal,False
+825,mysql c# postgresql css docker .net mailchimp,11,Bachelor,Detroit,Software & IT,True
+826,google analytics email marketing facebook ads public relations,3,High School,Pittsburgh,Marketing,True
+827,kubernetes git rust disease management electronic health records,12,PhD,San Diego,Software & IT,False
+828,gcp redux typescript,5,High School,Miami,Software & IT,False
+829,gaap sql quickbooks power bi banking tableau internal controls applicant tracking systems,4,High School,Nashville,Finance,True
+830,gd&t autocad fluid dynamics thermodynamics structural analysis root cause analysis catia,4,Bachelor,Washington DC,Engineering,True
+831,labor laws employee relations bamboo hr applicant tracking systems,19,Associate,Minneapolis,Human Resources,True
+832,pandas swift react mongodb rust spring,3,Bachelor,San Francisco,Software & IT,False
+833,rehabilitation medication management electronic health records clinical research patient assessment,6,Bachelor,Denver,Healthcare,False
+834,cpr preventive care patient assessment critical care diagnosis pharmacology typography editing responsive design,4,Bachelor,Salt Lake City,Healthcare,False
+835,litigation drafting arbitration case management criminal law,3,Associate,San Diego,Legal,False
+836,b2c sales crm salesforce presentations solution selling taxation pivot tables,11,Associate,San Francisco,Sales,False
+837,educational technology student assessment educational administration stem education product development materials science thermodynamics,7,Bachelor,Miami,Education,True
+838,tableau investment management r,5,Associate,Austin,Finance,False
+839,forecasting taxation mergers and acquisitions pivot tables sap gaap quickbooks,13,High School,Denver,Finance,False
+840,blueprint reading product development technical documentation prototyping manufacturing processes structural analysis fluid dynamics,9,High School,Minneapolis,Engineering,True
+841,academic writing stem education instructional design classroom management teaching research special education,18,Associate,St. Louis,Education,True
+842,b2b sales pipeline management customer acquisition quotas territory management negotiation,3,High School,Columbus,Sales,True
+843,legal documentation criminal law legal research trademark law legal analysis contract law patient assessment psychiatric evaluation,6,Bachelor,Houston,Legal,False
+844,css kubernetes node.js swift,8,Master,Salt Lake City,Software & IT,True
+845,due diligence patent law criminal law mediation civil procedure,0,Associate,New York,Legal,False
+846,civil procedure regulatory compliance intellectual property,14,Bachelor,Austin,Legal,False
+847,cash flow analysis cfa financial statements financial modeling tableau pivot tables prospecting b2b sales,10,PhD,Portland,Finance,False
+848,3d modeling art direction blender animation illustration,3,Bachelor,Charlotte,Arts & Media,True
+849,territory management b2c sales crm proposal writing salesforce pipeline management,8,Master,Portland,Sales,False
+850,lexisnexis courtroom procedure due diligence document review mediation legal research,7,Bachelor,Miami,Legal,True
+851,copywriting inbound marketing seo tools taxation mergers and acquisitions sap,1,Bachelor,Orlando,Marketing,True
+852,corporate finance derivatives excel accounting sql risk assessment financial statements aws,6,Bachelor,Chicago,Finance,True
+853,sales enablement business development cold calling,3,Master,Cincinnati,Sales,False
+854,lms course development instructional design educational administration academic writing classroom management blackboard,4,Associate,Atlanta,Education,False
+855,interviewing organizational development talent management,4,Master,Charlotte,Human Resources,False
+856,workday bamboo hr talent management benefits administration hr compliance,1,Master,Miami,Human Resources,True
+857,google classroom educational psychology educational technology student assessment academic writing educational administration classroom management,5,Bachelor,Tampa,Education,True
+858,lexisnexis litigation negotiation e-discovery brief writing client counseling arbitration,7,Associate,Seattle,Legal,False
+859,educational assessment google classroom educational administration pedagogy curriculum development course development,2,Bachelor,San Antonio,Education,True
+860,hubspot digital marketing storytelling content creation social media marketing outbound marketing hibernate,8,Bachelor,Chicago,Marketing,True
+861,preventive care imaging surgery disease management,9,Master,St. Louis,Healthcare,False
+862,case management vital signs emergency care disease management critical care imaging consultative selling pipeline management sales funnel management,10,Associate,Portland,Healthcare,False
+863,materials science 3d modeling microcontrollers matlab cad client counseling arbitration family law,8,Master,Denver,Engineering,False
+864,solution selling sales strategy customer retention,26,High School,San Antonio,Sales,True
+865,coaching hr compliance recruiting,4,Associate,Dallas,Human Resources,False
+866,nosql spring c#,4,Associate,San Francisco,Software & IT,True
+867,customer retention pipeline management sales analytics instructional design student support,4,Bachelor,Indianapolis,Sales,True
+868,teaching instructional design differentiated instruction curriculum development student assessment educational psychology research,9,Master,Chicago,Education,False
+869,negotiation e-discovery westlaw deposition due diligence,4,Bachelor,New York,Legal,True
+870,workday bamboo hr employee relations hr policies labor laws performance management hr analytics,3,Bachelor,Salt Lake City,Human Resources,False
+871,quality assurance system design matlab fluid dynamics structural analysis,12,High School,Tampa,Engineering,True
+872,customer acquisition cold calling cross-selling lead generation classroom management moodle,3,Master,St. Louis,Sales,True
+873,pedagogy educational administration blackboard student engagement,9,Associate,Nashville,Education,False
+874,legal analysis mediation drafting criminal law westlaw legal documentation litigation cinema 4d content strategy,5,Master,Denver,Legal,True
+875,bamboo hr coaching performance management hris systems compensation nosql c++,3,Associate,Houston,Human Resources,False
+876,moodle google classroom course development research blackboard educational leadership,8,Bachelor,Raleigh,Education,False
+877,intellectual property patent law criminal law trademark law lexisnexis legal writing sketch copywriting premiere pro,5,Associate,Los Angeles,Legal,False
+878,pivot tables sap tableau mergers and acquisitions quickbooks bloomberg terminal,2,Bachelor,Houston,Finance,True
+879,materials science simulation root cause analysis catia gd&t quality control,2,Bachelor,Houston,Engineering,True
+880,medical records patient education rehabilitation courtroom procedure,10,Bachelor,Orlando,Healthcare,False
+881,system design cad materials science ansys project management,7,Bachelor,Phoenix,Engineering,False
+882,student assessment instructional design educational leadership educational technology educational psychology educational administration,4,Bachelor,Portland,Education,False
+883,sql power bi derivatives taxation audit financial modeling,2,PhD,Salt Lake City,Finance,True
+884,hr policies hris systems employee retention performance management interviewing employee engagement labor laws,3,Bachelor,Kansas City,Human Resources,False
+885,3d modeling photography figma art direction cinema 4d employee training,1,Bachelor,New York,Arts & Media,True
+886,case management legal analysis patent law family law corporate law,6,High School,San Diego,Legal,False
+887,css pandas flask jenkins graphql spring,1,High School,Seattle,Software & IT,False
+888,user research editing adobe illustrator sketch wireframing videography,3,Bachelor,Orlando,Arts & Media,True
+889,legal documentation regulatory compliance legal ethics legal writing case management deposition,20,Bachelor,Salt Lake City,Legal,True
+890,adobe indesign wireframing typography ui design figma infection control case management patient education,1,Bachelor,New York,Arts & Media,True
+891,r corporate finance cpa root cause analysis,2,Bachelor,Miami,Finance,True
+892,branding after effects illustration ux design creative direction editing content strategy negotiation courtroom procedure family law,6,Master,Pittsburgh,Arts & Media,False
+893,marketing automation sem adobe creative suite social media marketing customer journey canva campaign management,4,Associate,Remote,Marketing,True
+894,typescript html kubernetes git numpy python php,9,PhD,Houston,Software & IT,True
+895,drafting westlaw document review legal ethics legal research legal documentation,2,PhD,Raleigh,Legal,True
+896,proposal writing pipeline management cross-selling b2c sales client relationship management,5,Associate,San Jose,Sales,True
+897,curriculum development differentiated instruction research blackboard educational technology academic advising python tensorflow,3,PhD,Baltimore,Education,True
+898,solidworks testing ansys 3d modeling cad b2b sales contract negotiation,1,Bachelor,Nashville,Engineering,False
+899,responsive design user testing storytelling adobe illustrator sketch user research,1,Master,St. Louis,Arts & Media,True
+900,industrial design materials science gd&t autocad testing plc financial modeling,6,Bachelor,Miami,Engineering,True
+901,emergency care phlebotomy patient assessment,1,Master,Dallas,Healthcare,True
+902,vital signs critical care preventive care emergency care physiology crm,10,Bachelor,Dallas,Healthcare,False
+903,engineering design finite element analysis microcontrollers testing ansys,5,High School,Remote,Engineering,False
+904,critical care electronic health records healthcare regulations anatomy clinical documentation,2,Associate,Remote,Healthcare,True
+905,prototyping color theory sketching user research,6,Associate,San Antonio,Arts & Media,False
+906,risk assessment pivot tables audit,1,Master,Kansas City,Finance,True
+907,vital signs patient assessment pharmacology electronic health records medical records scikit-learn sql docker,4,Associate,Atlanta,Healthcare,True
+908,ui design editing after effects,7,Bachelor,Dallas,Arts & Media,False
+909,photography typography content strategy wireframing visual design after effects ui design r regulatory compliance,5,Master,Denver,Arts & Media,False
+910,organizational development benefits administration labor laws career development employee engagement payroll processing clinical research psychiatric evaluation diagnosis,6,High School,Washington DC,Human Resources,True
+911,workforce planning interviewing conflict resolution,1,High School,Salt Lake City,Human Resources,True
+912,stem education student assessment course development google classroom pedagogy,7,Bachelor,Los Angeles,Education,True
+913,consultative selling solution selling salesforce,3,Associate,San Francisco,Sales,False
+914,nosql aws spring scala html jenkins kotlin finite element analysis testing,25,Bachelor,Raleigh,Software & IT,False
+915,salesforce sales forecasting upselling negotiation crm customer retention consultative selling,3,Associate,Detroit,Sales,False
+916,videography visual design copywriting branding editing root cause analysis project management,12,PhD,Denver,Arts & Media,False
+917,cfa taxation r,1,Bachelor,Baltimore,Finance,True
+918,legal ethics intellectual property trademark law imaging,14,Bachelor,Columbus,Legal,True
+919,forecasting internal controls regulatory compliance banking,8,Associate,Portland,Finance,True
+920,interviewing bamboo hr coaching employee relations employee retention succession planning hr analytics,2,Bachelor,Cincinnati,Human Resources,True
+921,ux design creative direction user research cinema 4d invision animation sketch,10,High School,Phoenix,Arts & Media,False
+922,imaging anatomy electronic health records case management rehabilitation diagnosis,5,High School,Denver,Healthcare,False
+923,family law arbitration deposition drafting mediation trial experience,4,Bachelor,Boston,Legal,False
+924,git jenkins pandas,3,Master,Detroit,Software & IT,True
+925,django kotlin .net pytorch css,4,Master,Los Angeles,Software & IT,False
+926,pedagogy student engagement educational technology educational leadership solution selling,6,Master,Columbus,Education,True
+927,branding hubspot analytics,4,Bachelor,St. Louis,Marketing,False
+928,wireframing photography user testing,3,Master,Charlotte,Arts & Media,False
+929,nosql ruby swift customer retention b2b sales,3,High School,Boston,Software & IT,False
+930,taxation investment management risk assessment bloomberg terminal financial reporting,1,High School,Philadelphia,Finance,False
+931,system design autocad prototyping storyboarding wireframing illustration,0,Bachelor,Cleveland,Engineering,True
+932,sales strategy proposal writing sales presentations hubspot client relationship management gcp mysql,8,PhD,Charlotte,Sales,True
+933,medical terminology diagnosis medical records disease management imaging clinical documentation therapy lead generation customer retention,5,Associate,Detroit,Healthcare,False
+934,digital marketing seo branding,4,Bachelor,Los Angeles,Marketing,False
+935,editing typography adobe illustrator visual design student engagement,2,Associate,Philadelphia,Arts & Media,True
+936,pivot tables power bi accounting cash flow analysis forecasting gaap internal controls,8,Bachelor,Atlanta,Finance,False
+937,mechanical design engineering design prototyping structural analysis quality control materials science cad,7,Bachelor,Denver,Engineering,False
+938,color theory after effects invision,1,Bachelor,Philadelphia,Arts & Media,True
+939,family law patent law client counseling,4,Bachelor,San Antonio,Legal,False
+940,presentations quotas cross-selling hubspot salesforce banking power bi derivatives,2,Bachelor,St. Louis,Sales,False
+941,sql forecasting quickbooks banking accounting due diligence corporate law,1,High School,San Jose,Finance,True
+942,product development root cause analysis plc circuit design,2,Master,Dallas,Engineering,True
+943,corporate finance r cash flow analysis financial statements forecasting,1,Associate,Pittsburgh,Finance,True
+944,employee engagement employee training succession planning,6,Associate,Miami,Human Resources,True
+945,finite element analysis process improvement testing blueprint reading prototyping technical documentation,8,High School,Phoenix,Engineering,False
+946,e-discovery case management criminal law mediation litigation sketching videography ui design,8,Bachelor,Remote,Legal,True
+947,infection control phlebotomy imaging,11,High School,San Francisco,Healthcare,True
+948,presentations cross-selling crm contract negotiation,2,Master,Miami,Sales,False
+949,b2b sales business development proposal writing account management quotas internal controls financial reporting regulatory compliance,3,Master,San Jose,Sales,False
+950,student support student assessment academic advising educational psychology,3,Bachelor,Washington DC,Education,False
+951,legal documentation lexisnexis family law e-discovery drafting facebook ads market research seo tools,10,Bachelor,Denver,Legal,True
+952,employee onboarding conflict resolution benefits administration,3,Master,Baltimore,Human Resources,True
+953,negotiation legal research case management,18,PhD,Boston,Legal,True
+954,course development student engagement teaching instructional design academic writing,4,Associate,Miami,Education,False
+955,google analytics copywriting crm software buffer facebook ads public relations contract negotiation,2,Associate,Philadelphia,Marketing,True
+956,westlaw document review patent law legal research,8,Bachelor,Boston,Legal,False
+957,physiology treatment planning patient care preventive care clinical documentation,1,Master,St. Louis,Healthcare,True
+958,educational assessment iep development teaching,3,Bachelor,Baltimore,Education,True
+959,matlab failure analysis catia microcontrollers project management,3,Associate,Minneapolis,Engineering,True
+960,editing user research blender figma typography storyboarding sketch,3,PhD,Pittsburgh,Arts & Media,False
+961,legal analysis brief writing legal ethics drafting regulatory compliance trademark law legal documentation,3,Bachelor,Denver,Legal,False
+962,react aws .net thermodynamics prototyping,4,Master,Austin,Software & IT,True
+963,sketching responsive design visual design videography adobe photoshop user testing storytelling,1,Associate,Cleveland,Arts & Media,False
+964,employee retention performance management employee relations labor laws workforce planning academic writing,2,Associate,Columbus,Human Resources,False
+965,talent management performance management diversity & inclusion,3,High School,Tampa,Human Resources,True
+966,negotiation arbitration deposition contract law litigation,10,Associate,Boston,Legal,False
+967,cash flow analysis python budget management capital markets regulatory compliance,4,High School,Columbus,Finance,False
+968,root cause analysis autocad solidworks project management failure analysis industrial design testing,2,Master,New York,Engineering,False
+969,google classroom lesson planning curriculum development educational technology special education stem education research,2,High School,Cleveland,Education,False
+970,patient assessment anatomy preventive care rehabilitation,4,Master,Minneapolis,Healthcare,False
+971,digital marketing crm software google ads facebook ads content creation content strategy user research,6,Associate,Columbus,Marketing,False
+972,google ads copywriting sem google analytics public relations buffer lesson planning,7,Master,Indianapolis,Marketing,False
+973,cfa capital markets corporate finance risk assessment python,2,Bachelor,Washington DC,Finance,True
+974,account management consultative selling b2c sales quotas,2,High School,Austin,Sales,True
+975,product development root cause analysis mechanical design circuit design manufacturing processes solidworks project management regulatory compliance audit,1,Bachelor,Minneapolis,Engineering,True
+976,student assessment stem education moodle classroom management educational assessment google classroom lms,3,Associate,Chicago,Education,False
+977,hubspot a/b testing campaign management buffer marketing automation content creation,5,Associate,Houston,Marketing,True
+978,hootsuite affiliate marketing storytelling adobe creative suite campaign management,3,Master,Los Angeles,Marketing,True
+979,interviewing employee engagement compensation adp hris systems organizational development pivot tables tableau,7,Associate,Salt Lake City,Human Resources,False
+980,matlab engineering design circuit design blueprint reading,36,Master,Kansas City,Engineering,False
+981,hr compliance hr policies career development hris systems catia process improvement,2,Associate,St. Louis,Human Resources,False
+982,illustration adobe indesign 3d modeling sketch creative direction,4,High School,Portland,Arts & Media,False
+983,hris systems succession planning talent acquisition diversity & inclusion,7,High School,Seattle,Human Resources,False
+984,patient education patient assessment vital signs,14,Bachelor,San Diego,Healthcare,False
+985,product development solidworks plc system design quality assurance microcontrollers,1,Bachelor,Washington DC,Engineering,False
+986,negotiation consultative selling pipeline management lead generation prospecting presentations,3,Bachelor,San Antonio,Sales,True
+987,adp employee retention hris systems recruiting employee engagement,3,Master,Remote,Human Resources,True
+988,ruby .net oracle css,7,Bachelor,Los Angeles,Software & IT,True
+989,industrial design simulation mechanical design root cause analysis,10,High School,Orlando,Engineering,True
+990,objection handling solution selling closing techniques,2,Bachelor,San Francisco,Sales,True
+991,industrial design engineering design simulation,6,High School,Houston,Engineering,True
+992,financial statements cfa tableau,5,Bachelor,Philadelphia,Finance,False
+993,academic advising student engagement course development educational assessment instructional design blackboard business development quotas,9,Associate,Kansas City,Education,False
+994,finite element analysis prototyping blueprint reading failure analysis technical documentation quality assurance quality control cpa python investment management,5,High School,Remote,Engineering,True
+995,teaching blackboard instructional design student counseling moodle educational administration student engagement,3,Bachelor,Philadelphia,Education,False
+996,creative direction storyboarding adobe photoshop editing,9,Master,Remote,Arts & Media,False
+997,mechanical design failure analysis project management cad blueprint reading employee onboarding employee engagement coaching,2,Master,Portland,Engineering,True
+998,ppc hootsuite content creation marketing automation content strategy,3,High School,Boston,Marketing,True
+999,solution selling consultative selling sales pipeline management account management client relationship management,7,PhD,Austin,Sales,False
+1000,family law mediation legal documentation branding,6,Bachelor,Cleveland,Legal,True
+1001,financial reporting python investment management risk assessment internal controls power bi,7,Bachelor,Pittsburgh,Finance,False
+1002,mongodb nosql oracle css lead generation customer acquisition,1,Master,Cleveland,Software & IT,True
+1003,contract law litigation regulatory compliance civil procedure legal ethics brief writing legal documentation storytelling facebook ads public relations,3,Bachelor,Philadelphia,Legal,True
+1004,account management customer retention quotas sales sales analytics b2c sales crm,8,Bachelor,Cincinnati,Sales,False
+1005,document review litigation due diligence case management trial experience,4,Bachelor,Minneapolis,Legal,True
+1006,r budget management cash flow analysis sap power bi financial reporting hubspot sales analytics closing techniques,7,Master,Nashville,Finance,True
+1007,taxation pivot tables cpa forecasting accounting bloomberg terminal,2,Bachelor,Portland,Finance,False
+1008,technical documentation root cause analysis catia engineering design materials science product development gd&t,9,Bachelor,Orlando,Engineering,True
+1009,influencer marketing outbound marketing adobe creative suite google ads content creation storytelling email marketing,3,Bachelor,Denver,Marketing,False
+1010,typescript flask pandas civil procedure,10,Bachelor,Salt Lake City,Software & IT,False
+1011,employee retention hris systems conflict resolution workforce planning performance management employee relations,4,Bachelor,Boston,Human Resources,True
+1012,python sql financial statements,13,Master,Minneapolis,Finance,True
+1013,financial reporting pivot tables banking derivatives python mentoring pedagogy lesson planning,7,Associate,Miami,Finance,False
+1014,regulatory compliance derivatives r,5,PhD,Chicago,Finance,True
+1015,territory management lead generation customer retention upselling sales forecasting patient assessment,3,Master,Washington DC,Sales,False
+1016,infection control medication management phlebotomy cpa financial modeling tableau,4,Master,Columbus,Healthcare,False
+1017,matlab simulation technical documentation autocad quality control student assessment stem education educational psychology,1,High School,Pittsburgh,Engineering,True
+1018,seo tools hubspot ppc derivatives,12,PhD,Atlanta,Marketing,False
+1019,student counseling canvas educational assessment instructional design,6,Bachelor,San Antonio,Education,True
+1020,outbound marketing ppc a/b testing,11,Associate,Remote,Marketing,True
+1021,mysql sql numpy html pytorch pandas azure b2c sales prospecting negotiation,5,Associate,Minneapolis,Software & IT,True
+1022,lexisnexis legal writing intellectual property legal analysis educational administration,6,Associate,Raleigh,Legal,True
+1023,flask php swift docker tensorflow contract negotiation presentations,4,Bachelor,St. Louis,Software & IT,False
+1024,infection control physiology pharmacology therapy medical terminology,2,High School,Dallas,Healthcare,False
+1025,quotas business development sales funnel management,3,Bachelor,Tampa,Sales,False
+1026,patent law trial experience legal analysis courtroom procedure legal ethics legal writing,5,Bachelor,Dallas,Legal,False
+1027,clinical documentation physiology vital signs medical records crm sales enablement proposal writing,2,Bachelor,Phoenix,Healthcare,True
+1028,trial experience arbitration litigation drafting legal documentation brief writing lexisnexis mechanical design blueprint reading simulation,7,Bachelor,Austin,Legal,True
+1029,customer retention contract negotiation lead generation consultative selling presentations negotiation sales enablement,20,High School,Houston,Sales,True
+1030,system design industrial design gd&t circuit design blueprint reading,5,High School,Columbus,Engineering,True
+1031,clinical documentation therapy pharmacology,4,High School,Remote,Healthcare,True
+1032,content creation copywriting branding facebook ads ppc sem content strategy,22,Bachelor,Tampa,Marketing,False
+1033,research educational administration curriculum development,11,Bachelor,Portland,Education,False
+1034,student support educational assessment lms,11,Bachelor,San Jose,Education,True
+1035,copywriting branding hubspot storytelling google ads market research,2,Associate,St. Louis,Marketing,False
+1036,mergers and acquisitions financial analysis financial reporting power bi,5,Bachelor,Houston,Finance,False
+1037,deposition patent law mediation redux,0,High School,Austin,Legal,True
+1038,investment management mergers and acquisitions banking sql r python,4,High School,Raleigh,Finance,False
+1039,creative direction layout design illustration ui design,3,Associate,San Jose,Arts & Media,True
+1040,educational technology student counseling canvas mailchimp,12,Bachelor,Cincinnati,Education,False
+1041,territory management account management b2c sales sales strategy lead generation,3,Bachelor,San Jose,Sales,True
+1042,mechanical design thermodynamics structural analysis quality control manufacturing processes industrial design,1,High School,Orlando,Engineering,True
+1043,applicant tracking systems hr analytics workday adp hr compliance audit accounting,2,Bachelor,Minneapolis,Human Resources,True
+1044,copywriting sem hootsuite google analytics,3,PhD,Phoenix,Marketing,True
+1045,laboratory testing emergency care treatment planning rehabilitation b2b sales proposal writing,7,Bachelor,San Francisco,Healthcare,False
+1046,cfa corporate finance investment management internal controls pivot tables gaap audit corporate law mediation,4,Bachelor,Phoenix,Finance,True
+1047,clinical documentation patient care patient assessment diagnosis vital signs,1,Bachelor,Seattle,Healthcare,False
+1048,patent law civil procedure e-discovery,2,High School,Indianapolis,Legal,True
+1049,buffer campaign management seo tools social media marketing branding digital marketing payroll processing,15,Bachelor,San Antonio,Marketing,True
+1050,educational psychology educational technology lesson planning sales forecasting sales enablement,2,Master,Orlando,Education,True
+1051,financial statements internal controls mergers and acquisitions pipeline management,9,Master,Dallas,Finance,False
+1052,teaching lesson planning mentoring pedagogy,3,PhD,Seattle,Education,False
+1053,3d modeling prototyping thermodynamics ansys engineering design root cause analysis materials science lesson planning special education student assessment,2,Bachelor,Kansas City,Engineering,False
+1054,surgery preventive care phlebotomy cpr physiology,1,Bachelor,Cleveland,Healthcare,True
+1055,preventive care treatment planning medical records clinical documentation infection control laboratory testing surgery content strategy,3,Bachelor,Raleigh,Healthcare,True
+1056,benefits administration applicant tracking systems hr policies,2,High School,Seattle,Human Resources,True
+1057,quotas customer retention business development cross-selling closing techniques sales forecasting b2b sales,4,High School,Charlotte,Sales,True
+1058,prospecting objection handling consultative selling pipeline management hubspot customer retention,8,Master,Los Angeles,Sales,False
+1059,negotiation legal writing trial experience case management deposition drafting mediation,3,High School,Austin,Legal,False
+1060,clinical documentation pharmacology healthcare regulations phlebotomy cpr medication management vital signs,6,Master,Chicago,Healthcare,True
+1061,email marketing seo inbound marketing adobe creative suite branding a/b testing,6,Master,Kansas City,Marketing,True
+1062,catia structural analysis plc autocad mechanical design,7,Bachelor,St. Louis,Engineering,False
+1063,3d modeling adobe photoshop sketch,8,Associate,Dallas,Arts & Media,True
+1064,budget management audit python pivot tables forecasting financial statements risk assessment fluid dynamics materials science,2,Bachelor,Portland,Finance,True
+1065,power bi budget management cash flow analysis mergers and acquisitions,2,Associate,San Diego,Finance,True
+1066,ui design prototyping 3d modeling layout design figma research,7,Bachelor,Phoenix,Arts & Media,False
+1067,lead generation negotiation crm sales,9,PhD,Minneapolis,Sales,False
+1068,python capital markets cash flow analysis pivot tables financial analysis testing,3,Associate,Denver,Finance,True
+1069,legal analysis patent law legal writing,4,Associate,Boston,Legal,True
+1070,patient assessment disease management clinical documentation pharmacology physiology,4,Associate,Raleigh,Healthcare,True
+1071,due diligence courtroom procedure case management e-discovery civil procedure litigation,2,Associate,Seattle,Legal,True
+1072,cad quality control solidworks matlab compensation,7,High School,New York,Engineering,False
+1073,structural analysis catia manufacturing processes 3d modeling root cause analysis quality control prototyping,19,Bachelor,Chicago,Engineering,False
+1074,rust rest api mongodb kubernetes ruby java django,7,High School,San Francisco,Software & IT,False
+1075,typography prototyping content strategy adobe indesign legal analysis mediation,2,Master,Charlotte,Arts & Media,False
+1076,medical records clinical research emergency care laboratory testing phlebotomy therapy,2,Bachelor,Washington DC,Healthcare,False
+1077,workday employee onboarding conflict resolution employee retention benefits administration payroll processing,9,High School,Washington DC,Human Resources,True
+1078,flask java python graphql jenkins typescript azure,4,Bachelor,Pittsburgh,Software & IT,False
+1079,cinema 4d storyboarding content strategy figma 3d modeling,2,PhD,New York,Arts & Media,True
+1080,territory management sales forecasting prospecting negotiation closing techniques contract negotiation upselling,1,Bachelor,Boston,Sales,True
+1081,jenkins hibernate spring .net,10,High School,San Diego,Software & IT,False
+1082,gd&t microcontrollers engineering design cad quality assurance,3,Associate,Kansas City,Engineering,True
+1083,due diligence westlaw negotiation patent law,4,Bachelor,San Francisco,Legal,True
+1084,wireframing branding premiere pro,4,Master,Chicago,Arts & Media,True
+1085,pipeline management solution selling objection handling sales funnel management sales sales enablement,3,Master,Indianapolis,Sales,False
+1086,engineering design root cause analysis catia 3d modeling industrial design,3,Master,Houston,Engineering,False
+1087,google analytics seo adobe creative suite inbound marketing root cause analysis circuit design structural analysis,6,High School,Salt Lake City,Marketing,False
+1088,root cause analysis catia product development plc,2,Bachelor,Boston,Engineering,False
+1089,thermodynamics microcontrollers testing,3,Bachelor,St. Louis,Engineering,True
+1090,google ads outbound marketing hootsuite hubspot employee onboarding benefits administration diversity & inclusion,5,PhD,Austin,Marketing,True
+1091,ansys solidworks industrial design autocad materials science branding adobe indesign,1,Bachelor,Nashville,Engineering,True
+1092,client counseling regulatory compliance legal analysis,11,Bachelor,Miami,Legal,True
+1093,medical records disease management patient assessment clinical documentation therapy prototyping product development technical documentation,5,High School,San Diego,Healthcare,True
+1094,finite element analysis fluid dynamics matlab catia,1,Bachelor,Columbus,Engineering,True
+1095,legal ethics brief writing arbitration drafting due diligence google ads seo,2,Associate,Denver,Legal,False
+1096,forecasting financial statements cash flow analysis quickbooks sap autocad failure analysis 3d modeling,7,Master,Orlando,Finance,True
+1097,investment management cash flow analysis audit sap internal controls excel derivatives b2b sales quotas,9,Bachelor,Washington DC,Finance,False
+1098,mechanical design manufacturing processes autocad 3d modeling quality control quality assurance prototyping,1,Associate,San Jose,Engineering,False
+1099,teaching differentiated instruction canvas special education educational administration curriculum development educational leadership,1,Bachelor,Chicago,Education,True
+1100,academic advising student engagement course development,1,Bachelor,San Diego,Education,False
+1101,prototyping wireframing content strategy storytelling cinema 4d user testing content strategy crm software,4,Associate,Minneapolis,Arts & Media,True
+1102,patient care vital signs pharmacology emergency care psychiatric evaluation surgery clinical documentation due diligence trial experience westlaw,6,Associate,San Diego,Healthcare,False
+1103,account management b2b sales sales funnel management sales forecasting lead generation legal documentation document review,9,Bachelor,San Jose,Sales,True
+1104,litigation document review legal analysis lexisnexis,1,Bachelor,Washington DC,Legal,False
+1105,mediation client counseling corporate law adobe creative suite facebook ads mailchimp,2,High School,Austin,Legal,True
+1106,premiere pro creative direction storytelling,4,High School,Nashville,Arts & Media,True
+1107,customer retention lead generation solution selling structural analysis engineering design,3,Master,Nashville,Sales,False
+1108,prospecting sales enablement upselling customer retention pipeline management cross-selling seo tools seo crm software,2,PhD,Austin,Sales,True
+1109,adobe creative suite google analytics content strategy canva trial experience corporate law mediation,3,Associate,Denver,Marketing,True
+1110,legal writing patent law regulatory compliance civil procedure,4,Master,Miami,Legal,False
+1111,fluid dynamics quality assurance system design autocad,2,Master,Detroit,Engineering,True
+1112,buffer hootsuite email marketing customer journey copywriting,3,Master,Seattle,Marketing,True
+1113,azure ruby aws css docker medication management case management,2,Bachelor,Columbus,Software & IT,False
+1114,ansys matlab process improvement structural analysis root cause analysis prototyping patent law mediation drafting,12,Bachelor,Los Angeles,Engineering,False
+1115,process improvement quality control 3d modeling outbound marketing hootsuite canva,7,Bachelor,Philadelphia,Engineering,True
+1116,technical documentation thermodynamics cad,9,Master,Raleigh,Engineering,True
+1117,canvas differentiated instruction instructional design lesson planning educational assessment,4,High School,Philadelphia,Education,False
+1118,risk assessment audit sap capital markets python,4,Bachelor,San Diego,Finance,True
+1119,node.js git pandas,3,Associate,Austin,Software & IT,True
+1120,coaching employee retention hr analytics hr compliance,4,PhD,Baltimore,Human Resources,False
+1121,corporate finance sap pivot tables derivatives tableau banking legal writing,4,Master,Raleigh,Finance,True
+1122,student engagement research differentiated instruction canvas lms classroom management,2,Bachelor,San Antonio,Education,False
+1123,google ads marketing automation seo regulatory compliance risk assessment,2,Master,Remote,Marketing,False
+1124,sql scikit-learn .net,2,Associate,Baltimore,Software & IT,True
+1125,customer retention cross-selling sales enablement consultative selling client relationship management,8,High School,San Antonio,Sales,False
+1126,power bi sql forecasting tableau,7,Bachelor,Raleigh,Finance,True
+1127,3d modeling storyboarding storytelling premiere pro sketch,0,Bachelor,Cincinnati,Arts & Media,False
+1128,cpr anatomy laboratory testing treatment planning case management preventive care,4,PhD,Washington DC,Healthcare,False
+1129,presentations closing techniques cold calling,0,Bachelor,Detroit,Sales,True
+1130,microcontrollers engineering design manufacturing processes autocad system design simulation,3,High School,New York,Engineering,False
+1131,diagnosis imaging psychiatric evaluation emergency care critical care educational leadership,20,Bachelor,Boston,Healthcare,False
+1132,moodle educational leadership instructional design,16,Master,San Francisco,Education,False
+1133,typography adobe indesign animation videography ui design color theory b2b sales,3,High School,San Diego,Arts & Media,True
+1134,pivot tables cash flow analysis financial reporting internal controls power bi diversity & inclusion hr analytics,3,Bachelor,San Francisco,Finance,False
+1135,public relations social media marketing marketing automation customer journey,4,PhD,Raleigh,Marketing,True
+1136,hr policies hris systems coaching,9,Bachelor,Chicago,Human Resources,True
+1137,gcp graphql php scala aws,1,Master,Minneapolis,Software & IT,False
+1138,coaching employee onboarding employee training,5,Master,Atlanta,Human Resources,False
+1139,affiliate marketing mailchimp market research customer acquisition,9,Master,San Francisco,Marketing,True
+1140,preventive care medication management patient assessment infection control phlebotomy,5,Associate,Nashville,Healthcare,True
+1141,career development labor laws interviewing employee relations hr compliance diversity & inclusion performance management,6,Associate,Kansas City,Human Resources,False
+1142,succession planning benefits administration change management employee retention,1,Associate,Miami,Human Resources,False
+1143,proposal writing sales enablement client relationship management pipeline management sales,2,Bachelor,San Antonio,Sales,True
+1144,adobe creative suite mailchimp hubspot prototyping editing adobe photoshop,5,Bachelor,Atlanta,Marketing,False
+1145,mentoring educational assessment differentiated instruction student support course development lms instructional design,4,Associate,Dallas,Education,True
+1146,sql rest api nosql css kubernetes postgresql,6,Bachelor,Miami,Software & IT,False
+1147,performance management talent acquisition hr analytics labor laws employee retention,6,Bachelor,Raleigh,Human Resources,False
+1148,sales forecasting crm sales funnel management business development objection handling,14,Bachelor,San Jose,Sales,False
+1149,javascript react swift nosql rest api html flask catia,12,Bachelor,Boston,Software & IT,False
+1150,objection handling client relationship management crm,11,PhD,Columbus,Sales,False
+1151,criminal law drafting courtroom procedure westlaw civil procedure,13,High School,Columbus,Legal,False
+1152,gaap power bi regulatory compliance cfa plc root cause analysis blueprint reading,1,Master,Minneapolis,Finance,True
+1153,excel bloomberg terminal gaap financial statements cpa,10,High School,Columbus,Finance,True
+1154,r excel regulatory compliance sap risk assessment,4,Bachelor,New York,Finance,False
+1155,contract negotiation client relationship management consultative selling sales sales strategy b2c sales customer acquisition interviewing employee engagement performance management,9,Bachelor,Orlando,Sales,False
+1156,clinical research preventive care therapy imaging treatment planning patient care pharmacology catia prototyping fluid dynamics,5,Bachelor,Phoenix,Healthcare,False
+1157,public relations market research digital marketing copywriting seo tools branding financial analysis audit tableau,4,Bachelor,St. Louis,Marketing,False
+1158,storyboarding user testing photography adobe photoshop blender wireframing excel,23,Associate,San Jose,Arts & Media,True
+1159,lead generation client relationship management cold calling business development proposal writing solution selling consultative selling,8,Associate,Remote,Sales,False
+1160,lms student assessment mentoring iep development academic writing,3,Bachelor,Atlanta,Education,False
+1161,mysql swift flask mongodb kotlin litigation mediation,13,Bachelor,Orlando,Software & IT,True
+1162,document review trademark law corporate law,5,Bachelor,Cincinnati,Legal,True
+1163,drafting corporate law negotiation trial experience criminal law arbitration animation ux design,18,Master,Denver,Legal,True
+1164,content strategy typography creative direction sketch ux design,4,Associate,Charlotte,Arts & Media,False
+1165,crm software branding hootsuite hubspot,4,Bachelor,Washington DC,Marketing,False
+1166,root cause analysis finite element analysis structural analysis microcontrollers simulation invision,8,Associate,Salt Lake City,Engineering,True
+1167,django jenkins pandas,0,Associate,San Jose,Software & IT,False
+1168,treatment planning laboratory testing patient care imaging infection control,3,Master,New York,Healthcare,False
+1169,color theory branding ui design invision storyboarding google classroom educational psychology special education,6,Associate,Nashville,Arts & Media,False
+1170,b2b sales business development proposal writing client relationship management customer acquisition videography figma blender,2,Bachelor,Detroit,Sales,True
+1171,critical care clinical documentation patient education electronic health records contract law arbitration,8,Associate,Los Angeles,Healthcare,True
+1172,gd&t ansys prototyping process improvement project management circuit design autocad premiere pro illustration layout design,3,Associate,San Francisco,Engineering,False
+1173,closing techniques presentations sales funnel management solution selling,8,High School,Miami,Sales,False
+1174,critical care medical records phlebotomy pharmacology psychiatric evaluation clinical documentation treatment planning,8,Bachelor,Tampa,Healthcare,True
+1175,cinema 4d creative direction adobe illustrator photography adobe photoshop storyboarding visual design,5,Master,Charlotte,Arts & Media,False
+1176,conflict resolution labor laws hris systems performance management hr compliance applicant tracking systems workforce planning,2,Bachelor,Seattle,Human Resources,True
+1177,postgresql pandas css tensorflow swift corporate finance financial reporting,3,High School,Orlando,Software & IT,False
+1178,negotiation case management regulatory compliance,18,Master,San Antonio,Legal,True
+1179,wireframing content strategy copywriting storyboarding,6,Master,Salt Lake City,Arts & Media,True
+1180,pipeline management hubspot b2c sales client relationship management lead generation,2,Associate,Charlotte,Sales,True
+1181,scikit-learn tensorflow oracle,1,Master,Charlotte,Software & IT,True
+1182,course development mentoring teaching,3,Associate,Phoenix,Education,False
+1183,manufacturing processes testing blueprint reading quality assurance catia premiere pro,8,High School,St. Louis,Engineering,True
+1184,python sql swift numpy php pytorch graphql,8,Master,Houston,Software & IT,False
+1185,client relationship management b2b sales consultative selling quotas lead generation upselling sales funnel management,4,PhD,San Jose,Sales,False
+1186,disease management imaging laboratory testing rehabilitation anatomy phlebotomy,4,Bachelor,Phoenix,Healthcare,True
+1187,drafting legal analysis patent law,6,Bachelor,Nashville,Legal,True
+1188,solidworks 3d modeling circuit design microcontrollers industrial design blueprint reading,17,High School,Dallas,Engineering,True
+1189,deposition document review legal analysis,12,Bachelor,Orlando,Legal,False
+1190,sketch storytelling responsive design content strategy art direction cinema 4d after effects,7,Bachelor,San Jose,Arts & Media,False
+1191,hibernate kubernetes ruby nosql postgresql graphql redux a/b testing influencer marketing,2,Bachelor,Minneapolis,Software & IT,False
+1192,mailchimp content creation seo google analytics outbound marketing email marketing buffer financial modeling gaap derivatives,3,Bachelor,Houston,Marketing,True
+1193,student support differentiated instruction educational psychology teaching,10,Bachelor,Dallas,Education,False
+1194,quality control materials science manufacturing processes testing project management microcontrollers failure analysis mysql,1,Bachelor,San Francisco,Engineering,True
+1195,tensorflow mysql html,6,PhD,Kansas City,Software & IT,False
+1196,westlaw mediation trial experience document review change management performance management,8,Master,New York,Legal,True
+1197,microcontrollers project management cad,1,Bachelor,San Diego,Engineering,False
+1198,adp change management career development compensation conflict resolution employee engagement,21,Master,Miami,Human Resources,False
+1199,redux swift django nosql,7,Bachelor,Remote,Software & IT,False
+1200,canvas lesson planning academic advising moodle pedagogy student support educational psychology ui design,3,Bachelor,San Antonio,Education,True
+1201,python mergers and acquisitions cfa sql internal controls gaap,5,Bachelor,Tampa,Finance,True
+1202,mongodb oracle scala jenkins kubernetes .net java blackboard,7,Bachelor,Orlando,Software & IT,True
+1203,typography user research sketching storytelling,12,Master,Detroit,Arts & Media,False
+1204,sketching user testing ui design creative direction responsive design branding videography,2,Bachelor,Dallas,Arts & Media,True
+1205,patent law e-discovery due diligence legal ethics,4,Master,St. Louis,Legal,False
+1206,lesson planning canvas mentoring teaching classroom management stem education,9,Bachelor,Nashville,Education,False
+1207,social media marketing outbound marketing copywriting blackboard student counseling,1,Bachelor,Houston,Marketing,True
+1208,outbound marketing buffer ppc copywriting influencer marketing crm,1,Master,Charlotte,Marketing,False
+1209,matlab structural analysis engineering design industrial design failure analysis catia process improvement,9,Bachelor,Los Angeles,Engineering,True
+1210,lexisnexis corporate law document review regulatory compliance mediation trademark law invision content strategy after effects,40,Bachelor,Detroit,Legal,False
+1211,trademark law legal ethics legal documentation legal analysis corporate law java css,7,High School,Cincinnati,Legal,True
+1212,emergency care diagnosis psychiatric evaluation rehabilitation patient education physiology educational psychology,7,High School,Chicago,Healthcare,False
+1213,financial reporting forecasting sql cfa accounting gaap,2,Bachelor,St. Louis,Finance,True
+1214,digital marketing adobe creative suite copywriting public relations seo branding hr analytics workforce planning,1,Master,Houston,Marketing,True
+1215,catia solidworks technical documentation thermodynamics industrial design prospecting sales enablement upselling,2,Bachelor,Cleveland,Engineering,False
+1216,ansys manufacturing processes autocad prototyping technical documentation,1,Associate,Chicago,Engineering,True
+1217,financial modeling taxation quickbooks gaap regulatory compliance audit catia industrial design,2,Associate,Pittsburgh,Finance,False
+1218,gd&t product development quality assurance technical documentation,4,Associate,Portland,Engineering,False
+1219,taxation financial analysis financial modeling excel bloomberg terminal sap,9,Bachelor,Houston,Finance,True
+1220,pharmacology infection control physiology preventive care psychiatric evaluation patient education,0,High School,Tampa,Healthcare,True
+1221,lexisnexis litigation criminal law legal ethics westlaw,12,Associate,Chicago,Legal,False
+1222,sales enablement quotas client relationship management sales forecasting cross-selling objection handling sales analytics,3,Associate,San Antonio,Sales,False
+1223,mergers and acquisitions financial reporting capital markets forecasting cash flow analysis,1,Bachelor,Cleveland,Finance,True
+1224,intellectual property courtroom procedure legal analysis trademark law mediation civil procedure,4,Master,Denver,Legal,False
+1225,mysql hibernate php pytorch c++ aws graphql mentoring lms educational administration,4,Associate,Atlanta,Software & IT,True
+1226,employee training succession planning bamboo hr,10,Bachelor,Minneapolis,Human Resources,False
+1227,kotlin pandas spring c++ scala,4,Bachelor,Charlotte,Software & IT,False
+1228,plc mechanical design project management prototyping ansys mongodb oracle,10,Associate,Charlotte,Engineering,True
+1229,forecasting taxation mergers and acquisitions internal controls gaap financial analysis surgery,7,High School,Cleveland,Finance,True
+1230,css php nosql ruby mongodb azure,12,Master,Columbus,Software & IT,False
+1231,mysql ruby numpy,3,Bachelor,Salt Lake City,Software & IT,True
+1232,java html react graphql kubernetes .net tensorflow content creation,2,Bachelor,Charlotte,Software & IT,True
+1233,courtroom procedure client counseling drafting document review lexisnexis mediation customer acquisition cross-selling,4,High School,Nashville,Legal,False
+1234,corporate finance taxation regulatory compliance,8,High School,Raleigh,Finance,False
+1235,mechanical design testing engineering design product development project management,9,Bachelor,Denver,Engineering,False
+1236,creative direction adobe photoshop cinema 4d adobe illustrator visual design,1,Bachelor,Detroit,Arts & Media,True
+1237,quickbooks power bi excel financial statements bamboo hr,6,Master,Miami,Finance,False
+1238,portfolio management cpa python sql cash flow analysis quickbooks,7,High School,Seattle,Finance,True
+1239,surgery infection control therapy patient education vital signs medical terminology diagnosis,4,Master,Washington DC,Healthcare,True
+1240,3d modeling project management product development solidworks materials science technical documentation,2,Bachelor,Philadelphia,Engineering,False
+1241,patent law corporate law legal research legal ethics intellectual property client counseling,4,Bachelor,Chicago,Legal,False
+1242,negotiation sales cold calling quotas business development territory management upselling,4,Bachelor,Tampa,Sales,True
+1243,talent management payroll processing talent acquisition career development,12,High School,Atlanta,Human Resources,True
+1244,art direction editing user testing invision,3,High School,New York,Arts & Media,True
+1245,quality control materials science failure analysis industrial design project management ansys testing,4,Bachelor,Cleveland,Engineering,False
+1246,blender animation adobe photoshop figma copywriting,8,High School,San Antonio,Arts & Media,False
+1247,compensation hr compliance diversity & inclusion career development change management hr policies employee relations,3,Bachelor,Philadelphia,Human Resources,False
+1248,courtroom procedure legal analysis lexisnexis trademark law client counseling,4,High School,New York,Legal,False
+1249,hubspot public relations buffer content creation,2,Associate,Detroit,Marketing,True
+1250,cross-selling sales customer acquisition,4,Bachelor,Miami,Sales,False
+1251,legal writing legal analysis contract law,7,Bachelor,Salt Lake City,Legal,False
+1252,course development educational psychology academic advising student support curriculum development academic writing moodle,3,Bachelor,San Diego,Education,False
+1253,cad process improvement plc,2,Bachelor,Minneapolis,Engineering,False
+1254,rust scala ruby,7,Associate,Nashville,Software & IT,True
+1255,inbound marketing sem public relations facebook ads mailchimp market research,7,Bachelor,Los Angeles,Marketing,True
+1256,employee training talent acquisition applicant tracking systems career development adp,19,Bachelor,Denver,Human Resources,True
+1257,regulatory compliance corporate law legal ethics due diligence arbitration,16,Bachelor,Minneapolis,Legal,False
+1258,sales strategy sales enablement hubspot salesforce lesson planning,4,High School,Orlando,Sales,True
+1259,numpy nosql aws mongodb hibernate quickbooks investment management,2,Bachelor,Cincinnati,Software & IT,True
+1260,color theory sketch wireframing blender adobe indesign content strategy adobe photoshop,2,Bachelor,Cincinnati,Arts & Media,True
+1261,rehabilitation therapy disease management infection control case management b2c sales,4,Bachelor,New York,Healthcare,False
+1262,seo tools hootsuite analytics,2,High School,Salt Lake City,Marketing,True
+1263,crm software hootsuite marketing automation social media marketing sem seo,2,Bachelor,Dallas,Marketing,False
+1264,clinical documentation preventive care patient care disease management courtroom procedure,3,High School,Cincinnati,Healthcare,True
+1265,westlaw civil procedure intellectual property patent law criminal law,3,Master,Phoenix,Legal,False
+1266,canva email marketing sem storytelling adobe creative suite content strategy,2,Associate,Salt Lake City,Marketing,False
+1267,applicant tracking systems employee onboarding talent management coaching,1,Associate,Nashville,Human Resources,True
+1268,affiliate marketing google ads marketing automation content strategy email marketing client relationship management customer acquisition customer retention,3,High School,Remote,Marketing,True
+1269,sales enablement quotas upselling b2c sales sales strategy client relationship management objection handling python financial analysis tableau,4,Bachelor,Atlanta,Sales,True
+1270,change management benefits administration conflict resolution employee training organizational development hr policies workday,6,Bachelor,Chicago,Human Resources,True
+1271,legal analysis client counseling regulatory compliance,6,Master,San Francisco,Legal,False
+1272,finite element analysis process improvement system design microcontrollers industrial design catia 3d modeling ux design,5,Bachelor,Dallas,Engineering,False
+1273,b2b sales consultative selling cross-selling testing fluid dynamics thermodynamics,0,Bachelor,Dallas,Sales,False
+1274,intellectual property legal documentation e-discovery contract law legal research patent law regulatory compliance,3,Master,St. Louis,Legal,True
+1275,pandas typescript kubernetes hibernate tensorflow,3,PhD,New York,Software & IT,True
+1276,adp conflict resolution hr compliance,6,Bachelor,Raleigh,Human Resources,True
+1277,conflict resolution employee training compensation interviewing performance management change management workforce planning,1,Bachelor,New York,Human Resources,False
+1278,tensorflow pandas jenkins react,3,Bachelor,Nashville,Software & IT,True
+1279,creative direction storytelling sketching hr compliance,2,Associate,Dallas,Arts & Media,False
+1280,stem education pedagogy academic advising instructional design research mentoring moodle photography prototyping after effects,1,Master,Cleveland,Education,False
+1281,lms stem education student assessment student support organizational development career development,4,High School,Miami,Education,True
+1282,circuit design product development system design catia westlaw patent law,4,Associate,Detroit,Engineering,True
+1283,spring javascript scikit-learn,5,Bachelor,New York,Software & IT,True
+1284,mechanical design cad structural analysis project management root cause analysis testing,15,High School,New York,Engineering,True
+1285,compensation benefits administration hr analytics,17,Associate,Cleveland,Human Resources,True
+1286,cpa cash flow analysis excel capital markets financial reporting accounting,0,PhD,Raleigh,Finance,False
+1287,google classroom classroom management student assessment differentiated instruction,6,Associate,San Francisco,Education,False
+1288,workday talent acquisition hr compliance,7,PhD,Raleigh,Human Resources,True
+1289,medical records preventive care clinical documentation electronic health records anatomy,5,Bachelor,San Francisco,Healthcare,False
+1290,git hibernate flask nosql,1,High School,San Jose,Software & IT,False
+1291,territory management sales forecasting quotas negotiation solution selling salesforce forecasting financial analysis mergers and acquisitions,2,Bachelor,Portland,Sales,False
+1292,lms educational technology mentoring iep development moodle student counseling pedagogy document review deposition trial experience,2,Master,Dallas,Education,True
+1293,vital signs critical care clinical research emergency care surgery content strategy,4,Associate,Washington DC,Healthcare,False
+1294,r mergers and acquisitions derivatives financial reporting accounting cfa,2,Bachelor,Charlotte,Finance,False
+1295,microcontrollers ansys process improvement engineering design blueprint reading matlab quickbooks cfa,3,Associate,Indianapolis,Engineering,True
+1296,arbitration corporate law brief writing regulatory compliance legal documentation patent law,2,Bachelor,San Antonio,Legal,False
+1297,courtroom procedure family law client counseling lexisnexis civil procedure patent law deposition,2,Bachelor,Baltimore,Legal,False
+1298,testing mechanical design manufacturing processes finite element analysis structural analysis,8,Master,St. Louis,Engineering,True
+1299,pivot tables financial statements forecasting sap internal controls portfolio management,3,Associate,Austin,Finance,False
+1300,content creation copywriting buffer analytics,3,Master,Charlotte,Marketing,True
+1301,numpy ruby azure,14,Bachelor,Kansas City,Software & IT,True
+1302,litigation e-discovery client counseling family law legal analysis patent law student support,6,High School,Denver,Legal,False
+1303,copywriting sketching user research blender after effects photography visual design mergers and acquisitions risk assessment sap,2,Bachelor,Remote,Arts & Media,True
+1304,adp employee onboarding applicant tracking systems workday organizational development employee relations,4,Master,Boston,Human Resources,False
+1305,cold calling hubspot objection handling b2b sales lead generation legal research deposition family law,4,High School,Houston,Sales,False
+1306,change management compensation diversity & inclusion recruiting,7,High School,Dallas,Human Resources,True
+1307,mentoring research special education student support,1,Master,Miami,Education,True
+1308,employee onboarding change management employee training applicant tracking systems organizational development employee engagement adp,2,Associate,Pittsburgh,Human Resources,False
+1309,mediation family law westlaw case management trademark law deposition legal research,9,Bachelor,San Diego,Legal,True
+1310,therapy healthcare regulations patient care case management,5,Bachelor,Nashville,Healthcare,False
+1311,e-discovery trademark law case management criminal law negotiation document review,0,Master,Boston,Legal,False
+1312,ux design cinema 4d storyboarding photography,3,High School,Pittsburgh,Arts & Media,True
+1313,audit portfolio management regulatory compliance excel investment management cpa power bi cpr patient assessment,15,PhD,Nashville,Finance,True
+1314,lexisnexis contract law regulatory compliance e-discovery,4,Bachelor,Minneapolis,Legal,True
+1315,employee retention performance management employee onboarding labor laws conflict resolution,14,Bachelor,Austin,Human Resources,True
+1316,invision prototyping art direction cinema 4d content strategy copywriting,1,Bachelor,Charlotte,Arts & Media,True
+1317,canvas stem education moodle academic advising research,6,Associate,Boston,Education,False
+1318,public relations influencer marketing google analytics marketing automation,1,Bachelor,Chicago,Marketing,True
+1319,mysql nosql django,21,PhD,San Antonio,Software & IT,True
+1320,negotiation legal analysis arbitration legal documentation analytics facebook ads affiliate marketing,3,High School,New York,Legal,True
+1321,kubernetes css react,4,Associate,San Francisco,Software & IT,False
+1322,java python php c++ jenkins branding crm software customer journey,0,Bachelor,Phoenix,Software & IT,True
+1323,quality assurance testing microcontrollers negotiation legal writing lexisnexis,1,Master,Orlando,Engineering,False
+1324,scikit-learn azure c# node.js,2,Master,Raleigh,Software & IT,False
+1325,account management client relationship management contract negotiation objection handling b2c sales upselling cold calling special education,3,Bachelor,Detroit,Sales,True
+1326,workforce planning succession planning employee relations recruiting,3,Bachelor,Raleigh,Human Resources,False
+1327,business development b2b sales customer acquisition sales forecasting crm,2,Bachelor,Washington DC,Sales,False
+1328,rehabilitation case management diagnosis clinical documentation patient education,12,Master,Tampa,Healthcare,False
+1329,sales forecasting sales salesforce sales analytics prospecting negotiation anatomy cpr,1,Master,Phoenix,Sales,True
+1330,e-discovery litigation legal analysis legal writing mediation matlab technical documentation blueprint reading,4,Associate,San Antonio,Legal,False
+1331,user research after effects content strategy,7,Associate,Phoenix,Arts & Media,False
+1332,corporate finance accounting power bi taxation capital markets azure tensorflow scikit-learn,2,Bachelor,Washington DC,Finance,True
+1333,employee retention performance management talent management organizational development employee engagement medical terminology patient education,5,Bachelor,Miami,Human Resources,True
+1334,diversity & inclusion organizational development labor laws employee training,1,High School,Austin,Human Resources,False
+1335,catia mechanical design testing process improvement product development autocad quality control,2,Bachelor,Salt Lake City,Engineering,True
+1336,sales enablement client relationship management negotiation cold calling javascript postgresql,11,Master,Raleigh,Sales,True
+1337,organizational development compensation employee retention applicant tracking systems talent acquisition,6,Bachelor,San Francisco,Human Resources,False
+1338,cfa cash flow analysis audit sap ruby,3,High School,Kansas City,Finance,True
+1339,salesforce b2c sales sales blueprint reading simulation mechanical design,5,Associate,Cincinnati,Sales,False
+1340,upselling account management b2b sales salesforce,4,Bachelor,Kansas City,Sales,False
+1341,mongodb mysql rest api quality control gd&t,4,Associate,San Jose,Software & IT,False
+1342,regulatory compliance lexisnexis mediation contract law civil procedure criminal law drafting quickbooks taxation,5,High School,Phoenix,Legal,True
+1343,curriculum development canvas student support educational assessment,2,Bachelor,Columbus,Education,True
+1344,sales funnel management account management presentations salesforce,18,Associate,Boston,Sales,False
+1345,classroom management pedagogy educational technology academic advising,2,Associate,Cleveland,Education,True
+1346,failure analysis solidworks process improvement,5,Bachelor,St. Louis,Engineering,False
+1347,infection control disease management medication management patient care,2,Master,Seattle,Healthcare,False
+1348,finite element analysis engineering design manufacturing processes failure analysis circuit design microcontrollers marketing automation campaign management google ads,3,Associate,St. Louis,Engineering,False
+1349,courtroom procedure westlaw trademark law contract law criminal law,5,Bachelor,Minneapolis,Legal,True
+1350,sales analytics solution selling cross-selling,9,Bachelor,Phoenix,Sales,True
+1351,student assessment special education teaching,10,Bachelor,San Diego,Education,False
+1352,student counseling curriculum development classroom management stem education pedagogy,3,Associate,Orlando,Education,False
+1353,figma invision wireframing,32,Master,Columbus,Arts & Media,True
+1354,responsive design editing creative direction,8,Master,Boston,Arts & Media,True
+1355,sales funnel management pipeline management negotiation,1,Master,San Diego,Sales,False
+1356,content strategy sketch animation copywriting adobe photoshop art direction solution selling pipeline management contract negotiation,6,Associate,Cleveland,Arts & Media,False
+1357,quality assurance project management fluid dynamics failure analysis layout design,3,Associate,Phoenix,Engineering,True
+1358,organizational development recruiting career development employee training change management,5,PhD,Orlando,Human Resources,False
+1359,employee training labor laws hr compliance employee onboarding bamboo hr interviewing,11,Bachelor,Indianapolis,Human Resources,False
+1360,moodle academic advising educational administration educational assessment curriculum development iep development educational psychology,11,Master,Austin,Education,True
+1361,php html spring css,4,PhD,Portland,Software & IT,False
+1362,campaign management ppc buffer google analytics market research cpr vital signs infection control,6,Master,Tampa,Marketing,True
+1363,academic writing lms moodle educational administration iep development student engagement,5,Bachelor,Philadelphia,Education,False
+1364,videography branding adobe photoshop copywriting user research ui design ux design,2,Master,Baltimore,Arts & Media,False
+1365,user testing figma creative direction,1,Associate,Detroit,Arts & Media,False
+1366,legal research legal analysis civil procedure client counseling document review litigation,2,Bachelor,Dallas,Legal,True
+1367,contract law brief writing case management client counseling customer retention territory management,9,High School,Cleveland,Legal,False
+1368,patient care vital signs imaging electronic health records canvas educational administration,2,Bachelor,Orlando,Healthcare,False
+1369,content creation google analytics copywriting canva outbound marketing seo tools,7,Bachelor,Charlotte,Marketing,False
+1370,postgresql rust scala numpy hibernate java flask,1,Bachelor,Columbus,Software & IT,False
+1371,drafting trademark law corporate law litigation intellectual property regulatory compliance family law,2,Associate,Portland,Legal,False
+1372,cpr surgery electronic health records,3,High School,San Jose,Healthcare,True
+1373,derivatives audit gaap cash flow analysis forecasting investment management bloomberg terminal google classroom,5,Bachelor,Detroit,Finance,False
+1374,a/b testing analytics adobe creative suite affiliate marketing digital marketing customer journey,12,High School,Miami,Marketing,False
+1375,cpa sap python affiliate marketing hubspot content strategy,2,Bachelor,Cincinnati,Finance,True
+1376,react scikit-learn git flask spring,3,Bachelor,Austin,Software & IT,False
+1377,scikit-learn swift java typescript,18,High School,Salt Lake City,Software & IT,False
+1378,lexisnexis client counseling legal analysis,6,Associate,Pittsburgh,Legal,False
+1379,cpr anatomy diagnosis phlebotomy,10,High School,Boston,Healthcare,False
+1380,hris systems talent acquisition benefits administration performance management workforce planning compensation microcontrollers process improvement,1,Bachelor,San Diego,Human Resources,False
+1381,organizational development adp compensation,3,Bachelor,Baltimore,Human Resources,True
+1382,customer retention territory management contract negotiation cold calling objection handling closing techniques business development,32,Bachelor,Denver,Sales,False
+1383,academic advising differentiated instruction course development moodle canvas rest api scala,2,Associate,Cincinnati,Education,True
+1384,medical terminology emergency care healthcare regulations academic writing,2,Master,Tampa,Healthcare,False
+1385,therapy psychiatric evaluation imaging emergency care vital signs infection control,2,Master,Kansas City,Healthcare,False
+1386,diagnosis healthcare regulations electronic health records clinical documentation patient care critical care patient assessment,1,Associate,Charlotte,Healthcare,False
+1387,change management employee training employee relations,4,Master,Columbus,Human Resources,False
+1388,quickbooks financial analysis mergers and acquisitions corporate finance tableau employee training applicant tracking systems career development,2,Bachelor,San Antonio,Finance,False
+1389,python kubernetes oracle pytorch spring .net,2,Bachelor,Philadelphia,Software & IT,False
+1390,user research invision branding figma creative direction visual design,2,Associate,Salt Lake City,Arts & Media,True
+1391,plc autocad microcontrollers industrial design,2,Master,Columbus,Engineering,False
+1392,financial statements pivot tables portfolio management gaap financial analysis bloomberg terminal forecasting,8,High School,San Diego,Finance,False
+1393,laboratory testing diagnosis case management patient assessment imaging medical terminology anatomy,3,Master,Minneapolis,Healthcare,False
+1394,classroom management canvas student counseling moodle academic writing mentoring,4,PhD,Nashville,Education,False
+1395,javascript swift html adp,3,Master,San Francisco,Software & IT,True
+1396,change management diversity & inclusion interviewing employee training,4,Bachelor,Cincinnati,Human Resources,False
+1397,legal research family law patent law mediation legal ethics due diligence trial experience,6,Master,Philadelphia,Legal,False
+1398,copywriting social media marketing email marketing adobe creative suite,9,Bachelor,Seattle,Marketing,True
+1399,client counseling deposition negotiation courtroom procedure contract law legal analysis quotas sales strategy hubspot,3,Master,New York,Legal,False
+1400,lexisnexis case management corporate law civil procedure trial experience legal research,9,PhD,Kansas City,Legal,True
+1401,medication management patient education anatomy patient assessment therapy phlebotomy treatment planning,1,Associate,Chicago,Healthcare,True
+1402,azure css docker typescript nosql canvas student counseling,2,Bachelor,Atlanta,Software & IT,False
+1403,portfolio management power bi investment management classroom management instructional design moodle,3,Bachelor,Kansas City,Finance,False
+1404,phlebotomy healthcare regulations medical records cpr,12,Associate,Minneapolis,Healthcare,True
+1405,stem education instructional design special education course development blackboard student assessment educational technology,1,Bachelor,Cleveland,Education,True
+1406,market research branding copywriting seo tools google analytics customer journey hubspot interviewing coaching employee training,6,Master,Remote,Marketing,True
+1407,storytelling a/b testing outbound marketing,7,Associate,San Jose,Marketing,True
+1408,curriculum development educational leadership mentoring patient care,2,Bachelor,Dallas,Education,True
+1409,market research copywriting affiliate marketing,1,Master,San Diego,Marketing,True
+1410,teaching curriculum development educational psychology,4,Bachelor,St. Louis,Education,False
+1411,gd&t autocad manufacturing processes matlab thermodynamics structural analysis,3,Master,Miami,Engineering,False
+1412,python mongodb jenkins rest api pandas postgresql,4,Associate,Denver,Software & IT,True
+1413,layout design videography user testing user research storytelling,4,Associate,Washington DC,Arts & Media,True
+1414,forecasting regulatory compliance portfolio management pivot tables mergers and acquisitions power bi quickbooks,5,Bachelor,Columbus,Finance,False
+1415,prospecting client relationship management territory management,1,Associate,Atlanta,Sales,False
+1416,physiology critical care anatomy electronic health records,4,High School,Phoenix,Healthcare,False
+1417,pipeline management solution selling sales forecasting salesforce b2c sales,12,Associate,Nashville,Sales,False
+1418,corporate law legal research courtroom procedure legal analysis e-discovery legal documentation due diligence,15,Bachelor,Detroit,Legal,False
+1419,change management succession planning labor laws organizational development employee retention,5,Associate,Orlando,Human Resources,False
+1420,change management employee engagement employee training adp labor laws,7,High School,Tampa,Human Resources,False
+1421,hibernate c# scala academic advising lms moodle,3,Bachelor,Kansas City,Software & IT,False
+1422,employee relations compensation applicant tracking systems employee onboarding color theory,7,Associate,Nashville,Human Resources,True
+1423,photography after effects ux design storytelling,3,High School,San Jose,Arts & Media,False
+1424,phlebotomy clinical documentation cpr case management case management contract law,12,Associate,Phoenix,Healthcare,True
+1425,career development workforce planning interviewing labor laws bamboo hr coaching,7,Master,Atlanta,Human Resources,True
+1426,outbound marketing social media marketing crm software content strategy digital marketing,2,Bachelor,Pittsburgh,Marketing,False
+1427,student assessment blackboard lms,6,Bachelor,Raleigh,Education,False
+1428,portfolio management r cpa,4,Associate,Tampa,Finance,False
+1429,lms educational psychology research curriculum development google classroom iep development content strategy google ads,7,Master,Houston,Education,True
+1430,adp workforce planning hris systems career development organizational development succession planning bamboo hr,2,High School,San Antonio,Human Resources,True
+1431,disease management healthcare regulations critical care clinical documentation patient assessment,2,High School,Charlotte,Healthcare,False
+1432,azure mongodb nosql php c++ graphql,4,High School,Washington DC,Software & IT,True
+1433,rest api redux spring kubernetes node.js ruby cpr preventive care phlebotomy,1,Bachelor,Cleveland,Software & IT,True
+1434,circuit design industrial design product development technical documentation thermodynamics testing 3d modeling,3,Master,Dallas,Engineering,False
+1435,numpy postgresql mongodb,2,Master,San Diego,Software & IT,True
+1436,crm software storytelling a/b testing market research mailchimp customer journey pedagogy lesson planning,5,Bachelor,Minneapolis,Marketing,False
+1437,clinical documentation infection control anatomy treatment planning disease management,1,PhD,Detroit,Healthcare,True
+1438,client relationship management consultative selling pipeline management salesforce contract negotiation corporate law document review patent law,6,High School,Charlotte,Sales,False
+1439,clinical research phlebotomy therapy critical care medication management e-discovery,4,Bachelor,Nashville,Healthcare,False
+1440,hr analytics payroll processing workforce planning employee engagement interviewing,2,Associate,San Francisco,Human Resources,True
+1441,a/b testing sem branding seo account management,5,Bachelor,San Diego,Marketing,False
+1442,aws django jenkins html kotlin tensorflow,5,Bachelor,Indianapolis,Software & IT,False
+1443,process improvement materials science failure analysis prototyping simulation solidworks autocad portfolio management,4,Bachelor,Remote,Engineering,True
+1444,storyboarding user research sketch content strategy adobe indesign responsive design prototyping,4,High School,San Diego,Arts & Media,False
+1445,css swift django mongodb azure sql,12,Master,Cincinnati,Software & IT,True
+1446,cross-selling sales forecasting sales funnel management salesforce territory management sales,2,Associate,San Antonio,Sales,True
+1447,infection control anatomy treatment planning disease management,5,Bachelor,Los Angeles,Healthcare,False
+1448,student assessment pedagogy iep development,4,Bachelor,San Diego,Education,False
+1449,google ads storytelling crm software,5,High School,Washington DC,Marketing,False
+1450,root cause analysis prototyping failure analysis 3d modeling structural analysis technical documentation hris systems,2,High School,Tampa,Engineering,False
+1451,customer journey public relations marketing automation hubspot mailchimp seo tools,11,High School,Tampa,Marketing,False
+1452,criminal law lexisnexis e-discovery negotiation legal analysis westlaw corporate law,1,Associate,Pittsburgh,Legal,False
+1453,adobe indesign adobe illustrator adobe photoshop sketching blender figma wireframing jenkins,9,Master,Cincinnati,Arts & Media,True
+1454,prospecting sales analytics negotiation closing techniques,2,High School,Salt Lake City,Sales,True
+1455,compensation bamboo hr talent acquisition employee training interviewing employee onboarding rust,13,Bachelor,Austin,Human Resources,True
+1456,ux design ui design figma layout design branding art direction copywriting scikit-learn git nosql,7,Associate,Philadelphia,Arts & Media,True
+1457,presentations closing techniques prospecting proposal writing b2c sales sales,4,Bachelor,Cincinnati,Sales,True
+1458,3d modeling matlab fluid dynamics circuit design,10,High School,Kansas City,Engineering,True
+1459,legal analysis mediation lexisnexis negotiation corporate law,3,Master,Detroit,Legal,False
+1460,closing techniques sales analytics consultative selling customer acquisition,9,Associate,Kansas City,Sales,False
+1461,teaching differentiated instruction pedagogy lms canvas lesson planning student engagement,4,Bachelor,San Francisco,Education,True
+1462,sales analytics customer acquisition presentations territory management hubspot analytics google ads,3,Bachelor,Atlanta,Sales,False
+1463,gcp .net rest api mysql git scikit-learn,3,High School,Cleveland,Software & IT,False
+1464,ux design adobe illustrator blender color theory editing premiere pro typography,3,Bachelor,Miami,Arts & Media,False
+1465,gd&t quality assurance 3d modeling,3,Bachelor,Indianapolis,Engineering,True
+1466,lms student counseling pedagogy,2,Bachelor,Pittsburgh,Education,True
+1467,presentations solution selling pipeline management,3,Bachelor,Cincinnati,Sales,True
+1468,adobe creative suite content creation seo,5,High School,Salt Lake City,Marketing,False
+1469,risk assessment financial reporting banking,4,Associate,San Antonio,Finance,True
+1470,business development account management contract negotiation,2,Bachelor,Los Angeles,Sales,False
+1471,risk assessment financial reporting cfa python regulatory compliance portfolio management copywriting,2,Associate,Atlanta,Finance,True
+1472,kubernetes redux flask aws,11,Bachelor,Los Angeles,Software & IT,False
+1473,rust tensorflow sql,5,Master,Chicago,Software & IT,True
+1474,hubspot salesforce solution selling client relationship management proposal writing consultative selling color theory content strategy,4,High School,Seattle,Sales,False
+1475,failure analysis mechanical design microcontrollers blueprint reading manufacturing processes thermodynamics 3d modeling typography layout design adobe indesign,6,Master,Tampa,Engineering,False
+1476,matlab finite element analysis ansys product development,3,High School,Baltimore,Engineering,False
+1477,branding influencer marketing mailchimp crm software,25,High School,Detroit,Marketing,True
+1478,legal ethics legal research due diligence brief writing,3,Master,Miami,Legal,False
+1479,drafting deposition document review lexisnexis legal documentation circuit design,2,Bachelor,Phoenix,Legal,True
+1480,student assessment teaching educational administration educational technology fluid dynamics simulation,12,Bachelor,San Diego,Education,True
+1481,campaign management customer journey outbound marketing affiliate marketing google analytics hubspot,2,Associate,Raleigh,Marketing,True
+1482,mergers and acquisitions accounting python financial analysis regulatory compliance r taxation digital marketing seo influencer marketing,4,Master,Remote,Finance,True
+1483,sales enablement sales forecasting b2b sales territory management account management quotas,3,Bachelor,Dallas,Sales,False
+1484,blueprint reading finite element analysis root cause analysis process improvement matlab hootsuite customer journey,7,High School,Los Angeles,Engineering,False
+1485,solidworks project management autocad quality assurance catia simulation manufacturing processes sales forecasting sales strategy,7,Master,Kansas City,Engineering,False
+1486,docker php scala therapy treatment planning imaging,3,Associate,Philadelphia,Software & IT,True
+1487,adobe creative suite hubspot facebook ads influencer marketing ppc public relations,6,High School,San Antonio,Marketing,True
+1488,educational administration stem education academic advising student support student assessment canvas,2,Master,Cincinnati,Education,True
+1489,sales analytics sales forecasting hubspot sales funnel management crm consultative selling customer acquisition,1,Bachelor,Atlanta,Sales,False
+1490,academic writing canvas curriculum development mentoring research student support adobe indesign,7,Bachelor,Miami,Education,True
+1491,academic advising educational assessment teaching moodle lesson planning educational technology stem education,2,Master,Chicago,Education,True
+1492,blackboard research student support educational psychology academic advising,20,High School,Orlando,Education,False
+1493,cold calling b2c sales client relationship management sales forecasting business development solution selling,3,Master,Miami,Sales,True
+1494,client counseling courtroom procedure criminal law negotiation westlaw storytelling typography,13,High School,Cincinnati,Legal,False
+1495,internal controls accounting power bi excel bloomberg terminal,4,Bachelor,Charlotte,Finance,False
+1496,cold calling sales enablement proposal writing quotas illustration creative direction premiere pro,6,Bachelor,Raleigh,Sales,False
+1497,sales forecasting sales enablement objection handling territory management,5,Master,Kansas City,Sales,True
+1498,performance management hr policies compensation bamboo hr change management workforce planning hris systems,3,Associate,Orlando,Human Resources,False
+1499,surgery clinical research phlebotomy,4,PhD,Washington DC,Healthcare,True
+1500,solidworks thermodynamics simulation technical documentation,3,Bachelor,Denver,Engineering,True
