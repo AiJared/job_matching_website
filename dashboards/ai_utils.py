@@ -70,11 +70,12 @@ def prepare_job_features(job):
         'requirements': job.requirements or '',
         'responsibilities': job.responsibilities or '',
         'min_experience': job.experience_required or 0,
-        'education_level': job.education_level or '',
+        'required_education': job.education_level or '',  # <-- Fix: match preprocessor expectation
         'location': job.location or '',
         'employment_type': job.employment_type or '',
     }
     return pd.DataFrame([data])
+
 
 def embed_candidate(candidate):
     """Generate candidate embedding."""
