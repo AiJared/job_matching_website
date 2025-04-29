@@ -15,6 +15,7 @@ from dashboards.models import Resume, JobPosting, JobApplication
 from .models import SavedJob, JobSearchHistory, ProfileCompletionTask
 from .forms import CandidateProfileForm, ResumeUploadForm, JobApplicationForm, JobSearchForm
 from .utils import process_resume, get_recommended_jobs, get_profile_completion_percentage, update_candidate_matches
+from dashboards.ai_utils import calculate_match_score
 
 
 def is_candidate(user):
@@ -301,35 +302,45 @@ def job_detail(request, job_id):
         return redirect('accounts:profile')
     
     job = get_object_or_404(JobPosting, id=job_id, status='active')
-    
-    # Check if already applied
+
+    # Default states
+    already_applied = False
+    is_saved = False
+    resume_uploaded = False
+    resume_processed = False
+    match_score = 0
+    resume = None
+
+    try:
+        resume = Resume.objects.get(candidate=candidate)
+        resume_uploaded = True
+        resume_processed = resume.embedding_vector is not None
+    except Resume.DoesNotExist:
+        pass
+
+    if resume_uploaded and resume_processed and job.embedding_vector:
+        match_score = calculate_match_score(
+            job.embedding_vector,
+            resume.embedding_vector
+        )
+
+    # Check application
     try:
         application = JobApplication.objects.get(job=job, candidate=candidate)
         already_applied = True
     except JobApplication.DoesNotExist:
         application = None
-        already_applied = False
-    
-    # Check if job is saved
+
     is_saved = SavedJob.objects.filter(job=job, candidate=candidate).exists()
-    
-    # Calculate match score if resume exists
-    match_score = 0
-    try:
-        resume = Resume.objects.get(candidate=candidate)
-        if resume.embedding_vector and job.embedding_vector:
-            from dashboards.ai_utils import calculate_match_score
-            match_score = calculate_match_score(job.embedding_vector, resume.embedding_vector)
-            match_score = round(match_score, 1)
-    except Resume.DoesNotExist:
-        resume = None
-    
-    # Handle job application
+
     if request.method == 'POST' and not already_applied:
-        if not resume:
+        if not resume_uploaded:
             messages.error(request, "Please upload your resume before applying.")
             return redirect('candidate:upload_resume')
-        
+        if not resume_processed:
+            messages.warning(request, "Your resume is still being processed.")
+            return redirect('candidate:candidate_dashboard')
+
         form = JobApplicationForm(request.POST)
         if form.is_valid():
             application = form.save(commit=False)
@@ -338,22 +349,24 @@ def job_detail(request, job_id):
             application.resume = resume
             application.match_score = match_score
             application.save()
-            
             messages.success(request, f"You have successfully applied for {job.title}.")
             return redirect('candidate:application_list')
     else:
         form = JobApplicationForm()
-    
+
     context = {
         'job': job,
         'form': form,
         'already_applied': already_applied,
         'application': application,
         'is_saved': is_saved,
+        'resume_uploaded': resume_uploaded,
+        'resume_processed': resume_processed,
         'match_score': match_score,
     }
-    
+
     return render(request, 'candidate/job_detail.html', context)
+
 
 @login_required
 @user_passes_test(is_candidate)
