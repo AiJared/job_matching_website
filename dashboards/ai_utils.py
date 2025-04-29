@@ -33,7 +33,7 @@ matching_model = None
 candidate_preprocessor = None
 job_preprocessor = None
 
-MATCH_SCORE_THRESHOLD = 55
+MATCH_SCORE_THRESHOLD = 50
 
 def load_models_and_preprocessors():
     global candidate_model, job_model, matching_model
@@ -149,3 +149,16 @@ def update_job_matches(job_posting):
                     app.save(update_fields=['match_score', 'updated_at'])
     except Exception as e:
         print(f"❌ Error updating job matches: {e}")
+
+def calculate_match_score(job_vector_bytes, candidate_vector_bytes):
+    """Decode vectors and get score from matching model"""
+    try:
+        job_vector = np.frombuffer(job_vector_bytes, dtype=np.float32).reshape(1, -1)
+        candidate_vector = np.frombuffer(candidate_vector_bytes, dtype=np.float32).reshape(1, -1)
+
+        # 🔥 Use model to predict match
+        score = matching_model.predict([candidate_vector, job_vector])[0][0]
+        return round(score * 100, 2)
+    except Exception as e:
+        print(f"❌ Error in calculate_match_score: {e}")
+        return 0.0

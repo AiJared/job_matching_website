@@ -14,6 +14,9 @@ from dashboards.models import Resume, JobPosting, JobApplication
 from .models import SavedJob, JobSearchHistory, ProfileCompletionTask
 from .forms import CandidateProfileForm, ResumeUploadForm, JobApplicationForm, JobSearchForm
 from .utils import process_resume, get_recommended_jobs, get_profile_completion_percentage, update_candidate_matches
+# from dashboards.ai_utils import calculate_match_score
+
+
 
 def is_candidate(user):
     """Check if user is a candidate"""
@@ -61,6 +64,12 @@ def complete_profile(request):
     return render(request, 'candidate/complete_profile.html', {'form': form})
 
 
+# 🧠 Class to wrap tuple (job, score) for Django template compatibility
+class JobRecommendation:
+    def __init__(self, job, match_score):
+        self.job = job
+        self.match_score = match_score
+
 @login_required
 @user_passes_test(is_candidate)
 def candidate_dashboard(request):
@@ -79,26 +88,25 @@ def candidate_dashboard(request):
     except Resume.DoesNotExist:
         has_resume = False
         resume_processed = False
-    
-    # Get profile completion percentage
+
+    # Profile completion logic
     completion_percentage = get_profile_completion_percentage(candidate)
     
-    # Get recommended jobs if resume is processed
+    # Job recommendations (fixing the structure)
     recommended_jobs = []
     if has_resume and resume_processed:
         job_matches = get_recommended_jobs(candidate, limit=5)
-        recommended_jobs = [{'job': job, 'match_score': score} for job, score in job_matches]
-    
-    # Get recent applications
+        recommended_jobs = [JobRecommendation(job, score) for job, score in job_matches]
+
+    # Applications and saved jobs
     recent_applications = JobApplication.objects.filter(
         candidate=candidate
     ).order_by('-created_at')[:5]
-    
-    # Get saved jobs
+
     saved_jobs = SavedJob.objects.filter(
         candidate=candidate
     ).order_by('-saved_at')[:5]
-    
+
     context = {
         'has_resume': has_resume,
         'resume_processed': resume_processed,
@@ -107,7 +115,7 @@ def candidate_dashboard(request):
         'recent_applications': recent_applications,
         'saved_jobs': saved_jobs,
     }
-    
+
     return render(request, 'candidate/candidate_dashboard.html', context)
 
 @login_required

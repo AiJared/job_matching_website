@@ -73,27 +73,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for recommendation in recommended_jobs %}
+                            {% for rec in recommended_jobs %}
                                 <tr>
-                                    <td><a href="{% url 'candidate:job_detail' recommendation.job.id %}">{{ recommendation.job.title }}</a></td>
-                                    <td>{{ recommendation.job.company.name }}</td>
-                                    <td>{{ recommendation.job.location }}</td>
+                                    <td><a href="{% url 'candidate:job_detail' rec.job.id %}">{{ rec.job.title }}</a></td>
+                                    <td>{{ rec.job.company.name }}</td>
+                                    <td>{{ rec.job.location }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="progress flex-grow-1" style="height: 10px;">
                                                 <div class="progress-bar bg-success" role="progressbar" 
-                                                     style="width: {{ recommendation.match_score }}%;" 
-                                                     aria-valuenow="{{ recommendation.match_score }}" 
-                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                                    style="width: {{ rec.match_score }}%;" 
+                                                    aria-valuenow="{{ rec.match_score }}" 
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                            <span class="ml-2">{{ recommendation.match_score }}%</span>
+                                            <span class="ml-2">{{ rec.match_score }}%</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{% url 'candidate:job_detail' recommendation.job.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                                        <a href="{% url 'candidate:job_detail' rec.job.id %}" class="btn btn-sm btn-outline-primary">View</a>
                                     </td>
                                 </tr>
-                            {% endfor %}
+                                {% endfor %}
+
+
                         </tbody>
                     </table>
                 </div>

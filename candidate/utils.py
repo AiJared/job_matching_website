@@ -47,7 +47,7 @@ def get_recommended_jobs(candidate, limit=10):
             score = predict_match_score_raw(candidate_input, job_input)
             print(f"🔍 Job {job.id} Match Score: {score}")
 
-            if score >= 70:
+            if score >= 50:
                 job_matches.append((job, score))
 
         job_matches.sort(key=lambda x: x[1], reverse=True)
