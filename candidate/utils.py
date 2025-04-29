@@ -5,7 +5,7 @@ import tensorflow as tf
 import pickle
 from django.conf import settings
 from dashboards.models import Resume, JobPosting, JobApplication
-from dashboards.ai_utils import embed_candidate, predict_match_score, update_candidate_matches
+from dashboards.ai_utils import embed_candidate, update_candidate_matches, prepare_candidate_features, prepare_job_features, candidate_preprocessor, job_preprocessor, predict_match_score_raw
 from accounts.models import Candidate
 
 def process_resume(resume_id):
@@ -50,31 +50,31 @@ def process_resume(resume_id):
         return False
 
 def get_recommended_jobs(candidate, limit=10):
-    """Get job recommendations for a candidate based on match score."""
+    """Get job recommendations using the raw feature inputs for proper scoring."""
     try:
         resume = Resume.objects.get(candidate=candidate)
-        
         if not resume.embedding_vector:
             return []
-        
+
         active_jobs = JobPosting.objects.filter(status='active')
         job_matches = []
-        
-        candidate_emb = embed_candidate(candidate)
+
+        # Preprocess candidate input
+        candidate_features = prepare_candidate_features(candidate)
+        candidate_input = candidate_preprocessor.transform(candidate_features)
 
         for job in active_jobs:
-            if job.embedding_vector:
-                job_emb = np.frombuffer(job.embedding_vector, dtype=np.float32).reshape(1, -1)
-                match_score = predict_match_score(candidate_emb, job_emb)
+            job_features = prepare_job_features(job)
+            job_input = job_preprocessor.transform(job_features)
 
-                if match_score >= 70:  # Threshold
-                    job_matches.append((job, match_score))
-        
-        # Sort by best matches
+            match_score = predict_match_score_raw(candidate_input, job_input)
+
+            if match_score >= 70:
+                job_matches.append((job, match_score))
+
         job_matches.sort(key=lambda x: x[1], reverse=True)
-
         return job_matches[:limit]
-    
+
     except Resume.DoesNotExist:
         return []
     except Exception as e:
@@ -112,34 +112,36 @@ def update_candidate_matches(candidate):
     """Update match scores for all active jobs for this candidate"""
     try:
         resume = Resume.objects.get(candidate=candidate)
-
         if not resume.embedding_vector:
             return
 
         active_jobs = JobPosting.objects.filter(status='active')
-        
-        candidate_emb = embed_candidate(candidate)
+
+        # Get preprocessed candidate input
+        candidate_features = prepare_candidate_features(candidate)
+        candidate_input = candidate_preprocessor.transform(candidate_features)
 
         for job in active_jobs:
-            if job.embedding_vector:
-                job_emb = np.frombuffer(job.embedding_vector, dtype=np.float32).reshape(1, -1)
-                match_score = predict_match_score(candidate_emb, job_emb)
+            job_features = prepare_job_features(job)
+            job_input = job_preprocessor.transform(job_features)
 
-                if match_score >= 70:
-                    application, created = JobApplication.objects.get_or_create(
-                        job=job,
-                        candidate=candidate,
-                        defaults={
-                            'resume': resume,
-                            'match_score': match_score,
-                            'status': 'pending'
-                        }
-                    )
+            match_score = predict_match_score_raw(candidate_input, job_input)
 
-                    if not created:
-                        application.match_score = match_score
-                        application.save(update_fields=['match_score', 'updated_at'])
-    
+            if match_score >= 70:
+                application, created = JobApplication.objects.get_or_create(
+                    job=job,
+                    candidate=candidate,
+                    defaults={
+                        'resume': resume,
+                        'match_score': match_score,
+                        'status': 'pending'
+                    }
+                )
+
+                if not created:
+                    application.match_score = match_score
+                    application.save(update_fields=['match_score', 'updated_at'])
+
     except Resume.DoesNotExist:
         pass
     except Exception as e:
