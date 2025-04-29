@@ -8,7 +8,7 @@ class CandidateProfileForm(forms.ModelForm):
     """Form for candidate to update skills, education, and experience"""
     class Meta:
         model = Candidate
-        fields = ['skills', 'education', 'experience']
+        fields = ['skills', 'education', 'experience', 'location']
         widgets = {
             'skills': forms.Textarea(attrs={
                 'rows': 3,
@@ -22,6 +22,8 @@ class CandidateProfileForm(forms.ModelForm):
                 'rows': 4,
                 'placeholder': _('Describe your work experience, previous roles, responsibilities...')
             }),
+
+            'location': forms.TextInput(attrs={'placeholder': 'e.g. Nairobi, Kenya'}),
         }
 
 class ResumeUploadForm(forms.ModelForm):
