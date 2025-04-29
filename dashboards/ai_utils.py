@@ -80,6 +80,7 @@ def prepare_candidate_features(candidate):
         'skills': candidate.skills or '',
         'education': candidate.education or '',
         'experience': candidate.experience or '',
+        'location': candidate.location or '',
     }])
 
 def prepare_job_features(job):
