@@ -6,6 +6,14 @@ import numpy as np
 
 keras.config.enable_unsafe_deserialization()
 
+# Register your custom layer with Keras (MUST happen before loading the model)
+@keras.saving.register_keras_serializable()
+class L2Normalize(tf.keras.layers.Layer):
+    def call(self, inputs):
+        return tf.math.l2_normalize(inputs, axis=1)
+
+    def get_config(self):
+        return super().get_config()
 # Define the save directory
 SAVE_DIR = 'D:/Projects/DJ/job_matching/website/job_matching/ai_models'
 
