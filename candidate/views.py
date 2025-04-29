@@ -300,43 +300,30 @@ def job_detail(request, job_id):
     except Candidate.DoesNotExist:
         messages.error(request, "Candidate profile not found")
         return redirect('accounts:profile')
-    
+
     job = get_object_or_404(JobPosting, id=job_id, status='active')
 
-    # Default states
-    already_applied = False
-    is_saved = False
-    resume_uploaded = False
-    resume_processed = False
-    match_score = 0
-    resume = None
-
-    try:
-        resume = Resume.objects.get(candidate=candidate)
-        resume_uploaded = True
-        resume_processed = resume.embedding_vector is not None
-    except Resume.DoesNotExist:
-        pass
-
-    if resume_uploaded and resume_processed and job.embedding_vector:
-        match_score = calculate_match_score(
-            job.embedding_vector,
-            resume.embedding_vector
-        )
-
-    # Check application
-    try:
-        application = JobApplication.objects.get(job=job, candidate=candidate)
-        already_applied = True
-    except JobApplication.DoesNotExist:
-        application = None
-
+    # Check if job is saved
     is_saved = SavedJob.objects.filter(job=job, candidate=candidate).exists()
 
+    # Resume check
+    resume = Resume.objects.filter(candidate=candidate).first()
+    resume_uploaded = bool(resume)
+    resume_processed = resume.is_processed if resume else False
+
+    # Application check
+    already_applied = False
+    application = None
+    if JobApplication.objects.filter(job=job, candidate=candidate).exists():
+        already_applied = True
+        application = JobApplication.objects.get(job=job, candidate=candidate)
+
+    # Handle job application
     if request.method == 'POST' and not already_applied:
         if not resume_uploaded:
             messages.error(request, "Please upload your resume before applying.")
             return redirect('candidate:upload_resume')
+
         if not resume_processed:
             messages.warning(request, "Your resume is still being processed.")
             return redirect('candidate:candidate_dashboard')
@@ -347,7 +334,7 @@ def job_detail(request, job_id):
             application.candidate = candidate
             application.job = job
             application.resume = resume
-            application.match_score = match_score
+            application.match_score = 0  # No recalculation needed
             application.save()
             messages.success(request, f"You have successfully applied for {job.title}.")
             return redirect('candidate:application_list')
@@ -362,7 +349,7 @@ def job_detail(request, job_id):
         'is_saved': is_saved,
         'resume_uploaded': resume_uploaded,
         'resume_processed': resume_processed,
-        'match_score': match_score,
+        'match_score': application.match_score if application else 0,  # If already applied, show saved score
     }
 
     return render(request, 'candidate/job_detail.html', context)

@@ -150,15 +150,14 @@ def update_job_matches(job_posting):
     except Exception as e:
         print(f"❌ Error updating job matches: {e}")
 
-def calculate_match_score(job_vector_bytes, candidate_vector_bytes):
-    """Decode vectors and get score from matching model"""
+def calculate_match_score(candidate_obj, job_obj):
+    """Recalculate score using full feature flow (raw ➡️ preprocess ➡️ embed ➡️ match)"""
     try:
-        job_vector = np.frombuffer(job_vector_bytes, dtype=np.float32).reshape(1, -1)
-        candidate_vector = np.frombuffer(candidate_vector_bytes, dtype=np.float32).reshape(1, -1)
-
-        # 🔥 Use model to predict match
-        score = matching_model.predict([candidate_vector, job_vector])[0][0]
+        candidate_input = candidate_preprocessor.transform(prepare_candidate_features(candidate_obj))
+        job_input = job_preprocessor.transform(prepare_job_features(job_obj))
+        score = matching_model.predict([candidate_input, job_input])[0][0]
         return round(score * 100, 2)
     except Exception as e:
         print(f"❌ Error in calculate_match_score: {e}")
-        return 0.0
+        return 0
+
