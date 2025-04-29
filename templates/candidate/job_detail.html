@@ -5,36 +5,38 @@
 
 {% block content %}
 <div class="container mt-4">
-    <!-- Flash Messages -->
     {% if messages %}
-        <div class="row">
-            <div class="col-12">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
             </div>
+            {% endfor %}
         </div>
+    </div>
     {% endif %}
 
     <div class="row">
-        <!-- Left: Job Details -->
         <div class="col-md-8">
             <div class="card shadow-sm mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h1 class="h3 mb-0">{{ job.title }}</h1>
-                    <a href="{% url 'candidate:toggle_save_job' job.id %}" class="btn btn-outline-primary btn-sm">
-                        {% if is_saved %}
+                    <div>
+                        <a href="{% url 'candidate:toggle_save_job' job.id %}" class="btn btn-outline-primary btn-sm">
+                            {% if is_saved %}
                             <i class="fas fa-bookmark"></i> Saved
-                        {% else %}
+                            {% else %}
                             <i class="far fa-bookmark"></i> Save Job
-                        {% endif %}
-                    </a>
+                            {% endif %}
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <h5>Job Description</h5>
-                    <p>{{ job.description|linebreaks }}</p>
+                    <div class="mb-3">
+                        {{ job.description|linebreaks }}
+                    </div>
                     <div class="text-muted mt-4">
                         <small>Posted on {{ job.created_at|date:"F j, Y" }}</small>
                     </div>
@@ -42,73 +44,91 @@
             </div>
         </div>
 
-        <!-- Right: Application & Match Info -->
         <div class="col-md-4">
-            <!-- Match Score -->
-            {% if already_applied and application.match_score %}
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Match Score</h5>
-                    </div>
-                    <div class="card-body text-center">
-                        <div class="display-4 fw-bold mb-3">{{ application.match_score }}%</div>
-                        <div class="progress mb-2">
-                            <div class="progress-bar bg-success" role="progressbar"
-                                 style="width: {{ application.match_score }}%;"
-                                 aria-valuenow="{{ application.match_score }}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <small class="text-muted">Based on your resume</small>
-                    </div>
+
+            {% if match_score > 0 %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Match Score</h5>
                 </div>
+                <div class="card-body text-center">
+                    <div class="display-4 fw-bold mb-3">{{ match_score }}%</div>
+                    <p class="text-muted">Based on your resume and job requirements</p>
+
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ match_score }}%"
+                             aria-valuenow="{{ match_score }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    {% if match_score >= 80 %}
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i> Great match! You're highly qualified.
+                    </div>
+                    {% elif match_score >= 60 %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Good match. You meet many of the requirements.
+                    </div>
+                    {% else %}
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-circle"></i> Profile may need improvements for this role.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
             {% endif %}
 
-            <!-- Application Card -->
             {% if already_applied %}
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Application Status</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="lead">You've already applied to this job.</p>
-                        <p><strong>Status:</strong> {{ application.status }}</p>
-                        <p><strong>Applied on:</strong> {{ application.created_at|date:"F j, Y" }}</p>
-                        <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-outline-primary w-100 mt-2">
-                            View Application
-                        </a>
-                    </div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Application Status</h5>
                 </div>
-            {% elif resume_uploaded and resume_processed %}
-                <!-- Resume ready → Show application form -->
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Apply for this Job</h5>
+                <div class="card-body">
+                    <p class="lead mb-3">You've already applied for this job</p>
+                    <p><strong>Status:</strong> {{ application.status }}</p>
+                    <p><strong>Applied on:</strong> {{ application.created_at|date:"F j, Y" }}</p>
+
+                    <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-outline-primary w-100 mt-3">
+                        View Your Application
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Apply for this Job</h5>
+                </div>
+                <div class="card-body">
+                    {% if not resume_uploaded %}
+                    <div class="alert alert-warning mb-3">
+                        <i class="fas fa-exclamation-triangle"></i> You need to upload your resume before applying.
+                        <a href="{% url 'candidate:upload_resume' %}" class="alert-link">Upload Resume</a>
                     </div>
-                    <div class="card-body">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="{{ form.cover_letter.id_for_label }}" class="form-label">Cover Letter</label>
-                                {{ form.cover_letter }}
-                                {% if form.cover_letter.errors %}
-                                    <div class="text-danger">{{ form.cover_letter.errors }}</div>
-                                {% endif %}
-                                <small class="form-text text-muted">Explain why you're a good fit for this position.</small>
+                    {% elif not resume_processed %}
+                    <div class="alert alert-info mb-3">
+                        <i class="fas fa-spinner fa-spin"></i> Your resume is still being processed.
+                    </div>
+                    {% else %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.cover_letter.id_for_label }}" class="form-label">Cover Letter</label>
+                            {{ form.cover_letter }}
+                            {% if form.cover_letter.errors %}
+                            <div class="text-danger">
+                                {{ form.cover_letter.errors }}
                             </div>
+                            {% endif %}
+                            <div class="form-text">Explain why you're a good fit for this role.</div>
+                        </div>
+                        <div class="mb-3">
                             <button type="submit" class="btn btn-primary w-100">
                                 <i class="fas fa-paper-plane"></i> Submit Application
                             </button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                    {% endif %}
                 </div>
-            {% elif resume_uploaded and not resume_processed %}
-                <div class="alert alert-warning">
-                    <i class="fas fa-spinner fa-spin"></i> Your resume is still being processed. Please wait before applying.
-                </div>
-            {% else %}
-                <div class="alert alert-warning">
-                    <i class="fas fa-exclamation-triangle"></i> You need to upload your resume before applying.
-                    <a href="{% url 'candidate:upload_resume' %}" class="alert-link">Upload Resume</a>
-                </div>
+            </div>
             {% endif %}
         </div>
     </div>

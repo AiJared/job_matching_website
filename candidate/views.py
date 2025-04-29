@@ -303,22 +303,21 @@ def job_detail(request, job_id):
 
     job = get_object_or_404(JobPosting, id=job_id, status='active')
 
-    # Check if job is saved
-    is_saved = SavedJob.objects.filter(job=job, candidate=candidate).exists()
-
-    # Resume check
+    # Check resume
     resume = Resume.objects.filter(candidate=candidate).first()
     resume_uploaded = bool(resume)
     resume_processed = resume.is_processed if resume else False
 
-    # Application check
-    already_applied = False
-    application = None
-    if JobApplication.objects.filter(job=job, candidate=candidate).exists():
-        already_applied = True
-        application = JobApplication.objects.get(job=job, candidate=candidate)
+    # Get match score only for display
+    match_score = 0
+    if resume_uploaded and resume_processed and job.embedding_vector:
+        match_score = calculate_match_score(candidate, job)
 
-    # Handle job application
+    # Application status
+    application = JobApplication.objects.filter(job=job, candidate=candidate).first()
+    already_applied = application is not None
+    is_saved = SavedJob.objects.filter(job=job, candidate=candidate).exists()
+
     if request.method == 'POST' and not already_applied:
         if not resume_uploaded:
             messages.error(request, "Please upload your resume before applying.")
@@ -334,7 +333,7 @@ def job_detail(request, job_id):
             application.candidate = candidate
             application.job = job
             application.resume = resume
-            application.match_score = 0  # No recalculation needed
+            application.match_score = match_score
             application.save()
             messages.success(request, f"You have successfully applied for {job.title}.")
             return redirect('candidate:application_list')
@@ -349,7 +348,7 @@ def job_detail(request, job_id):
         'is_saved': is_saved,
         'resume_uploaded': resume_uploaded,
         'resume_processed': resume_processed,
-        'match_score': application.match_score if application else 0,  # If already applied, show saved score
+        'match_score': match_score,
     }
 
     return render(request, 'candidate/job_detail.html', context)
