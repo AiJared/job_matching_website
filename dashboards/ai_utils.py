@@ -124,64 +124,99 @@ def generate_job_embedding(job_posting):
 # -------------------------------
 # 🔎 Match Score
 # -------------------------------
-def predict_match_score(candidate_embedding, job_embedding):
-    score = matching_model.predict([candidate_embedding, job_embedding])[0][0]
+def predict_match_score_raw(candidate_input, job_input):
+    """Predict match score using raw preprocessed features."""
+    if not matching_model:
+        load_models_and_preprocessors()
+
+    with tf.device('/CPU:0'):
+        score = matching_model.predict([candidate_input, job_input])[0][0]
     return round(score * 100, 2)
+
 
 # -------------------------------
 # 📡 Match Updating Logic
 # -------------------------------
 def update_candidate_matches(candidate):
+    """Update all job matches for a candidate when profile/resume is updated."""
     try:
         resume = Resume.objects.get(candidate=candidate)
-        if not resume:
-            return
+    except Resume.DoesNotExist:
+        return
 
-        candidate_emb = embed_candidate(candidate)
+    if not resume:
+        return
+
+    try:
+        candidate_features_df = prepare_candidate_features(candidate)
+        candidate_input = candidate_preprocessor.transform(candidate_features_df)
+
         active_jobs = JobPosting.objects.filter(status='active')
 
         for job in active_jobs:
-            if not job.embedding_vector:
-                continue
-            job_emb = np.frombuffer(job.embedding_vector, dtype=np.float32).reshape(1, -1)
-            score = predict_match_score(candidate_emb, job_emb)
-            if score >= MATCH_SCORE_THRESHOLD:
-                app, created = JobApplication.objects.get_or_create(
+            job_features_df = prepare_job_features(job)
+            job_input = job_preprocessor.transform(job_features_df)
+
+            match_score = predict_match_score_raw(candidate_input, job_input)
+
+            if match_score >= MATCH_SCORE_THRESHOLD:
+                application, created = JobApplication.objects.get_or_create(
                     job=job,
                     candidate=candidate,
-                    defaults={'resume': resume, 'match_score': score, 'status': 'pending'}
+                    defaults={
+                        'resume': resume,
+                        'match_score': match_score,
+                        'status': 'pending'
+                    }
                 )
                 if not created:
-                    app.match_score = score
-                    app.save(update_fields=['match_score', 'updated_at'])
+                    application.match_score = match_score
+                    application.save(update_fields=['match_score', 'updated_at'])
     except Exception as e:
         print(f"Error updating candidate matches: {e}")
         import traceback
         traceback.print_exc()
 
+
 def update_job_matches(job_posting):
+    """Update all candidate matches when a new job is posted."""
     if not job_posting:
         return
+
     try:
-        job_emb = embed_job(job_posting)
-        job_posting.embedding_vector = job_emb.tobytes()
+        job_features_df = prepare_job_features(job_posting)
+        job_input = job_preprocessor.transform(job_features_df)
+
+        job_posting.embedding_vector = embed_job(job_posting).tobytes()
         job_posting.save(update_fields=['embedding_vector'])
 
-        for resume in Resume.objects.all():
-            if not resume or not resume.candidate:
+        resumes = Resume.objects.all()
+
+        for resume in resumes:
+            candidate = resume.candidate
+            if not resume or not candidate:
                 continue
-            candidate_emb = embed_candidate(resume.candidate)
-            score = predict_match_score(candidate_emb, job_emb)
-            if score >= MATCH_SCORE_THRESHOLD:
-                app, created = JobApplication.objects.get_or_create(
+
+            candidate_features_df = prepare_candidate_features(candidate)
+            candidate_input = candidate_preprocessor.transform(candidate_features_df)
+
+            match_score = predict_match_score_raw(candidate_input, job_input)
+
+            if match_score >= MATCH_SCORE_THRESHOLD:
+                application, created = JobApplication.objects.get_or_create(
                     job=job_posting,
-                    candidate=resume.candidate,
-                    defaults={'resume': resume, 'match_score': score, 'status': 'pending'}
+                    candidate=candidate,
+                    defaults={
+                        'resume': resume,
+                        'match_score': match_score,
+                        'status': 'pending'
+                    }
                 )
                 if not created:
-                    app.match_score = score
-                    app.save(update_fields=['match_score', 'updated_at'])
+                    application.match_score = match_score
+                    application.save(update_fields=['match_score', 'updated_at'])
     except Exception as e:
         print(f"Error updating job matches: {e}")
         import traceback
         traceback.print_exc()
+
