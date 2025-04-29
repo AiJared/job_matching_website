@@ -158,6 +158,7 @@ class Candidate(Profile):
     skills = models.TextField(_('skills'), blank=True, null=True)
     education = models.TextField(_('education'), blank=True, null=True)
     experience = models.TextField(_('experience'), blank=True, null=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
