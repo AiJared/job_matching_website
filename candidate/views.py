@@ -8,14 +8,13 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.db.models import Q
+from numpy import frombuffer
 
 from accounts.models import Candidate
 from dashboards.models import Resume, JobPosting, JobApplication
 from .models import SavedJob, JobSearchHistory, ProfileCompletionTask
 from .forms import CandidateProfileForm, ResumeUploadForm, JobApplicationForm, JobSearchForm
 from .utils import process_resume, get_recommended_jobs, get_profile_completion_percentage, update_candidate_matches
-# from dashboards.ai_utils import calculate_match_score
-
 
 
 def is_candidate(user):
