@@ -15,7 +15,7 @@ from dashboards.models import Resume, JobPosting, JobApplication
 from .models import SavedJob, JobSearchHistory, ProfileCompletionTask
 from .forms import CandidateProfileForm, ResumeUploadForm, JobApplicationForm, JobSearchForm
 from .utils import process_resume, get_recommended_jobs, get_profile_completion_percentage, update_candidate_matches
-from dashboards.ai_utils import calculate_match_score
+from dashboards.ai_utils import predict_specific_job_candidate_match
 
 
 def is_candidate(user):
@@ -311,7 +311,7 @@ def job_detail(request, job_id):
     # Get match score only for display
     match_score = 0
     if resume_uploaded and resume_processed and job.embedding_vector:
-        match_score = calculate_match_score(candidate, job)
+        match_score = predict_specific_job_candidate_match(job, candidate)
 
     # Application status
     application = JobApplication.objects.filter(job=job, candidate=candidate).first()
