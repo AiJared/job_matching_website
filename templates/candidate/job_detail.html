@@ -1,5 +1,6 @@
 {% extends "candidate/base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}{{ job.title }} - Job Details{% endblock %}
 
@@ -33,10 +34,24 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5>Job Description</h5>
-                    <div class="mb-3">
-                        {{ job.description|linebreaks }}
+                    <h5 class="mb-3">Job Description</h5>
+                    <p>{{ job.description|linebreaks }}</p>
+
+                    <h5 class="mt-4">Requirements</h5>
+                    <p>{{ job.requirements|linebreaks }}</p>
+
+                    <h5 class="mt-4">Responsibilities</h5>
+                    <p>{{ job.responsibilities|linebreaks }}</p>
+
+                    <h5 class="mt-4">Required Skills</h5>
+                    <div class="d-flex flex-wrap">
+                        {% for skill in job.skills_required|split_string %}
+                            {% if skill %}
+                            <span class="badge badge-primary m-1 p-2">{{ skill }}</span>
+                            {% endif %}
+                        {% endfor %}
                     </div>
+
                     <div class="text-muted mt-4">
                         <small>Posted on {{ job.created_at|date:"F j, Y" }}</small>
                     </div>
@@ -54,7 +69,6 @@
                 <div class="card-body text-center">
                     <div class="display-4 fw-bold mb-3">{{ match_score }}%</div>
                     <p class="text-muted">Based on your resume and job requirements</p>
-
                     <div class="progress mb-3">
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ match_score }}%"
                              aria-valuenow="{{ match_score }}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -86,7 +100,6 @@
                     <p class="lead mb-3">You've already applied for this job</p>
                     <p><strong>Status:</strong> {{ application.status }}</p>
                     <p><strong>Applied on:</strong> {{ application.created_at|date:"F j, Y" }}</p>
-
                     <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-outline-primary w-100 mt-3">
                         View Your Application
                     </a>
