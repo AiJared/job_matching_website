@@ -71,7 +71,7 @@ def get_recommended_jobs(candidate, limit=10):
             score = predict_specific_job_candidate_match(job, candidate)
             
             # Add to matches if score is above threshold
-            if score >= 40:  # Lower threshold to show more potential matches
+            if score >= 65:  # Lower threshold to show more potential matches
                 job_matches.append((job, score))
 
         # Sort by score (highest first)
