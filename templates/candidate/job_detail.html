@@ -20,6 +20,7 @@
 
     <div class="row">
         <div class="col-md-8">
+            <!-- Job Info -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h1 class="h3 mb-0">{{ job.title }}</h1>
@@ -34,32 +35,55 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="mb-3">Job Description</h5>
-                    <p>{{ job.description|linebreaks }}</p>
+                    <p class="text-muted mb-2"><i class="fas fa-building"></i> {{ job.company_name }}</p>
+                    <p class="text-muted mb-2"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
+                    <p class="text-muted mb-2"><i class="fas fa-briefcase"></i> {{ job.employment_type }}</p>
+                    <p class="text-muted mb-2"><i class="fas fa-graduation-cap"></i> {{ job.education_level }}</p>
+                    <p class="text-muted mb-2"><i class="fas fa-user-clock"></i> {{ job.experience_required }} years</p>
+                    <p class="text-muted mb-2"><i class="fas fa-calendar-alt"></i> Posted on {{ job.created_at|date:"F j, Y" }}</p>
 
-                    <h5 class="mt-4">Requirements</h5>
-                    <p>{{ job.requirements|linebreaks }}</p>
+                    <!-- Tabbed Details -->
+                    <ul class="nav nav-tabs mt-4" id="jobDetailsTab" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab">Description</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="reqs-tab" data-bs-toggle="tab" data-bs-target="#reqs" type="button" role="tab">Requirements</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="resp-tab" data-bs-toggle="tab" data-bs-target="#resp" type="button" role="tab">Responsibilities</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab">Skills</button>
+                        </li>
+                    </ul>
 
-                    <h5 class="mt-4">Responsibilities</h5>
-                    <p>{{ job.responsibilities|linebreaks }}</p>
-
-                    <h5 class="mt-4">Required Skills</h5>
-                    <div class="d-flex flex-wrap">
-                        {% for skill in job.skills_required|split_string %}
-                            <span class="badge badge-primary m-1 p-2">{{ skill }}</span>
-                        {% endfor %}
-                    </div>
-
-
-                    <div class="text-muted mt-4">
-                        <small>Posted on {{ job.created_at|date:"F j, Y" }}</small>
+                    <div class="tab-content mt-3" id="jobDetailsTabContent">
+                        <div class="tab-pane fade show active" id="desc" role="tabpanel">
+                            {{ job.description|linebreaks }}
+                        </div>
+                        <div class="tab-pane fade" id="reqs" role="tabpanel">
+                            {{ job.requirements|linebreaks }}
+                        </div>
+                        <div class="tab-pane fade" id="resp" role="tabpanel">
+                            {{ job.responsibilities|linebreaks }}
+                        </div>
+                        <div class="tab-pane fade" id="skills" role="tabpanel">
+                            <div class="d-flex flex-wrap">
+                                {% for skill in job.skills_required|split_string %}
+                                    <span class="badge bg-primary m-1 p-2">{{ skill }}</span>
+                                {% empty %}
+                                    <span class="text-muted">No skills listed.</span>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Sidebar -->
         <div class="col-md-4">
-
             {% if match_score > 0 %}
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
@@ -72,18 +96,17 @@
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ match_score }}%"
                              aria-valuenow="{{ match_score }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-
                     {% if match_score >= 80 %}
                     <div class="alert alert-success">
-                        <i class="fas fa-check-circle"></i> Great match! You're highly qualified.
+                        <i class="fas fa-check-circle"></i> Great match!
                     </div>
                     {% elif match_score >= 60 %}
                     <div class="alert alert-info">
-                        <i class="fas fa-info-circle"></i> Good match. You meet many of the requirements.
+                        <i class="fas fa-info-circle"></i> Good match.
                     </div>
                     {% else %}
                     <div class="alert alert-warning">
-                        <i class="fas fa-exclamation-circle"></i> Profile may need improvements for this role.
+                        <i class="fas fa-exclamation-circle"></i> Consider improving your profile.
                     </div>
                     {% endif %}
                 </div>
@@ -96,12 +119,10 @@
                     <h5 class="mb-0">Application Status</h5>
                 </div>
                 <div class="card-body">
-                    <p class="lead mb-3">You've already applied for this job</p>
+                    <p class="lead mb-3">You've already applied.</p>
                     <p><strong>Status:</strong> {{ application.status }}</p>
                     <p><strong>Applied on:</strong> {{ application.created_at|date:"F j, Y" }}</p>
-                    <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-outline-primary w-100 mt-3">
-                        View Your Application
-                    </a>
+                    <a href="{% url 'candidate:application_detail' application.id %}" class="btn btn-outline-primary w-100 mt-3">View Application</a>
                 </div>
             </div>
             {% else %}
@@ -112,12 +133,12 @@
                 <div class="card-body">
                     {% if not resume_uploaded %}
                     <div class="alert alert-warning mb-3">
-                        <i class="fas fa-exclamation-triangle"></i> You need to upload your resume before applying.
+                        <i class="fas fa-exclamation-triangle"></i> Upload your resume before applying.
                         <a href="{% url 'candidate:upload_resume' %}" class="alert-link">Upload Resume</a>
                     </div>
                     {% elif not resume_processed %}
                     <div class="alert alert-info mb-3">
-                        <i class="fas fa-spinner fa-spin"></i> Your resume is still being processed.
+                        <i class="fas fa-spinner fa-spin"></i> Resume is still being processed.
                     </div>
                     {% else %}
                     <form method="post">
@@ -126,17 +147,13 @@
                             <label for="{{ form.cover_letter.id_for_label }}" class="form-label">Cover Letter</label>
                             {{ form.cover_letter }}
                             {% if form.cover_letter.errors %}
-                            <div class="text-danger">
-                                {{ form.cover_letter.errors }}
-                            </div>
+                            <div class="text-danger">{{ form.cover_letter.errors }}</div>
                             {% endif %}
-                            <div class="form-text">Explain why you're a good fit for this role.</div>
+                            <div class="form-text">Explain why you're a good fit.</div>
                         </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-paper-plane"></i> Submit Application
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
                     </form>
                     {% endif %}
                 </div>
