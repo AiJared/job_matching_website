@@ -127,21 +127,29 @@
         </div>
     </div>
 
-    <!-- Job Description -->
+    <!-- Job Description Tabs -->
     <div class="card mb-4">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" id="jobTabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">
+                        Description
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="requirements-tab" data-toggle="tab" href="#requirements" role="tab" aria-controls="requirements" aria-selected="false">Requirements</a>
+                    <button class="nav-link" id="requirements-tab" data-bs-toggle="tab" data-bs-target="#requirements" type="button" role="tab" aria-controls="requirements" aria-selected="false">
+                        Requirements
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="responsibilities-tab" data-toggle="tab" href="#responsibilities" role="tab" aria-controls="responsibilities" aria-selected="false">Responsibilities</a>
+                    <button class="nav-link" id="responsibilities-tab" data-bs-toggle="tab" data-bs-target="#responsibilities" type="button" role="tab" aria-controls="responsibilities" aria-selected="false">
+                        Responsibilities
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+                    <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab" aria-controls="skills" aria-selected="false">
+                        Skills
+                    </button>
                 </li>
             </ul>
         </div>
@@ -159,13 +167,14 @@
                 <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                     <div class="d-flex flex-wrap">
                         {% for skill in job.skills_required|split_string %}
-                            <span class="badge badge-primary m-1 p-2">{{ skill }}</span>
+                            <span class="badge bg-primary m-1 p-2">{{ skill }}</span>
                         {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Applications -->
     <div class="card">
