@@ -46,11 +46,10 @@
                     <h5 class="mt-4">Required Skills</h5>
                     <div class="d-flex flex-wrap">
                         {% for skill in job.skills_required|split_string %}
-                            {% if skill %}
                             <span class="badge badge-primary m-1 p-2">{{ skill }}</span>
-                            {% endif %}
                         {% endfor %}
                     </div>
+
 
                     <div class="text-muted mt-4">
                         <small>Posted on {{ job.created_at|date:"F j, Y" }}</small>
