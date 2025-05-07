@@ -291,16 +291,30 @@ def build_match_input_dataframe(job, candidate):
 def predict_specific_job_candidate_match(job, candidate):
     """
     Predict a match score using the unified AI model.
+    Prevents predictions when no skill overlap exists.
     """
     try:
         if not unified_model or not unified_preprocessor:
             raise ValueError("Model or preprocessor not loaded.")
 
+        # 🧠 Basic overlap filter to prevent garbage matches
+        job_skills = {s.strip().lower() for s in job.skills_required.replace('\n', ',').split(',') if s.strip()}
+        cand_skills = {s.strip().lower() for s in candidate.skills.replace('\n', ',').split(',') if s.strip()}
+        overlap = job_skills & cand_skills
+
+        if not overlap:
+            print("🚫 No skill overlap — skipping AI prediction.")
+            return 10.0  # Minimum fallback score if there's no match
+
         input_df = build_match_input_dataframe(job, candidate)
+        print("🧾 Sample prediction row:")
+        print(input_df.to_dict(orient='records')[0])
+
         processed = unified_preprocessor.transform(input_df)
         prediction = unified_model.predict(processed)
-        score = float(prediction[0][0]) * 100  # scale to percentage
+        score = float(prediction[0][0]) * 100  # scale to percent
         return round(score, 2)
+
     except Exception as e:
         print(f"❌ Error in AI match prediction: {e}")
         return 50.0
