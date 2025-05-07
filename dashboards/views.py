@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 
 from dashboards.models import JobPosting, JobApplication
 from dashboards.forms import JobPostingForm, ApplicationStatusUpdateForm
-from dashboards.ai_utils import generate_job_embedding, update_job_matches
+from dashboards.ai_utils import update_job_matches
 
 def is_recruiter(user):
     return user.is_authenticated and user.role == 'Recruiter'
@@ -92,15 +92,9 @@ def create_job(request):
             job_posting.status = 'active'
             job_posting.save()
             
-            # Generate and save embedding vector
+            # ⚠️ No embedding — just trigger AI match update
             try:
-                job_embedding = generate_job_embedding(job_posting)
-                if job_embedding is not None:
-                    job_posting.embedding_vector = job_embedding.tobytes()
-                    job_posting.save()
-                    
-                    # Update match scores for existing resumes
-                    update_job_matches(job_posting)
+                update_job_matches(job_posting)
             except Exception as e:
                 messages.warning(request, f"Job created but AI matching had an error: {str(e)}")
             
@@ -115,6 +109,7 @@ def create_job(request):
     
     return render(request, 'dashboards/create_job.html', context)
 
+
 @login_required
 @user_passes_test(is_recruiter)
 def edit_job(request, job_id):
@@ -126,15 +121,9 @@ def edit_job(request, job_id):
         if form.is_valid():
             job_posting = form.save()
             
-            # Re-generate embedding vector if job details changed
+            # ⚠️ Re-run unified AI match logic (no embeddings)
             try:
-                job_embedding = generate_job_embedding(job_posting)
-                if job_embedding is not None:
-                    job_posting.embedding_vector = job_embedding.tobytes()
-                    job_posting.save()
-                    
-                    # Update match scores
-                    update_job_matches(job_posting)
+                update_job_matches(job_posting)
             except Exception as e:
                 messages.warning(request, f"Job updated but AI matching had an error: {str(e)}")
             
@@ -149,6 +138,7 @@ def edit_job(request, job_id):
     }
     
     return render(request, 'dashboards/edit_job.html', context)
+
 
 @login_required
 @user_passes_test(is_recruiter)
