@@ -84,10 +84,11 @@ def candidate_dashboard(request):
     try:
         resume = Resume.objects.get(candidate=candidate)
         has_resume = True
-        resume_processed = resume.embedding_vector is not None
+        resume_processed = resume.is_processed  # ✅ Use the boolean flag we manually set
     except Resume.DoesNotExist:
         has_resume = False
         resume_processed = False
+
 
     # Profile completion logic
     completion_percentage = get_profile_completion_percentage(candidate)
