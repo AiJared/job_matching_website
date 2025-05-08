@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="{{ form.experience.id_for_label }}">Experience Summary</label>
+                    <label for="{{ form.experience.id_for_label }}">Experience Summary (years)</label>
                     {{ form.experience|add_class:"form-control" }}
                     {% if form.experience.errors %}
                         <div class="invalid-feedback d-block">
@@ -51,7 +51,46 @@
 
                 <div class="form-group">
                     {{ form.location.label_tag }}
-                    {{ form.location }}
+                    {{ form.location|add_class:"form-control" }}
+                </div>
+
+                <!-- 💼 Job Type Preference -->
+                <div class="form-group">
+                    {{ form.job_type_preference.label_tag }}
+                    {{ form.job_type_preference|add_class:"form-control" }}
+                    {% if form.job_type_preference.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.job_type_preference.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- 💰 Expected Salary -->
+                <div class="form-group">
+                    {{ form.expected_salary.label_tag }}
+                    {{ form.expected_salary|add_class:"form-control" }}
+                    {% if form.expected_salary.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.expected_salary.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- ⏳ Availability -->
+                <div class="form-group">
+                    {{ form.availability_in_weeks.label_tag }}
+                    {{ form.availability_in_weeks|add_class:"form-control" }}
+                    {% if form.availability_in_weeks.errors %}
+                        <div class="invalid-feedback d-block">
+                            {% for error in form.availability_in_weeks.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <button type="submit" class="btn btn-primary">

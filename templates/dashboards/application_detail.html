@@ -89,69 +89,16 @@
             {% if application.resume %}
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">Resume Information</h5>
+                    <h5 class="mb-0">Resume</h5>
                 </div>
-                <div class="card-body">
-                    <ul class="nav nav-tabs" id="resumeTabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="experience-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="experience" aria-selected="false">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="full-text-tab" data-toggle="tab" href="#full-text" role="tab" aria-controls="full-text" aria-selected="false">Full Text</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content p-3" id="resumeTabsContent">
-                        <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-                            {% if skills_list %}
-                                <div class="d-flex flex-wrap">
-                                    {% for skill in skills_list %}
-                                        <span class="badge badge-info m-1 p-2">{{ skill }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                <p class="text-muted">No skills information extracted.</p>
-                            {% endif %}
-
-                        </div>
-                        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-                            {% if application.resume.education %}
-                                {{ application.resume.education|linebreaks }}
-                            {% else %}
-                                <p class="text-muted">No education information extracted.</p>
-                            {% endif %}
-                        </div>
-                        <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-                            {% if application.resume.experience %}
-                                {{ application.resume.experience|linebreaks }}
-                            {% else %}
-                                <p class="text-muted">No experience information extracted.</p>
-                            {% endif %}
-                        </div>
-                        <div class="tab-pane fade" id="full-text" role="tabpanel" aria-labelledby="full-text-tab">
-                            {% if application.resume.extracted_text %}
-                                <div class="bg-light p-3 rounded">
-                                    {{ application.resume.extracted_text|linebreaks }}
-                                </div>
-                            {% else %}
-                                <p class="text-muted">No text extracted from resume.</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    
-                    <div class="text-center mt-3">
-                        <a href="{{ application.resume.file.url }}" class="btn btn-outline-primary" target="_blank">
-                            <i class="fas fa-file-pdf"></i> View Original Resume
-                        </a>
-                    </div>
+                <div class="card-body text-center">
+                    <a href="{{ application.resume.file.url }}" class="btn btn-outline-primary" target="_blank">
+                        <i class="fas fa-file-pdf"></i> View Original Resume
+                    </a>
                 </div>
             </div>
             {% endif %}
+
             
             {% if application.recruiter_notes %}
             <div class="card mb-4">
