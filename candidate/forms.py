@@ -8,7 +8,8 @@ class CandidateProfileForm(forms.ModelForm):
     """Form for candidate to update skills, education, and experience"""
     class Meta:
         model = Candidate
-        fields = ['skills', 'education', 'experience', 'location']
+        fields = ['skills', 'education', 'experience', 'location', 
+                  'job_type_preference', 'expected_salary', 'availability_in_weeks']
         widgets = {
             'skills': forms.Textarea(attrs={
                 'rows': 3,
@@ -18,7 +19,7 @@ class CandidateProfileForm(forms.ModelForm):
                 'rows': 4,
                 'placeholder': _('Describe your education, degrees, institutions...')
             }),
-            'years_of_experience': forms.NumberInput(attrs={
+            'experience': forms.NumberInput(attrs={
                 'rows': 4,
                 'placeholder': _('e.g. 5')
             }),
