@@ -18,13 +18,13 @@ class CandidateProfileForm(forms.ModelForm):
                 'rows': 4,
                 'placeholder': _('Describe your education, degrees, institutions...')
             }),
-            'years_of_experience': forms.IntegerField(attrs={
+            'years_of_experience': forms.NumberInput(attrs={
                 'rows': 4,
                 'placeholder': _('e.g. 5')
             }),
 
             'location': forms.TextInput(attrs={'placeholder': 'e.g. Nairobi, Kenya'}),
-            'preference': forms.TextInput(attrs={'placeholder': 'e.g. Remote, On-site'}),
+            'job_type_preference': forms.TextInput(attrs={'placeholder': 'e.g. Remote, On-site'}),
             'expected_salary': forms.NumberInput(attrs={'placeholder': 'e.g. 50000'}),
             'availability_in_weeks': forms.NumberInput(attrs={'placeholder': 'e.g. 2'}),
         }

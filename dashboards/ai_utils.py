@@ -280,9 +280,9 @@ def build_match_input_dataframe(job, candidate):
         "candidate_experience": str(candidate.experience or 0),
         "candidate_education": candidate.education or "",
         "candidate_location": candidate.location or "",
-        "candidate_preference": "Remote",  # placeholder, could be inferred from candidate form
-        "candidate_expected_salary": "0",  # not captured currently
-        "availability_in_weeks": "2",      # default fallback
+        "candidate_preference": candidate.job_type_preference or "",  # placeholder, could be inferred from candidate form
+        "candidate_expected_salary": candidate.expected_salary or "",  # not captured currently
+        "availability_in_weeks": candidate.availability_in_weeks or "",      # default fallback
     }])
 
 # =====================================
