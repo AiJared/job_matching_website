@@ -25,6 +25,8 @@ class CandidateProfileForm(forms.ModelForm):
 
             'location': forms.TextInput(attrs={'placeholder': 'e.g. Nairobi, Kenya'}),
             'preference': forms.TextInput(attrs={'placeholder': 'e.g. Remote, On-site'}),
+            'expected_salary': forms.NumberInput(attrs={'placeholder': 'e.g. 50000'}),
+            'availability_in_weeks': forms.NumberInput(attrs={'placeholder': 'e.g. 2'}),
         }
 
 class ResumeUploadForm(forms.ModelForm):
