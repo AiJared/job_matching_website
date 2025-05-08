@@ -309,9 +309,9 @@ def job_detail(request, job_id):
     resume_uploaded = bool(resume)
     resume_processed = resume.is_processed if resume else False
 
-    # Get match score only for display
+    # ✅ Always predict match score if resume is processed
     match_score = 0
-    if resume_uploaded and resume_processed and job.embedding_vector:
+    if resume_uploaded and resume_processed:
         match_score = predict_specific_job_candidate_match(job, candidate)
 
     # Application status
@@ -334,7 +334,7 @@ def job_detail(request, job_id):
             application.candidate = candidate
             application.job = job
             application.resume = resume
-            application.match_score = match_score
+            application.match_score = match_score  # ✅ Ensure it's saved
             application.save()
             messages.success(request, f"You have successfully applied for {job.title}.")
             return redirect('candidate:application_list')
