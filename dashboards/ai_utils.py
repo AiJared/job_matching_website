@@ -274,7 +274,7 @@ def build_match_input_dataframe(job, candidate):
         "job_type": job.employment_type,
         "job_salary_range": str(job.salary_max or 0),  # string format to match training input
         "job_education": job.education_level,
-        "job_industry": "Technology",  # hardcoded or map from category if you have that
+        "job_industry": job.category,  # hardcoded or map from category if you have that
 
         "candidate_skills": candidate.skills or "",
         "candidate_experience": str(candidate.experience or 0),

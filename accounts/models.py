@@ -157,8 +157,12 @@ class Recruiter(Profile):
 class Candidate(Profile):
     skills = models.TextField(_('skills'), blank=True, null=True)
     education = models.TextField(_('education'), blank=True, null=True)
-    experience = models.TextField(_('experience'), blank=True, null=True)
+    experience = models.IntegerField(_('experience'), blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
+    job_type_preference = models.CharField(_("job type preference"), max_length=50, blank=True, null=True)
+    expected_salary = models.IntegerField(_("expected salary"), blank=True, null=True)
+    availability_in_weeks = models.IntegerField(_("availability in weeks"), blank=True, null=True)
+
 
     def __str__(self):
         return self.user.username

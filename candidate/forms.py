@@ -18,12 +18,13 @@ class CandidateProfileForm(forms.ModelForm):
                 'rows': 4,
                 'placeholder': _('Describe your education, degrees, institutions...')
             }),
-            'experience': forms.Textarea(attrs={
+            'years_of_experience': forms.IntegerField(attrs={
                 'rows': 4,
-                'placeholder': _('Describe your work experience, previous roles, responsibilities...')
+                'placeholder': _('e.g. 5')
             }),
 
             'location': forms.TextInput(attrs={'placeholder': 'e.g. Nairobi, Kenya'}),
+            'preference': forms.TextInput(attrs={'placeholder': 'e.g. Remote, On-site'}),
         }
 
 class ResumeUploadForm(forms.ModelForm):
